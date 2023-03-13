@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Editar Servicio</title>
+  <!---Archivo css--->
+  <link rel="stylesheet" href="css/Style_editarServicio.css" />
+</head>
+
+<body>
+  <section class="container">
+    <header>Actualizar Servicio</header>
+    <form action="#" class="form formulario" id="formulario">
+      <div class="input-box address">
+
+
+        <div class="column">
+
+          <!-- Grupo: NombreServicio -->
+          <div class="input-box formulario__grupo" id="grupo__NombreServicio">
+            <label for="NombreServicio" class="formulario__label">Nombre del Servicio</label>
+            <div class="formulario__grupo-input">
+              <input type="text" class="formulario__input" name="NombreServicio" id="NombreServicio" placeholder="">
+              <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">El nombre del Servicio es incorrecto</p>
+          </div>
+
+          <!-- Grupo: ValorVenta -->
+          <div class="input-box formulario__grupo" id="grupo__ValorVenta">
+            <label for="ValorVenta" class="formulario__label">ValorVenta</label>
+            <div class="formulario__grupo-input">
+              <input type="number" class="formulario__input" name="ValorVenta" id="ValorVenta" placeholder="1000000">
+              <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">Escriba su numero del Valor de la venta</p>
+          </div>
+
+        </div>
+
+        <!----Grupo: VentaServicio------>
+        <div class="formulario__grupo input-box" id="grupo__opcion">
+          <label for="opcion" class="formulario__label">Venta Servicio</label>
+          <select name="opcion" id="opcion" class="formulario__input select-box formulario__select">
+              <option value="">--Seleccione una opción--</option>
+              <option value="opcion1">Opción 1</option>
+              <option value="opcion2">Opción 2</option>
+              <option value="opcion3">Opción 3</option>
+          </select>
+          <p class="formulario__input-error"> Seleccione una opción válida.</p>
+      </div>
+  </div>
+
+        <!-- Grupo: DescripcionServicio -->
+        <div class="input-box formulario__grupo" id="grupo__comentarios">
+          <label for="comentarios" class="formulario__label">Descripción Servicio</label>
+          <div class="formulario__grupo-input">
+            <textarea class="formulario__input" name="comentarios" id="comentarios" rows="4"></textarea>
+            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+          </div>
+          <p class="formulario__input-error">Ingresa una descripción Valida.</p>
+        </div>
+
+
+        <div class="formulario__mensaje" id="formulario__mensaje">
+          <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente.
+          </p>
+        </div>
+
+        <div class="formulario__grupo formulario__grupo-btn-enviar">
+          <button type="submit" class="formulario__btn">Guardar</button>
+          <p class="formulario__mensaje-exito" id="formulario__mensaje-exito"><i class="fa-solid fa-circle-check"></i>
+            Formulario enviado exitosamente!</p>
+        </div>
+    </form>
+  </section>
+  <!--scrip de registrate------>
+  <script src="js/Servicio.js"></script>
+  <!--scrip de iconos------>
+  <script src="https://kit.fontawesome.com/f9d0333c9c.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

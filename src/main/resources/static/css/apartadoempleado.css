@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap');
+*{
+    font-family: 'Lora', serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+.encabezado{
+    background: linear-gradient(135deg, #49728C, #6D96A6, #8C4A23, #D99F6C, #8C4A23,#6D96A6, #49728C);
+}
+/*MENU LATERAL*/
+
+.iconml{
+    font-size: 180%;
+    cursor: pointer;
+    color: #fff;
+    border: none;
+    background: none;
+}
+
+@media (min-width: 600px) and (max-width: 1000px){
+    .iconml{
+        font-size: 100%;
+        cursor: pointer;
+        color: #fff;
+        border: none;
+        background: none;
+        display: flex;
+        padding-top: 10px;
+    }
+}
+
+.lista{
+    color: #49728C;
+    background: none;
+}
+/*FIN MENU LATERAL*/
+
+/*BOTON USUARIO*/
+.boton{
+    width: 50px;
+    height: 50px;
+    color: #49728C;
+    text-align: right;
+}
+
+.dropdown-toggle::after{
+    color: #fff;
+    font-size: 100%;
+}
+
+@media (max-width: 1000px){
+    .dropdown-toggle::after{
+        color: #fff;
+        font-size: 80%;
+    }
+}
+
+.iconu{
+    font-size: 150%;
+    cursor: pointer;
+    color: #fff;
+}
+
+@media (max-width: 1000px){
+    .iconu{
+        font-size: 125%;
+        cursor: pointer;
+        color: #fff;
+    }
+}
+
+/*FIN BOTON USUARIO*/
+
+/*LOGO*/
+img{
+    width: 10%;
+    display: flex;
+    margin: auto;
+    padding: 10px;
+}
+
+@media (min-width: 300px) and (max-width: 600px){
+    img{
+        width: 30%;
+        display: flex;
+        margin: auto;
+        padding: 10px;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 1000px){
+    img{
+        width: 20%;
+        display: flex;
+        margin: auto;
+        padding: 10px;
+    }
+}
+
+/*FIN LOGO*/
+
+/*CONTENIDO*/
+
+/*LATERALES*/
+.lateral{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+@media (max-width: 600px){
+    .lateral{
+        display: none;
+    }
+}
+/*FIN LATERALES*/
+
+/*FIN CONTENIDO*/
+
+/*PIE DE PAGINA*/
+.iconpp{
+    font-size: 150%;
+    cursor: pointer;
+    color: black;
+}
+
+ul{
+    list-style: none;
+}
+
+li a{
+    text-decoration: none;
+}
+
+.pie-pagina{
+    background: linear-gradient(135deg, #49728C, #6D96A6, #8C4A23, #D99F6C, #8C4A23,#6D96A6, #49728C);
+    height: 100%;
+    padding-top: 60px;
+}
+
+
+/* FIN PIE DE PAGINA*/
+

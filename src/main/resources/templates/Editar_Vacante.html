@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Editar Vacante</title>
+    <!---Archivo css--->
+    <link rel="stylesheet" href="css/Style_editarVacante.css" />
+</head>
+
+<body>
+    <section class="container">
+        <header>Actualizar Vacante</header>
+        <form action="#" class="form formulario" id="formulario">
+
+            <!-- Hora de inicio y Fin -->
+            <div class="column">
+
+                <!-- Grupo: hora inicial -->
+                <div class="input-box formulario__grupo" id="grupo__horaInicial">
+                    <label for="horaInicial" class="formulario__label">Hora inicial:</label>
+                    <div class="formulario__grupo-input">
+                        <input type="time" class="formulario__input" id="horaInicial" name="horaInicial" required>
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="formulario__input-error">La hora debe ser válida (formato HH:mm).</p>
+                </div>
+
+                <!-- Grupo: hora final -->
+                <div class="input-box formulario__grupo" id="grupo__horaFinal">
+                    <label for="horaFinal" class="formulario__label">Hora final:</label>
+                    <div class="formulario__grupo-input">
+                        <input type="time" class="formulario__input" id="horaFinal" name="horaFinal" required>
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="formulario__input-error">La hora debe ser válida (formato HH:mm).</p>
+                </div>
+
+            </div>
+
+            <div class="input-box address">
+                <!-- Grupo: LugarTrabajo -->
+                <div class="formulario__grupo" id="grupo__LugarTrabajo">
+                    <label for="LugarTrabajo" class="formulario__label">Lugar de trabajo</label>
+                    <div class="formulario__grupo-input">
+                        <input type="text" class="formulario__input" name="LugarTrabajo" id="LugarTrabajo"
+                            placeholder="Crr95#65sur">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="formulario__input-error">Escriba el lugar de trabajo sin espacios de pormedio</p>
+                </div>
+            </div>
+
+            <!-- Grupo: Salario -->
+            <div class="input-box formulario__grupo" id="grupo__Salario">
+                <label for="Salario" class="formulario__label">Salario acordado</label>
+                <div class="formulario__grupo-input">
+                    <input type="number" class="formulario__input" name="Salario" id="Salario" placeholder="4491234567">
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">Escriba un salario valido sin . ni ,</p>
+            </div>
+
+
+
+            <div class="column">
+                <!-- Grupo: Educacion -->
+                <div class="input-box formulario__grupo" id="grupo__Educacion">
+                    <label for="Educacion" class="formulario__label">Educacion requerida</label>
+                    <div class="formulario__grupo-input">
+                        <input type="text" class="formulario__input" name="Educacion" id="Educacion"
+                            placeholder="Diseñador">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="formulario__input-error">Escriba su numero de Educacion</p>
+                </div>
+
+                <!----Grupo: tipo Cargo------>
+                <div class="formulario__grupo input-box" id="grupo__opcion">
+                    <label for="opcion" class="formulario__label">Cargo</label>
+                    <select name="opcion" id="opcion" class="formulario__input select-box formulario__select">
+                        <option value="">--Seleccione una opción--</option>
+                        <option value="opcion1">Opción 1</option>
+                        <option value="opcion2">Opción 2</option>
+                        <option value="opcion3">Opción 3</option>
+                    </select>
+                    <p class="formulario__input-error"> Seleccione una opción válida.</p>
+                </div>
+            </div>
+            </div>
+
+            <!-- Grupo: Descripcion del perfil -->
+            <div class="input-box formulario__grupo" id="grupo__comentarios">
+                <label for="comentarios" class="formulario__label">Descripción del perfil</label>
+                <div class="formulario__grupo-input">
+                    <textarea class="formulario__input" name="comentarios" id="comentarios" rows="4"></textarea>
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">Ingresa una descripción Valida.</p>
+            </div>
+
+
+            <div class="formulario__mensaje" id="formulario__mensaje">
+                <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario
+                    correctamente. </p>
+            </div>
+
+            <div class="formulario__grupo formulario__grupo-btn-enviar">
+                <button type="submit" class="formulario__btn">Enviar</button>
+                <p class="formulario__mensaje-exito" id="formulario__mensaje-exito"><i
+                        class="fa-solid fa-circle-check"></i> Formulario enviado exitosamente!</p>
+            </div>
+        </form>
+    </section>
+    <!--scrip de registrate------>
+    <script src="js/Vacante.js"></script>
+    <!--scrip de iconos------>
+    <script src="https://kit.fontawesome.com/f9d0333c9c.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

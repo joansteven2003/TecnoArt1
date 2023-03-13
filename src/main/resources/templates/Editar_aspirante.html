@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Editar Aspirante</title>
+    <!---Archivo css--->
+    <link rel="stylesheet" href="css/Style_editarAspirante.css" />
+</head>
+
+<body>
+    <section class="container">
+        <header>Actualizar Aspirante</header>
+        <form action="#" class="form formulario" id="formulario">
+            <div class="column">
+                <!-- Grupo: Nombres -->
+                <div class="input-box formulario__grupo" id="grupo__nombres">
+                    <label for="nombres" class="formulario__label">Nombre Completo</label>
+                    <div class="formulario__grupo-input">
+                        <input type="text" class="formulario__input" name="nombres" id="nombres"
+                            placeholder="Jose Luis">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="formulario__input-error">El nombre es incorrecto</p>
+                </div>
+
+                <!-- Grupo: Apellidos -->
+                <div class="input-box formulario__grupo" id="grupo__Apellidos">
+                    <label for="Apellidos" class="formulario__label">Apellidos Completos</label>
+                    <div class="formulario__grupo-input">
+                        <input type="text" class="formulario__input" name="Apellidos" id="Apellidos"
+                            placeholder="Ramirez Rodrigues">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="formulario__input-error">El Apellido es incorrecto.</p>
+                </div>
+            </div>
+
+
+            <!-- Grupo: Correo Electronico -->
+            <div class="input-box formulario__grupo" id="grupo__correo">
+                <label for="correo" class="formulario__label">Correo electronico</label>
+                <div class="formulario__grupo-input">
+                    <input type="email" class="formulario__input" name="correo" id="correo"
+                        placeholder="correo@correo.com">
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos, guiones y
+                    guion bajo.</p>
+            </div>
+
+
+
+            <div class="column">
+                <!----Grupo: tipo documento------>
+                <div class="formulario__grupo input-box" id="grupo__opcion">
+                    <label for="opcion" class="formulario__label">Tipo de Documento</label>
+                    <select name="opcion" id="opcion" class="formulario__input select-box formulario__select">
+                        <option value="">--Seleccione una opción--</option>
+                        <option value="opcion1">Opción 1</option>
+                        <option value="opcion2">Opción 2</option>
+                        <option value="opcion3">Opción 3</option>
+                    </select>
+                    <p class="formulario__input-error"> Seleccione una opción válida.</p>
+                </div>
+
+                <!-- Grupo: Documento -->
+                <div class="input-box formulario__grupo" id="grupo__Documento">
+                    <label for="Documento" class="formulario__label">Docuemento de identidad</label>
+                    <div class="formulario__grupo-input">
+                        <input type="number" class="formulario__input" name="Documento" id="Documento"
+                            placeholder="1001295632">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="formulario__input-error">Escriba su numero de Documento</p>
+                </div>
+            </div>
+            <div class="column">
+
+                <!-- Grupo: direccion -->
+                <div class="input-box formulario__grupo" id="grupo__direccion">
+                    <label for="direccion" class="formulario__label">Direccion</label>
+                    <div class="formulario__grupo-input">
+                        <input type="text" class="formulario__input" name="direccion" id="direccion"
+                            placeholder="Crr95#65sur">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="formulario__input-error">La direccion es incorrecta</p>
+                </div>
+
+
+                <!-- Grupo: Telefono -->
+                <div class="input-box formulario__grupo" id="grupo__telefono">
+                    <label for="telefono" class="formulario__label">Telefono o celular</label>
+                    <div class="formulario__grupo-input">
+                        <input type="number" class="formulario__input" name="telefono" id="telefono"
+                            placeholder="3125203875">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="formulario__input-error">El telefono solo puede contener numeros y el maximo son 14
+                        dígitos.</p>
+                </div>
+            </div>
+
+            <div class="formulario__mensaje" id="formulario__mensaje">
+                <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario
+                    correctamente. </p>
+            </div>
+
+            <div class="formulario__grupo formulario__grupo-btn-enviar">
+                <button type="submit" class="formulario__btn">Enviar</button>
+                <p class="formulario__mensaje-exito" id="formulario__mensaje-exito"><i
+                        class="fa-solid fa-circle-check"></i> Formulario enviado exitosamente!</p>
+            </div>
+        </form>
+    </section>
+    <!--scrip de registrate------>
+    <script src="js/Aspirante.js"></script>
+    <!--scrip de iconos------>
+    <script src="https://kit.fontawesome.com/f9d0333c9c.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
