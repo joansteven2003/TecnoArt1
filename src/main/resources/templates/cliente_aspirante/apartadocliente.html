@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CLIENTE</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/apartadoadministrador.css">
+    <script src="https://kit.fontawesome.com/04773321cf.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/menu-lateral.js"></script>
+</head>
+<body>
+    <!------MENU LATERAL-------->
+    <div class="encabezado">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Slidebar -->
+                <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+                    <div class="lista">
+                        <button onclick="w3_close()" class="w3-bar-item w3-large"><i class="fa-regular fa-circle-xmark"></i></button>
+                        <a href="apartadoadministrador.html" class="w3-bar-item w3-button">Mis compras</a>
+                        <a href="apartadocliente.html" class="w3-bar-item w3-button">Servicio al cliente</a>
+                        <a href="apartadoempleado.html" class="w3-bar-item w3-button">Trabaja Con Nosotros</a>
+                    </div>
+                </div>
+                <!-- Page Content -->
+                <div class="col-2 col-sm-2 col-lg-1">
+                    <button class="icon iconml" onclick="w3_open()"><i class="fa-regular fa-rectangle-list"></i></button>
+                </div>
+        <!-------FIN MENU LATERAL--->
+        <!-------LOGO---->
+                <div class="col-8 col-sm-8 col-lg-10">
+                    <img class="logo-img" src="img/logov_beta_png.png" alt="">
+                </div>
+        <!-------FIN LOGO---->
+        <!------MENU LATERAL USUARIO-------->  
+                <div class="col-2 col-sm-2 col-lg-1 boton">
+                    <div class="dropdown">
+                        <button type="button" class="btn boton dropdown-toggle" data-bs-toggle="dropdown">
+                            <i class="icon iconu fa-solid fa-person"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Mi Perfil</a></li>               
+                        <li><a class="dropdown-item-text" href="#">Cerrar Sesion</a></li>
+        
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+    <!-------FIN MENU LATERAL USUARIO--->
+    <!-------CONTENIDO---->
+    <div class="container-fluid">  
+        <div class="row">
+            <div class="col-sm-2">
+                <img class="lateral" src="img/laterales.png" alt="">
+            </div>
+            <div class="col-sm-8">
+                <div class="container mt-5">
+                    <h2>Bordered Table</h2>
+                    <p>The .table-bordered class adds borders on all sides of the table and the cells:</p>            
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>Firstname</th>
+                            <th>Lastname</th>
+                            <th>Email</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>john@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>Mary</td>
+                            <td>Moe</td>
+                            <td>mary@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>July</td>
+                            <td>Dooley</td>
+                            <td>july@example.com</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <img class="lateral" src="img/laterales.png" alt="">
+            </div>
+        </div>
+    </div>
+    <!-------FIN CONTENIDO---->
+    <!-------PIE DE PAGINA---->
+    <div class="pie-pagina">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-4">
+                    <!---UBICACION-->
+                    <h3>Como Llegar</h3>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d127246.67715511228!2d-74.2006628!3d4.6900775!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f8488b8c01c3f%3A0xfb245984007b5257!2sArte%20%26%20Dise%C3%B1o%20Publicidad!5e0!3m2!1ses!2sco!4v1669837970838!5m2!1ses!2sco" width="200" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="col-12 col-sm-12 col-md-4">
+                    <!---INFORMACION---->
+                    <h3>Sobre Nosotros</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui optio magnam quidem dolore, voluptates facere doloribus ex ipsam odio veniam tempore obcaecati illum vero, commodi exercitationem necessitatibus earum saepe provident.</p>
+                </div>
+                <div class="col-12 col-sm-12 col-md-4">
+                    <!-----REDES SOCIALES---->
+                    <h3>Siguenos</h3>
+                    <div class="container">
+                        <ul>
+                            <li><a href="" class="icon iconpp"><i class="fa-brands fa-facebook"></i>Facebook</a></li>
+                            <li><a href="" class="icon iconpp"><i class="fa-brands fa-square-twitter"></i>Twitter</a></li>
+                            <li><a href="" class="icon iconpp"><i class="fa-brands fa-square-instagram"></i>Instagram</a></li>
+                            <li><a href="" class="icon iconpp"><i class="fa-brands fa-square-youtube"></i>Youtube</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+    <!-------FIN PIE DE PAGINA---->
+</body>
+</html>

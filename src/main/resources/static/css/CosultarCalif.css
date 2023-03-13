@@ -1,0 +1,29 @@
+.container-div{
+    padding: 30px;
+    color: white;
+  }
+  .carta{
+    width: 50%;
+    margin: 10px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+  .carta header{
+    background: #dc152e ;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+  }
+  .carta footer{
+    background: #e76373;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+  }
+  
+    
+    /* ----- -----  Mediaqueries ----- ----- */
+    @media screen and (max-width: 800px) {
+    
+        .container-div {
+            width: 100%;
+        }
+    }
