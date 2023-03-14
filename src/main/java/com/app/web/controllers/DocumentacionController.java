@@ -37,7 +37,7 @@ public class DocumentacionController {
 		return "/crearDocumentacion";
 	}
 
-	@PostMapping("/Documentacion")
+	@PostMapping("/Guardar")
 	public String guardarDocumentacion(@ModelAttribute("Documentacion") Documentacion documentacion) {
 		servicio.guardarDocumentacion(documentacion);
 		return "redirect:/Documentacion";

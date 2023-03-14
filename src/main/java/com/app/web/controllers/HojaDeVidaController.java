@@ -36,7 +36,7 @@ public class HojaDeVidaController {
 		return "/crearHojaDeVida";
 	}
 
-	@PostMapping("/HojaDeVida")
+	@PostMapping("/Guardar")
 	public String guardarHojaDeVida(@ModelAttribute("HojaDeVida") HojaDeVida hojaDeVida) {
 		servicio.guardarHojadevida(hojaDeVida);
 		return "redirect:/HojaDeVida";

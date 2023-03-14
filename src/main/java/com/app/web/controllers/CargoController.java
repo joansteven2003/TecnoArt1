@@ -38,7 +38,7 @@ public class CargoController {
 		return "/crearAspirante";
 	}
 
-	@PostMapping("/Cargo")
+	@PostMapping("/Guardar")
 	public String guardarCargo(@ModelAttribute("Cargo") Cargo cargo) {
 		servicio.guardarCargo(cargo);
 		return "redirect:/Cargo";

@@ -36,7 +36,7 @@ public class ContratoController {
 		return "/crearContrato";
 	}
 
-	@PostMapping("/Contrato")
+	@PostMapping("/Guardar")
 	public String guardarContrato(@ModelAttribute("Contrato") Contrato contrato) {
 		servicio.guardarContrato(contrato);
 		return "redirect:/Contrato";

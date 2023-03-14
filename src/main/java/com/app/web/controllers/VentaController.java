@@ -29,7 +29,7 @@ public class VentaController {
 		return "crearVenta";
 	}
 
-	@PostMapping("/Venta")
+	@PostMapping("/Guardar")
 	public String guardarVenta(@ModelAttribute("Venta") Venta venta) {
 		servicio.guardarVenta(venta);
 		return "redirect:/Venta";

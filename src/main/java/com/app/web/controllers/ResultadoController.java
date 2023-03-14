@@ -36,7 +36,7 @@ public class ResultadoController {
 		return "/crearResultado";
 	}
 
-	@PostMapping("/Resultado")
+	@PostMapping("/Guardar")
 	public String guardarResultado(@ModelAttribute("Resultado") Resultado resultado) {
 		servicio.guardarResultado(resultado);
 		return "redirect:/Resultado";

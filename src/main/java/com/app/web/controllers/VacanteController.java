@@ -36,7 +36,7 @@ public class VacanteController {
 		return "/crearVacante";
 	}
 
-	@PostMapping("/Vacante")
+	@PostMapping("/Guardar")
 	public String guardarVacante(@ModelAttribute("Vacante") Vacante vacante) {
 		servicio.guardarVacante(vacante);
 		return "redirect:/Vacante";

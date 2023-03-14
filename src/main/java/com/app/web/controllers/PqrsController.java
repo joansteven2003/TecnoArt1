@@ -29,7 +29,7 @@ public class PqrsController {
 		return "crearPqrs";
 	}
 
-	@PostMapping("/pqrs")
+	@PostMapping("/Guardar")
 	public String guardarPqrs(@ModelAttribute("Pqrs") Pqrs pqrs) {
 		servicio.guardarPqrs(pqrs);
 		return "redirect:/Pqrs";

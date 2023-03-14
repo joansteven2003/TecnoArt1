@@ -36,7 +36,7 @@ public class CitaController {
 		return "/crearCita";
 	}
 
-	@PostMapping("/Cita")
+	@PostMapping("/Guardar")
 	public String guardarCita(@ModelAttribute("Cita") Cita cita) {
 		servicio.guardarCita(cita);
 		return "redirect:/Cita";
