@@ -1,2 +1,5 @@
-package com.app.web.modelos;public class Cotizacion {
+package com.app.web.modelos;
+
+public class Cotizacion {
+
 }
