@@ -8,9 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.app.web.modelos.Aspirante;
 import com.app.web.modelos.Contrato;
-import com.app.web.servicios.AspiranteServicio;
 import com.app.web.servicios.ContratoServicios;
 
 @Controller

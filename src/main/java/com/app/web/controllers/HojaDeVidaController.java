@@ -8,9 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.app.web.modelos.Aspirante;
 import com.app.web.modelos.HojaDeVida;
-import com.app.web.servicios.AspiranteServicio;
 import com.app.web.servicios.HojaDeVidaServicio;
 
 @Controller
@@ -62,7 +60,7 @@ public class HojaDeVidaController {
 		HojaDeVidaExistente.setFechaNacimiento(hojaDeVida.getFechaNacimiento());
 		HojaDeVidaExistente.setEstadoCivil(hojaDeVida.getEstadoCivil());
 		HojaDeVidaExistente.setDocumentacion(hojaDeVida.getDocumentacion());
-		HojaDeVidaExistente.setAspirante(hojaDeVida.getAspirante());
+		HojaDeVidaExistente.setUsuario(hojaDeVida.getUsuario());
 		
 
 		servicio.actualizarHojadevida(HojaDeVidaExistente);

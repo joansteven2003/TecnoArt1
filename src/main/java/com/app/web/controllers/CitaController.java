@@ -8,9 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.app.web.modelos.Aspirante;
 import com.app.web.modelos.Cita;
-import com.app.web.servicios.AspiranteServicio;
 import com.app.web.servicios.CitaServicio;
 
 @Controller
@@ -60,7 +58,7 @@ public class CitaController {
 		CitaExistente.setDireccion(cita.getDireccion());
 		CitaExistente.setFecha(cita.getFecha());
 		CitaExistente.setHora(cita.getHora());
-		CitaExistente.setAspirante(cita.getAspirante());
+		CitaExistente.setUsuario(cita.getUsuario());
 		
 
 		servicio.actualizarCita(CitaExistente);

@@ -34,20 +34,19 @@ public class Cita {
 	private Time hora;
 
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "idaspirante", referencedColumnName = "idaspirante")
-	private Aspirante aspirante;
+	@JoinColumn(name = "IdUsuario", referencedColumnName = "IdUsuario")
+	private Usuario usuario;
 
 	public Cita() {
 		super();
 	}
 
-	public Cita(Long idCita, String direccion, Date fecha, Time hora, Aspirante aspirante) {
-		super();
+	public Cita(Long idCita, String direccion, Date fecha, Time hora, Usuario usuario) {
 		IdCita = idCita;
 		this.direccion = direccion;
 		this.fecha = fecha;
 		this.hora = hora;
-		this.aspirante = aspirante;
+		this.usuario = usuario;
 	}
 
 	public Long getIdCita() {
@@ -82,18 +81,22 @@ public class Cita {
 		this.hora = hora;
 	}
 
-	public Aspirante getAspirante() {
-		return aspirante;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setAspirante(Aspirante aspirante) {
-		this.aspirante = aspirante;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	@Override
 	public String toString() {
-		return "Cita [IdCita=" + IdCita + ", direccion=" + direccion + ", fecha=" + fecha + ", hora=" + hora
-				+ ", aspirante=" + aspirante + "]";
+		return "Cita{" +
+				"IdCita=" + IdCita +
+				", direccion='" + direccion + '\'' +
+				", fecha=" + fecha +
+				", hora=" + hora +
+				", usuario=" + usuario +
+				'}';
 	}
-
 }

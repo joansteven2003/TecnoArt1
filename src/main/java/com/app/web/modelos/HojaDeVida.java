@@ -38,23 +38,20 @@ public class HojaDeVida {
 	private Documentacion documentacion;
 
 	@OneToOne
-	@JoinColumn(name = "Aspirante")
-	private Aspirante aspirante;
+	@JoinColumn(name = "IdUsuario")
+	private Usuario usuario;
 
 	public HojaDeVida() {
-		super();
 	}
 
-	public HojaDeVida(Long idHojaDeVida, int experienciaEnmeses, String descripcionMi, String fechaNacimiento,
-			String estadoCivil, Documentacion documentacion, Aspirante aspirante) {
-		super();
+	public HojaDeVida(Long idHojaDeVida, int experienciaEnmeses, String descripcionMi, String fechaNacimiento, String estadoCivil, Documentacion documentacion, Usuario usuario) {
 		IdHojaDeVida = idHojaDeVida;
 		ExperienciaEnmeses = experienciaEnmeses;
 		DescripcionMi = descripcionMi;
 		FechaNacimiento = fechaNacimiento;
 		EstadoCivil = estadoCivil;
 		this.documentacion = documentacion;
-		this.aspirante = aspirante;
+		this.usuario = usuario;
 	}
 
 	public Long getIdHojaDeVida() {
@@ -105,19 +102,24 @@ public class HojaDeVida {
 		this.documentacion = documentacion;
 	}
 
-	public Aspirante getAspirante() {
-		return aspirante;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setAspirante(Aspirante aspirante) {
-		this.aspirante = aspirante;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	@Override
 	public String toString() {
-		return "HojaDeVida [IdHojaDeVida=" + IdHojaDeVida + ", ExperienciaEnmeses=" + ExperienciaEnmeses
-				+ ", DescripcionMi=" + DescripcionMi + ", FechaNacimiento=" + FechaNacimiento + ", EstadoCivil="
-				+ EstadoCivil + ", documentacion=" + documentacion + ", aspirante=" + aspirante + "]";
+		return "HojaDeVida{" +
+				"IdHojaDeVida=" + IdHojaDeVida +
+				", ExperienciaEnmeses=" + ExperienciaEnmeses +
+				", DescripcionMi='" + DescripcionMi + '\'' +
+				", FechaNacimiento='" + FechaNacimiento + '\'' +
+				", EstadoCivil='" + EstadoCivil + '\'' +
+				", documentacion=" + documentacion +
+				", usuario=" + usuario +
+				'}';
 	}
-
 }

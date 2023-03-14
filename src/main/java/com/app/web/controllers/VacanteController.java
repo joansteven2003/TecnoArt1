@@ -8,9 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.app.web.modelos.Aspirante;
 import com.app.web.modelos.Vacante;
-import com.app.web.servicios.AspiranteServicio;
 import com.app.web.servicios.VacanteServicio;
 
 @Controller
@@ -65,7 +63,7 @@ public class VacanteController {
 		VacanteExistente.setSalario(vacante.getSalario());
 		VacanteExistente.setEduacion(vacante.getEduacion());
 		VacanteExistente.setCargo(vacante.getCargo());
-		VacanteExistente.setAspirante(vacante.getAspirante());
+		VacanteExistente.setUsuario(vacante.getUsuario());
 		
 
 		servicio.actualizarVacante(VacanteExistente);
