@@ -4,16 +4,10 @@ const inputs = document.querySelectorAll('#formulario input');
 const expresiones = {
 	recidencia: /^[a-zA-Z0-9._#-]{4,25}$/, // Letras, numeros, guion y guion_bajo
 	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-	password: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/, /*
-	asegura que la cadena contiene al menos un dígito.
-	asegura que la cadena contiene al menos una letra minúscula.
-	asegura que la cadena contiene al menos una letra mayúscula.
-	asegura que la cadena contiene al menos una letra.
-	asegura que la cadena tiene una longitud mínima de 8 caracteres.
-	*/ 
+	password: /^.{4,12}$/, // 4 a 12 digitos.
 	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-	Documento: /^\d{8,14}$/, // 7 a 14 numeros.
-    telefono: /^\d{10,14}$/ // 7 a 14 numeros.
+	Documento: /^\d{7,14}$/, // 7 a 14 numeros.
+    telefono: /^\d{7,14}$/ // 7 a 14 numeros.
 }
 
 const campos = {
@@ -99,8 +93,7 @@ inputs.forEach((input) => {
 formulario.addEventListener('submit', (e) => {
 	e.preventDefault();
 
-	const terminos = document.getElementById('terminos');
-	if(campos.recidencia && campos.nombre && campos.password && campos.correo && campos.telefono && campos.Documento && terminos.checked ){
+	if(campos.recidencia && campos.nombre && campos.password && campos.correo && campos.telefono && campos.Documento ){
 		formulario.reset();
 
 		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');

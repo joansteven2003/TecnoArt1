@@ -1,51 +1,32 @@
-/*Aqui es el javascript de la validacion del login*/
 const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
-pwShowHide = document.querySelectorAll(".eye-icon")
-
-pwShowHide.forEach(eyeIcon => {
-eyeIcon.addEventListener("click", () => {
-  let pwFields = eyeIcon.parentElement.parentElement.querySelectorAll(".password");
-  
-  pwFields.forEach(password => {
-      if(password.type === "password"){
-          password.type = "text";
-          eyeIcon.classList.replace("bx-hide", "bx-show");
-          return;
-      }
-      password.type = "password";
-      eyeIcon.classList.replace("bx-show", "bx-hide");
-  })
-  
-})
-})      
-
-
+//traer los campor opcion
+const opcion = document.getElementById('opcion');
+const grupoOpcion = document.getElementById('grupo__opcion');
 
 const expresiones = {
-	password: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/, /*
-	asegura que la cadena contiene al menos un dígito.
-	asegura que la cadena contiene al menos una letra minúscula.
-	asegura que la cadena contiene al menos una letra mayúscula.
-	asegura que la cadena contiene al menos una letra.
-	asegura que la cadena tiene una longitud mínima de 8 caracteres.
-	*/ 
-	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+	Resultado: /^[a-zA-ZÀ-ÿ\s]{4,10}$/, // Letras y espacios, pueden llevar acentos.
+    ResultadoEntrevis: /^[a-zA-ZÀ-ÿ\s]{4,10}$/, // Letras y espacios, pueden llevar acentos.
 }
 
 const campos = {
-	password: false,
-	correo: false
+	Resultado: false,
+    ResultadoEntrevis: false
+
 }
 
 const validarFormulario = (e) => {
 	switch (e.target.name) {
-		case "password":
-			validarCampo(expresiones.password, e.target, 'password');
+		case "Resultado":
+			validarCampo(expresiones.Resultado, e.target, 'Resultado');
 		break;
-		case "correo":
-			validarCampo(expresiones.correo, e.target, 'correo');
+        case "ResultadoEntrevis":
+			validarCampo(expresiones.ResultadoEntrevis, e.target, 'ResultadoEntrevis');
 		break;
+        case "opcion":
+            validarCampo2(opcion.value !== "", grupoOpcion, 'opcion');
+            break;
+		
 	}
 }
 
@@ -65,19 +46,36 @@ const validarCampo = (expresion, input, campo) => {
 		document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.add('formulario__input-error-activo');
 		campos[campo] = false;
 	}
-};
-
+}
+// validar campo de select pero de solo 1 
+const validarCampo2 = (valor, grupo, campo) => {
+    if (valor) {
+        grupo.classList.remove('formulario__grupo-incorrecto');
+        grupo.classList.add('formulario__grupo-correcto');
+        document.querySelector(`#${campo} .formulario__validacion-estado.fa-check-circle`).classList.add('formulario__validacion-estado-activo');
+        document.querySelector(`#${campo} .formulario__validacion-estado.fa-times-circle`).classList.remove('formulario__validacion-estado-activo');
+        document.querySelector(`#${campo} .formulario__input-error`).classList.remove('formulario__input-error-activo');
+    } else {
+        grupo.classList.add('formulario__grupo-incorrecto');
+        grupo.classList.remove('formulario__grupo-correcto');
+        document.querySelector(`#${campo} .formulario__validacion-estado.fa-times-circle`).classList.add('formulario__validacion-estado-activo');
+        document.querySelector(`#${campo} .formulario__validacion-estado.fa-check-circle`).classList.remove('formulario__validacion-estado-activo');
+        document.querySelector(`#${campo} .formulario__input-error`).classList.add('formulario__input-error-activo');
+    }
+}
 
 inputs.forEach((input) => {
 	input.addEventListener('keyup', validarFormulario);
 	input.addEventListener('blur', validarFormulario);
 });
 
+//parte de opciones 
+opcion.addEventListener('change', validarFormulario);
+
 formulario.addEventListener('submit', (e) => {
 	e.preventDefault();
 
-	
-	if(campos.correo && campos.password){
+	if(campos.Resultado && campos.ResultadoEntrevis && opcion.value !== "" ){
 		formulario.reset();
 
 		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
@@ -87,7 +85,6 @@ formulario.addEventListener('submit', (e) => {
 
 		document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
 			icono.classList.remove('formulario__grupo-correcto');
-			return campos.password=false;
 		});
 	} else {
 		document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
