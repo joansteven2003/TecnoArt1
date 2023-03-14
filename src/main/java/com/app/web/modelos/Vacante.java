@@ -40,15 +40,13 @@ public class Vacante {
 	private Cargo cargo;
 
 	@ManyToMany(mappedBy = "Vacante")
-	private List<Aspirante> aspirante = new ArrayList<>();
+	private List<Usuario> usuario = new ArrayList<>();
 
 	public Vacante() {
 		super();
 	}
 
-	public Vacante(Long idVacante, Time horaInicio, Time horaFin, String perfil, String lugarTrabajo,
-			String descripcion, Long salario, String eduacion, Cargo cargo, List<Aspirante> aspirante) {
-		super();
+	public Vacante(Long idVacante, Time horaInicio, Time horaFin, String perfil, String lugarTrabajo, String descripcion, Long salario, String eduacion, Cargo cargo, List<Usuario> usuario) {
 		IdVacante = idVacante;
 		HoraInicio = horaInicio;
 		HoraFin = horaFin;
@@ -58,7 +56,7 @@ public class Vacante {
 		Salario = salario;
 		Eduacion = eduacion;
 		this.cargo = cargo;
-		this.aspirante = aspirante;
+		this.usuario = usuario;
 	}
 
 	public Long getIdVacante() {
@@ -133,19 +131,27 @@ public class Vacante {
 		this.cargo = cargo;
 	}
 
-	public List<Aspirante> getAspirante() {
-		return aspirante;
+	public List<Usuario> getUsuario() {
+		return usuario;
 	}
 
-	public void setAspirante(List<Aspirante> aspirante) {
-		this.aspirante = aspirante;
+	public void setUsuario(List<Usuario> usuario) {
+		this.usuario = usuario;
 	}
 
 	@Override
 	public String toString() {
-		return "Vacante [IdVacante=" + IdVacante + ", HoraInicio=" + HoraInicio + ", HoraFin=" + HoraFin + ", Perfil="
-				+ Perfil + ", LugarTrabajo=" + LugarTrabajo + ", Descripcion=" + Descripcion + ", Salario=" + Salario
-				+ ", Eduacion=" + Eduacion + ", cargo=" + cargo + ", aspirante=" + aspirante + "]";
+		return "Vacante{" +
+				"IdVacante=" + IdVacante +
+				", HoraInicio=" + HoraInicio +
+				", HoraFin=" + HoraFin +
+				", Perfil='" + Perfil + '\'' +
+				", LugarTrabajo='" + LugarTrabajo + '\'' +
+				", Descripcion='" + Descripcion + '\'' +
+				", Salario=" + Salario +
+				", Eduacion='" + Eduacion + '\'' +
+				", cargo=" + cargo +
+				", usuario=" + usuario +
+				'}';
 	}
-
 }
