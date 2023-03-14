@@ -63,7 +63,7 @@ public class VacanteController {
 		VacanteExistente.setSalario(vacante.getSalario());
 		VacanteExistente.setEduacion(vacante.getEduacion());
 		VacanteExistente.setCargo(vacante.getCargo());
-		VacanteExistente.setAspirante(vacante.getAspirante());
+		VacanteExistente.setUsuario(vacante.getUsuario());
 		
 
 		servicio.actualizarVacante(VacanteExistente);

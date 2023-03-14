@@ -58,7 +58,7 @@ public class CitaController {
 		CitaExistente.setDireccion(cita.getDireccion());
 		CitaExistente.setFecha(cita.getFecha());
 		CitaExistente.setHora(cita.getHora());
-		CitaExistente.setAspirante(cita.getAspirante());
+		CitaExistente.setUsuario(cita.getUsuario());
 		
 
 		servicio.actualizarCita(CitaExistente);

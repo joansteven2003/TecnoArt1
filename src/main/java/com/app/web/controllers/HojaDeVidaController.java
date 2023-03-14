@@ -60,7 +60,7 @@ public class HojaDeVidaController {
 		HojaDeVidaExistente.setFechaNacimiento(hojaDeVida.getFechaNacimiento());
 		HojaDeVidaExistente.setEstadoCivil(hojaDeVida.getEstadoCivil());
 		HojaDeVidaExistente.setDocumentacion(hojaDeVida.getDocumentacion());
-		HojaDeVidaExistente.setAspirante(hojaDeVida.getAspirante());
+		HojaDeVidaExistente.setUsuario(hojaDeVida.getUsuario());
 		
 
 		servicio.actualizarHojadevida(HojaDeVidaExistente);
