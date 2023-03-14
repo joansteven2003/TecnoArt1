@@ -36,7 +36,7 @@ public class CalificacionContrller {
 		return "/crearCalificacion";
 	}
 
-	@PostMapping("/Guardar")
+	@PostMapping("/Calificacion/Guardar")
 	public String guardarCalificacion(@ModelAttribute("Calificacion") Calificacion calificacion) {
 		servicio.guardarCalificacion(calificacion);
 		return "redirect:/Calificacion";

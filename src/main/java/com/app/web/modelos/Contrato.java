@@ -25,15 +25,18 @@ public class Contrato {
 	@Column(name = "Periodo", nullable = false, length = 20)
 	private String Periodo;
 
+	@OneToOne
+	@JoinColumn(name = "IdUsuario")
+	private Usuario usuario;
+
 	public Contrato() {
-		super();
 	}
 
-	public Contrato(Long idContrato, String nombreContrato, String periodo) {
-		super();
+	public Contrato(Long idContrato, String nombreContrato, String periodo, Usuario usuario) {
 		IdContrato = idContrato;
 		NombreContrato = nombreContrato;
 		Periodo = periodo;
+		this.usuario = usuario;
 	}
 
 	public Long getIdContrato() {
@@ -60,10 +63,21 @@ public class Contrato {
 		Periodo = periodo;
 	}
 
-	@Override
-	public String toString() {
-		return "Contrato [IdContrato=" + IdContrato + ", NombreContrato=" + NombreContrato + ", Periodo=" + Periodo
-				+ "]";
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	@Override
+	public String toString() {
+		return "Contrato{" +
+				"IdContrato=" + IdContrato +
+				", NombreContrato='" + NombreContrato + '\'' +
+				", Periodo='" + Periodo + '\'' +
+				", usuario=" + usuario +
+				'}';
+	}
 }

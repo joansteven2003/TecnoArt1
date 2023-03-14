@@ -35,7 +35,7 @@ public class UsuarioController {
 		return "/crearUsuario";
 	}
 
-	@PostMapping("/Guardar")
+	@PostMapping("/Usuario/Guardar")
 	public String guardarUsuario(@ModelAttribute("Usuario") Usuario usuario) {
 		servicio.guardarUsuarios(usuario);
 		return "redirect:/Usuario";
@@ -61,11 +61,11 @@ public class UsuarioController {
 		UsuarioExistente.setCorreo(usuario.getCorreo());
 		UsuarioExistente.setRecidencia(usuario.getRecidencia());
 		UsuarioExistente.setPassword(usuario.getPassword());
+		UsuarioExistente.setHojaDeVida(usuario.getHojaDeVida());
 		UsuarioExistente.setListVenta(usuario.getListVenta());
 		UsuarioExistente.setRoles(usuario.getRoles());
-		UsuarioExistente.setCargo(usuario.getCargo());
-		
-		
+		UsuarioExistente.setPostulacion(usuario.getPostulacion());
+		UsuarioExistente.setContrato(usuario.getContrato());
 
 		servicio.actualizarUsuarios(UsuarioExistente);
 		return "redirect:/Usuario";

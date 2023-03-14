@@ -39,14 +39,10 @@ public class Vacante {
 	@JoinColumn(name = "IdCargo")
 	private Cargo cargo;
 
-	@ManyToMany(mappedBy = "Vacante")
-	private List<Usuario> usuario = new ArrayList<>();
+	@OneToOne(mappedBy = "vacante", cascade = CascadeType.ALL)
+	private Postulacion postulacion;
 
-	public Vacante() {
-		super();
-	}
-
-	public Vacante(Long idVacante, Time horaInicio, Time horaFin, String perfil, String lugarTrabajo, String descripcion, Long salario, String eduacion, Cargo cargo, List<Usuario> usuario) {
+	public Vacante(Long idVacante, Time horaInicio, Time horaFin, String perfil, String lugarTrabajo, String descripcion, Long salario, String eduacion, Cargo cargo, Postulacion postulacion) {
 		IdVacante = idVacante;
 		HoraInicio = horaInicio;
 		HoraFin = horaFin;
@@ -56,7 +52,10 @@ public class Vacante {
 		Salario = salario;
 		Eduacion = eduacion;
 		this.cargo = cargo;
-		this.usuario = usuario;
+		this.postulacion = postulacion;
+	}
+
+	public Vacante() {
 	}
 
 	public Long getIdVacante() {
@@ -131,12 +130,12 @@ public class Vacante {
 		this.cargo = cargo;
 	}
 
-	public List<Usuario> getUsuario() {
-		return usuario;
+	public Postulacion getPostulacion() {
+		return postulacion;
 	}
 
-	public void setUsuario(List<Usuario> usuario) {
-		this.usuario = usuario;
+	public void setPostulacion(Postulacion postulacion) {
+		this.postulacion = postulacion;
 	}
 
 	@Override
@@ -151,7 +150,7 @@ public class Vacante {
 				", Salario=" + Salario +
 				", Eduacion='" + Eduacion + '\'' +
 				", cargo=" + cargo +
-				", usuario=" + usuario +
+				", postulacion=" + postulacion +
 				'}';
 	}
 }

@@ -1,6 +1,7 @@
 package com.app.web.modelos;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
@@ -28,6 +29,10 @@ public class Usuario {
 	@Column(name = "password", nullable = true)
 	private String password;
 
+	@Lob
+	@Column(name = "HojaDeVida", nullable = true)
+	private byte[] HojaDeVida;
+
 	@OneToMany(mappedBy = "usuario")
 	List<Venta> ListVenta;
 
@@ -35,28 +40,18 @@ public class Usuario {
 	@JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "id_usuario"), inverseJoinColumns = @JoinColumn(name = "id_rol"))
 	private Set<Rol> roles;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "cargo_id")
-	private Cargo cargo;
 
-	@OneToOne(mappedBy = "documentacion")
-	private HojaDeVida hojaDeVida;
 
-	@OneToOne(cascade = CascadeType.MERGE )
-	@JoinColumn(name = "Contrato_id", referencedColumnName = "IdContrato")
-	private Contrato Contrato;
+	@OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
+	private Contrato contrato;
 
-	@ManyToMany
-	@JoinTable(name = "Postulacion", joinColumns = @JoinColumn(name = "IdUsuario", referencedColumnName = "IdUsuario"), inverseJoinColumns = @JoinColumn(name = "IdVacante", referencedColumnName = "IdVacante"))
-	private List<Vacante> Vacante = new ArrayList<>();
-
-	@OneToOne(mappedBy = "usuario")
-	private Cita cita;
+	@OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
+	private Postulacion postulacion;
 
 	public Usuario() {
 	}
 
-	public Usuario(long idUsuario, String nombre, String apellido, long documento, long telefono, String correo, String recidencia, String password, List<Venta> listVenta, Set<Rol> roles, Cargo cargo, HojaDeVida hojaDeVida, com.app.web.modelos.Contrato contrato, List<com.app.web.modelos.Vacante> vacante, Cita cita) {
+	public Usuario(long idUsuario, String nombre, String apellido, long documento, long telefono, String correo, String recidencia, String password, byte[] hojaDeVida, List<Venta> listVenta, Set<Rol> roles, Contrato contrato, Postulacion postulacion) {
 		IdUsuario = idUsuario;
 		Nombre = nombre;
 		Apellido = apellido;
@@ -65,13 +60,11 @@ public class Usuario {
 		Correo = correo;
 		Recidencia = recidencia;
 		this.password = password;
+		HojaDeVida = hojaDeVida;
 		ListVenta = listVenta;
 		this.roles = roles;
-		this.cargo = cargo;
-		this.hojaDeVida = hojaDeVida;
-		Contrato = contrato;
-		Vacante = vacante;
-		this.cita = cita;
+		this.contrato = contrato;
+		this.postulacion = postulacion;
 	}
 
 	public long getIdUsuario() {
@@ -138,6 +131,14 @@ public class Usuario {
 		this.password = password;
 	}
 
+	public byte[] getHojaDeVida() {
+		return HojaDeVida;
+	}
+
+	public void setHojaDeVida(byte[] hojaDeVida) {
+		HojaDeVida = hojaDeVida;
+	}
+
 	public List<Venta> getListVenta() {
 		return ListVenta;
 	}
@@ -154,44 +155,20 @@ public class Usuario {
 		this.roles = roles;
 	}
 
-	public Cargo getCargo() {
-		return cargo;
+	public Contrato getContrato() {
+		return contrato;
 	}
 
-	public void setCargo(Cargo cargo) {
-		this.cargo = cargo;
+	public void setContrato(Contrato contrato) {
+		this.contrato = contrato;
 	}
 
-	public HojaDeVida getHojaDeVida() {
-		return hojaDeVida;
+	public Postulacion getPostulacion() {
+		return postulacion;
 	}
 
-	public void setHojaDeVida(HojaDeVida hojaDeVida) {
-		this.hojaDeVida = hojaDeVida;
-	}
-
-	public com.app.web.modelos.Contrato getContrato() {
-		return Contrato;
-	}
-
-	public void setContrato(com.app.web.modelos.Contrato contrato) {
-		Contrato = contrato;
-	}
-
-	public List<com.app.web.modelos.Vacante> getVacante() {
-		return Vacante;
-	}
-
-	public void setVacante(List<com.app.web.modelos.Vacante> vacante) {
-		Vacante = vacante;
-	}
-
-	public Cita getCita() {
-		return cita;
-	}
-
-	public void setCita(Cita cita) {
-		this.cita = cita;
+	public void setPostulacion(Postulacion postulacion) {
+		this.postulacion = postulacion;
 	}
 
 	@Override
@@ -205,13 +182,11 @@ public class Usuario {
 				", Correo='" + Correo + '\'' +
 				", Recidencia='" + Recidencia + '\'' +
 				", password='" + password + '\'' +
+				", HojaDeVida=" + Arrays.toString(HojaDeVida) +
 				", ListVenta=" + ListVenta +
 				", roles=" + roles +
-				", cargo=" + cargo +
-				", hojaDeVida=" + hojaDeVida +
-				", Contrato=" + Contrato +
-				", Vacante=" + Vacante +
-				", cita=" + cita +
+				", contrato=" + contrato +
+				", postulacion=" + postulacion +
 				'}';
 	}
 }

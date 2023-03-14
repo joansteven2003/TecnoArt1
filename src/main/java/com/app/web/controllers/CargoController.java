@@ -8,29 +8,29 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
- 
+
 import com.app.web.modelos.Cargo;
- 
+
 import com.app.web.servicios.CargoServicio;
 
 @Controller
 public class CargoController {
 	@Autowired
 	private CargoServicio servicio;
-	
+
 	@GetMapping("/Cargo")
 	public String ListaTodosLosCargos(Model modelo) {
 		modelo.addAttribute("Cargo", servicio.ListaTodoLosCargos());
 		return "/Cargo";
 	}
-	
+
 	@GetMapping("/Cargo/eliminar/{IdCargo}")
 	public String eliminarCargo(@PathVariable long IdCargo) {
 		servicio.eliminar(IdCargo);
 		return "redirect:/Cargo";
 	}
-		//experimentos//
-		
+	//experimentos//
+
 	@GetMapping("/Cargo/Registrar")
 	public String CargoFormulario(Model modelo) {
 		Cargo cargo = new Cargo();
@@ -38,7 +38,7 @@ public class CargoController {
 		return "/crearAspirante";
 	}
 
-	@PostMapping("/Guardar")
+	@PostMapping("/Cargo/Guardar")
 	public String guardarCargo(@ModelAttribute("Cargo") Cargo cargo) {
 		servicio.guardarCargo(cargo);
 		return "redirect:/Cargo";
@@ -53,13 +53,13 @@ public class CargoController {
 
 	@PostMapping("/Cargo/{IdCargo}")
 	public String EditarCargo(@PathVariable long IdCargo, @ModelAttribute("Cargo") Cargo cargo,
-			Model modelo) {
+							  Model modelo) {
 
 		Cargo CargoExistente = servicio.obtenerCargoPorId(IdCargo);
 		CargoExistente.setIdCargo(IdCargo);
 		CargoExistente.setNombeCargo(cargo.getNombeCargo());
-		CargoExistente.setUsuario(cargo.getUsuario());
-		
+
+
 
 		servicio.actualizarCargo(CargoExistente);
 		return "redirect:/Aspirante";

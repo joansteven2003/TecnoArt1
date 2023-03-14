@@ -36,7 +36,7 @@ public class VacanteController {
 		return "/crearVacante";
 	}
 
-	@PostMapping("/Guardar")
+	@PostMapping("/Vacante/Guardar")
 	public String guardarVacante(@ModelAttribute("Vacante") Vacante vacante) {
 		servicio.guardarVacante(vacante);
 		return "redirect:/Vacante";
@@ -63,7 +63,7 @@ public class VacanteController {
 		VacanteExistente.setSalario(vacante.getSalario());
 		VacanteExistente.setEduacion(vacante.getEduacion());
 		VacanteExistente.setCargo(vacante.getCargo());
-		VacanteExistente.setUsuario(vacante.getUsuario());
+		VacanteExistente.setPostulacion(vacante.getPostulacion());
 		
 
 		servicio.actualizarVacante(VacanteExistente);

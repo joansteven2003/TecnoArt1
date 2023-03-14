@@ -36,7 +36,7 @@ public class CitaController {
 		return "/crearCita";
 	}
 
-	@PostMapping("/Guardar")
+	@PostMapping("/Cita/Guardar")
 	public String guardarCita(@ModelAttribute("Cita") Cita cita) {
 		servicio.guardarCita(cita);
 		return "redirect:/Cita";
@@ -58,8 +58,8 @@ public class CitaController {
 		CitaExistente.setDireccion(cita.getDireccion());
 		CitaExistente.setFecha(cita.getFecha());
 		CitaExistente.setHora(cita.getHora());
-		CitaExistente.setUsuario(cita.getUsuario());
-		
+		CitaExistente.setResultado(cita.getResultado());
+		CitaExistente.setPostulacion(cita.getPostulacion());
 
 		servicio.actualizarCita(CitaExistente);
 		return "redirect:/Cita";

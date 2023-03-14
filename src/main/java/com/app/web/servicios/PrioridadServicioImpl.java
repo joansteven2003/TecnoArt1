@@ -10,7 +10,7 @@ import com.app.web.modelos.Prioridad;
 import com.app.web.repositorio.Prioridad_repositorio;
 
 @Service
-public class PrioridadImpl implements PrioridadServicio {
+public class PrioridadServicioImpl implements PrioridadServicio {
 
 	@Autowired
 	private Prioridad_repositorio repositorio;

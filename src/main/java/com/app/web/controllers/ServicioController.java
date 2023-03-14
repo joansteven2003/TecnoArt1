@@ -29,7 +29,7 @@ public class ServicioController {
 		return "/crearServicio";
 	}
 
-	@PostMapping("/Guardar")
+	@PostMapping("/Servicio/Guardar")
 	public String guardarServicio(@ModelAttribute("Servicio") Servicio servicio) {
 		servicios.guardarServicio(servicio);
 		return "redirect:/Aspirante";
