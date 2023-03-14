@@ -28,17 +28,16 @@ public class Cargo {
 	private String nombeCargo;
 
 	@OneToMany(mappedBy = "cargo", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Usuario> tareas = new ArrayList<>();
+	private List<Usuario> usuario = new ArrayList<>();
 
 	public Cargo() {
 		super();
 	}
 
-	public Cargo(Long idCargo, String nombeCargo, List<Usuario> tareas) {
-		super();
+	public Cargo(Long idCargo, String nombeCargo, List<Usuario> usuario) {
 		IdCargo = idCargo;
 		this.nombeCargo = nombeCargo;
-		this.tareas = tareas;
+		this.usuario = usuario;
 	}
 
 	public Long getIdCargo() {
@@ -57,17 +56,20 @@ public class Cargo {
 		this.nombeCargo = nombeCargo;
 	}
 
-	public List<Usuario> getTareas() {
-		return tareas;
+	public List<Usuario> getUsuario() {
+		return usuario;
 	}
 
-	public void setTareas(List<Usuario> tareas) {
-		this.tareas = tareas;
+	public void setUsuario(List<Usuario> usuario) {
+		this.usuario = usuario;
 	}
 
 	@Override
 	public String toString() {
-		return "Cargo [IdCargo=" + IdCargo + ", nombeCargo=" + nombeCargo + ", tareas=" + tareas + "]";
+		return "Cargo{" +
+				"IdCargo=" + IdCargo +
+				", nombeCargo='" + nombeCargo + '\'' +
+				", usuario=" + usuario +
+				'}';
 	}
-
 }

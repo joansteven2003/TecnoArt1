@@ -58,7 +58,7 @@ public class CargoController {
 		Cargo CargoExistente = servicio.obtenerCargoPorId(IdCargo);
 		CargoExistente.setIdCargo(IdCargo);
 		CargoExistente.setNombeCargo(cargo.getNombeCargo());
-		CargoExistente.setTareas(cargo.getTareas());
+		CargoExistente.setUsuario(cargo.getUsuario());
 		
 
 		servicio.actualizarCargo(CargoExistente);

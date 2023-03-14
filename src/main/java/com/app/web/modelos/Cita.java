@@ -34,7 +34,7 @@ public class Cita {
 	private Time hora;
 
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "idaspirante", referencedColumnName = "idaspirante")
+	@JoinColumn(name = "IdUsuario", referencedColumnName = "IdUsuario")
 	private Usuario usuario;
 
 	public Cita() {
