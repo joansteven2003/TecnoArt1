@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -87,26 +87,30 @@
             <div class="container1">
 
                 <header>Generar calificación</header>
-                <form action="#" class="form formulario" id="formulario">
+                <form th:action="@{/Guardar}" th:object=${Calificacion} class="form formulario" id="formulario">
 
                     <!-- Grupo: Estrellas -->
                     <div class="input-box formulario__grupo" id="grupo__Estrellas">
                         <label for="Estrellas" class="formulario__label">Estrellas</label>
                         <div class="formulario__grupo-input">
-                            <input type="number" class="formulario__input" name="Estrellas" id="Estrellas"
+                            <input type="number" th:field="*{Estrellas}" class="formulario__input" name="Estrellas" id="Estrellas"
                                 placeholder="aqui aplicar lo del tutorial de las Estrellas">
                             <i class="formulario__validacion-estado fas fa-times-circle"></i>
                         </div>
                         <p class="formulario__input-error">La cantidad de estrellas son incorrectas solo 1 numero del al 5</p>
                     </div>
         
-                    <!-- Grupo: Opservacion -->
-                    <div class="input-box formulario__grupo" id="grupo__comentarios">
-                        <label for="comentarios" class="formulario__label">Opservación</label>
-                        <div class="formulario__grupo-input">
-                            <textarea class="formulario__input" name="comentarios" id="comentarios" rows="4"></textarea>
-                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                        </div>
+                    <!-- Grupo: Venta -->
+                    <div class="formulario__grupo input-box" id="grupo-select">
+                        <label for="opcion" class="formulario__label">Venta que realizo</label>
+                        <select name="opcion" id="opcion" class="formulario__input select-box formulario__select">
+                            <option value="">--Seleccione una opción--</option>
+                            <option value="opcion1">Opción 1</option>
+                            <option value="opcion2">Opción 2</option>
+                            <option value="opcion3">Opción 3</option>
+                        </select>
+                        <p class="formulario__input-error"> Seleccione una opción válida.</p>
+                    </div>
                         <p class="formulario__input-error">Ingresa una opservación Valida.</p>
                     </div>
         
