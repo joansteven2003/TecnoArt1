@@ -43,6 +43,6 @@ public class IndexController {
 	@GetMapping("/Registrarse")
 	public String Registrarse(Model modelo) {
 
-		return "/Registrarse.html";
+		return "/Registrarse";
 	}
 }

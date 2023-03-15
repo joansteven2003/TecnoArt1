@@ -1,155 +1,110 @@
 <!DOCTYPE html>
-<!-- Coding by CodingLab | www.codinglabweb.com -->
-<html lang="en">
+<!-- Created by CodingLab |www.youtube.com/CodingLabYT-->
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!----======== CSS ======== -->
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="w3.css">
-    <!----===== Boxicons CSS ===== -->
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    
-    <!--<title>Dashboard Sidebar Menu</title>--> 
+  <meta charset="UTF-8">
+  <title>Usuario </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- Boxiocns CDN Link -->
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <nav class="sidebar close">
-        <header>
-            <i class='bx bx-chevron-right toggle'></i>
-        </header>
+<div class="sidebar close">
+  <div class="logo-details">
+    <img class="logo-details" src="img/Logo.png">
+    <span class="logo_name">Tecno&Art</span>
+  </div>
+  <ul class="nav-links">
+    <li>
+      <a href="#">
+        <i class='bx bx-grid-alt' ></i>
+        <span class="link_name">Dashboard</span>
+      </a>
+      <ul class="sub-menu blank">
+        <li><a class="link_name" href="#">Category</a></li>
+      </ul>
+    </li>
+    <li>
+      <div class="iocn-link">
+        <a href="#">
+          <i class='bx bx-collection' ></i>
+          <span class="link_name">Category</span>
+        </a>
+        <i class='bx bxs-chevron-down arrow' ></i>
+      </div>
+      <ul class="sub-menu">
+        <li><a class="link_name" href="#">Category</a></li>
+        <li><a href="#">HTML & CSS</a></li>
+        <li><a href="#">JavaScript</a></li>
+        <li><a href="#">PHP & MySQL</a></li>
+      </ul>
+    </li>
+    <li>
+      <div class="iocn-link">
+        <a href="#">
+          <i class='bx bx-book-alt' ></i>
+          <span class="link_name">Posts</span>
+        </a>
+        <i class='bx bxs-chevron-down arrow' ></i>
+      </div>
+      <ul class="sub-menu">
+        <li><a class="link_name" href="#">Posts</a></li>
+        <li><a href="#">Web Design</a></li>
+        <li><a href="#">Login Form</a></li>
+        <li><a href="#">Card Design</a></li>
+      </ul>
+    </li>
 
-        <div class="menu-bar">
-            <div class="menu">
+    <li>
+      <div class="iocn-link">
+        <a href="#">
+          <i class='bx bx-plug' ></i>
+          <span class="link_name">Plugins</span>
+        </a>
+        <i class='bx bxs-chevron-down arrow' ></i>
+      </div>
+      <ul class="sub-menu">
+        <li><a class="link_name" href="#">Plugins</a></li>
+        <li><a href="#">UI Face</a></li>
+        <li><a href="#">Pigments</a></li>
+        <li><a href="#">Box Icons</a></li>
+      </ul>
+    </li>
 
-                <li class="search-box">
-                    <i class='bx bx-search icon'></i>
-                    <input type="text" placeholder="Search...">
-                </li>
-
-              
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-bar-chart-alt-2 icon' ></i>
-                            <span class="text nav-text">Contratacion</span>
-                        </a>
-                    </li>
-
-                    
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-pie-chart-alt icon' ></i>
-                            <span class="text nav-text">Ventas</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-heart icon' ></i>
-                            <span class="text nav-text">Pqrs</span>
-                        </a>
-                    </li>
-
-                </ul>
-            </div>
-
-            <div class="bottom-content">
-                <li class="">
-                    <a href="#">
-                        <i class='bx bx-log-out icon' ></i>
-                        <span class="text nav-text">Logout</span>
-                    </a>
-                </li>
-
-                <li class="mode">
-                    <div class="sun-moon">
-                        <i class='bx bx-moon icon moon'></i>
-                        <i class='bx bx-sun icon sun'></i>
-                    </div>
-                    <span class="mode-text text">Dark mode</span>
-
-                    <div class="toggle-switch">
-                        <span class="switch"></span>
-                    </div>
-                </li>
-                
-            </div>
+      <div class="profile-details">
+        <div class="profile-content">
+          <!--<img src="image/profile.jpg" alt="profileImg">-->
         </div>
-
-    </nav>
-
-    <section class="home">
-   
-    <img class="w3-display-topmiddle Logo" src="img/logo.png" alt="">
-
-
-        <table class="table table-dark table-hover">
-            <thead class="table-bordered">
-            <tr>
-                <th>Numero Documento</th>
-                <th>Tipo Documento</th>
-                <th>Correo</th>
-                <th>Nombres</th>
-                <th>Apellidos</th>
-                <th>Telefono</th>
-                <th>Dirección</th>
-                <th>Nacionalidad</th>
-                <th>Contrato</th>
-                <th>Acciones</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="Usuario : ${Usuario}">
-                <td th:text="${Usuario.Nombre}">Nombres</td>
-                <td th:text="${Usuario.Apellido}">Nombres</td>
-                <td th:text="${Usuario.Documento}">Nombres</td>
-                <td th:text="${Usuario.telefono}">Nombres</td>
-                <td th:text="${Usuario.Correo}">Nombres</td>
-                <td th:text="${Usuario.Recidencia}">Nombres</td>
-            </tr>
-            </tbody>
-        </table>
-
-
-
-
-
-
-
-          
-    </section>
-
-    <script>
-        const body = document.querySelector('body'),
-      sidebar = body.querySelector('nav'),
-      toggle = body.querySelector(".toggle"),
-      searchBtn = body.querySelector(".search-box"),
-      modeSwitch = body.querySelector(".toggle-switch"),
-      modeText = body.querySelector(".mode-text");
-
-
-toggle.addEventListener("click" , () =>{
+        <div class="name-job">
+          <div class="profile_name">Prem Shahi</div>
+          <div class="job">Web Desginer</div>
+        </div>
+        <i class='bx bx-log-out' ></i>
+      </div>
+    </li>
+  </ul>
+</div>
+<section class="home-section">
+  <div class="home-content">
+    <i class='bx bx-menu' ></i>
+    <span class="text">Drop Down Sidebar</span>
+  </div>
+</section>
+<script>
+  let arrow = document.querySelectorAll(".arrow");
+  for (var i = 0; i < arrow.length; i++) {
+    arrow[i].addEventListener("click", (e)=>{
+   let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+   arrowParent.classList.toggle("showMenu");
+    });
+  }
+  let sidebar = document.querySelector(".sidebar");
+  let sidebarBtn = document.querySelector(".bx-menu");
+  console.log(sidebarBtn);
+  sidebarBtn.addEventListener("click", ()=>{
     sidebar.classList.toggle("close");
-})
-
-searchBtn.addEventListener("click" , () =>{
-    sidebar.classList.remove("close");
-})
-
-modeSwitch.addEventListener("click" , () =>{
-    body.classList.toggle("dark");
-    
-    if(body.classList.contains("dark")){
-        modeText.innerText = "Light mode";
-    }else{
-        modeText.innerText = "Dark mode";
-        
-    }
-});
-    </script>
-
+  });
+  </script>
 </body>
 </html>
