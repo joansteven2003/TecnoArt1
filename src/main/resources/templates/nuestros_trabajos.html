@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>INICIO</title>
     <meta charset="UTF-8">
@@ -24,11 +24,11 @@
         <nav class="row flex-direction">
             <div class="col-2 laterales"></div>
             <div class="col-8 nav">
-                <a href="index.html" class="col-2">INICIO</a>
-                <a href="acerca_de_nosotros.html" class="col-2">ACERCA DE NOSOTROS</a>
-                <a href="trabaja_con_nosotros.html" class="col-2">TRABAJA CON NOSOTROS</a>
-                <a href="nuestros_trabajos.html" class="col-2 menu-home">NUESTROS TRABAJOS</a>
-                <a href="login.html" class="col-2">INGRESO</a>
+                <a th:href="@{/}" class="col-2 menu-home">INICIO</a>
+                <a th:href="@{/conocenos}" class="col-2">ACERCA DE NOSOTROS</a>
+                <a th:href="@{/TrabajaConNosotros}" class="col-2">TRABAJA CON NOSOTROS</a>
+                <a th:href="@{/NuestroTrabajo}" class="col-2">NUESTROS TRABAJOS</a>
+                <a th:href="@{/login}" class="col-2">INGRESO</a>
             </div>
             <div class="col-2 laterales"></div>
         </nav>

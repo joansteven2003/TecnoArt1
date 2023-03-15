@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.app.web.servicios.PqrsServicio;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class IndexController {
@@ -14,18 +15,34 @@ public class IndexController {
 
 	@GetMapping("/")
 	public String index(Model modelo) {
-		modelo.addAttribute("pqrs", servicio.listarPQRS());
+
 		return "/index";
 	}
 	
 	@GetMapping("/conocenos")
 	public String conocenos(Model modelo) {
-		modelo.addAttribute("pqrs", servicio.listarPQRS());
-		return "/conocenos"; 
+
+		return "/acerca_de_nosotros";
 	}
-	@GetMapping("/iniciosesion")
+
+	@GetMapping("/TrabajaConNosotros")
+	public String TrabajaConNosotros (Model modelo) {
+		return "/trabaja_con_nosotros";
+	}
+
+	@GetMapping("/NuestroTrabajo")
+	public String NuestroTrabajo (Model modelo) {
+		return "/nuestros_trabajos";
+	}
+	@GetMapping("/login")
 	public String iniciarSesion(Model modelo) {
-		modelo.addAttribute("pqrs", servicio.listarPQRS());
-		return "/inicioSesion"; 
+
+		return "/login";
+	}
+
+	@GetMapping("/Registrarse")
+	public String Registrarse(Model modelo) {
+
+		return "/Registrarse.html";
 	}
 }
