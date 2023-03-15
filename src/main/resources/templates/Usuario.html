@@ -85,45 +85,40 @@
    
     <img class="w3-display-topmiddle Logo" src="img/logo.png" alt="">
 
-        <table class="tabla w3-card-4 w3-container w3-display-middle w3-centered " id="tabla"">
+
+        <table class="table table-dark table-hover">
+            <thead class="table-bordered">
             <tr>
-              <th>Id Usuario de Venta</th>
-              <th>Documento</th>
-              <th>Nombre</th>
-              <th>Telefono</th>
-              <th>Email</th>
-              <th>Residencia</th>
-              <th>Contraseña</th>
+                <th>Numero Documento</th>
+                <th>Tipo Documento</th>
+                <th>Correo</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Telefono</th>
+                <th>Dirección</th>
+                <th>Nacionalidad</th>
+                <th>Contrato</th>
+                <th>Acciones</th>
             </tr>
-            <tr>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
+            </thead>
+            <tbody>
+            <tr th:each="Usuario : ${Usuario}">
+                <td th:text="${Usuario.Nombre}">Nombres</td>
+                <td th:text="${Usuario.Apellido}">Nombres</td>
+                <td th:text="${Usuario.Documento}">Nombres</td>
+                <td th:text="${Usuario.telefono}">Nombres</td>
+                <td th:text="${Usuario.Correo}">Nombres</td>
+                <td th:text="${Usuario.Recidencia}">Nombres</td>
             </tr>
-            <tr>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-            </tr>
-            <tr>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-            </tr>
-          </table>
-   
+            </tbody>
+        </table>
+
+
+
+
+
+
+
           
     </section>
 
