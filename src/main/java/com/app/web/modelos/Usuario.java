@@ -40,7 +40,8 @@ public class Usuario {
 	@JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "id_usuario"), inverseJoinColumns = @JoinColumn(name = "id_rol"))
 	private Set<Rol> roles;
 
-
+	@OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
+	private HojaDeVida hojaDeVida;
 
 	@OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
 	private Contrato contrato;
@@ -51,7 +52,7 @@ public class Usuario {
 	public Usuario() {
 	}
 
-	public Usuario(long idUsuario, String nombre, String apellido, long documento, long telefono, String correo, String recidencia, String password, byte[] hojaDeVida, List<Venta> listVenta, Set<Rol> roles, Contrato contrato, Postulacion postulacion) {
+	public Usuario(long idUsuario, String nombre, String apellido, long documento, long telefono, String correo, String recidencia, String password, byte[] hojaDeVida, List<Venta> listVenta, Set<Rol> roles, com.app.web.modelos.HojaDeVida hojaDeVida1, Contrato contrato, Postulacion postulacion) {
 		IdUsuario = idUsuario;
 		Nombre = nombre;
 		Apellido = apellido;
@@ -63,6 +64,7 @@ public class Usuario {
 		HojaDeVida = hojaDeVida;
 		ListVenta = listVenta;
 		this.roles = roles;
+		this.hojaDeVida = hojaDeVida1;
 		this.contrato = contrato;
 		this.postulacion = postulacion;
 	}
@@ -135,6 +137,26 @@ public class Usuario {
 		return HojaDeVida;
 	}
 
+	public void setHojaDeVida(com.app.web.modelos.HojaDeVida hojaDeVida) {
+		this.hojaDeVida = hojaDeVida;
+	}
+
+	public Contrato getContrato() {
+		return contrato;
+	}
+
+	public void setContrato(Contrato contrato) {
+		this.contrato = contrato;
+	}
+
+	public Postulacion getPostulacion() {
+		return postulacion;
+	}
+
+	public void setPostulacion(Postulacion postulacion) {
+		this.postulacion = postulacion;
+	}
+
 	public void setHojaDeVida(byte[] hojaDeVida) {
 		HojaDeVida = hojaDeVida;
 	}
@@ -155,22 +177,6 @@ public class Usuario {
 		this.roles = roles;
 	}
 
-	public Contrato getContrato() {
-		return contrato;
-	}
-
-	public void setContrato(Contrato contrato) {
-		this.contrato = contrato;
-	}
-
-	public Postulacion getPostulacion() {
-		return postulacion;
-	}
-
-	public void setPostulacion(Postulacion postulacion) {
-		this.postulacion = postulacion;
-	}
-
 	@Override
 	public String toString() {
 		return "Usuario{" +
@@ -185,6 +191,7 @@ public class Usuario {
 				", HojaDeVida=" + Arrays.toString(HojaDeVida) +
 				", ListVenta=" + ListVenta +
 				", roles=" + roles +
+				", hojaDeVida=" + hojaDeVida +
 				", contrato=" + contrato +
 				", postulacion=" + postulacion +
 				'}';
