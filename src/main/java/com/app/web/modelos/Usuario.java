@@ -14,10 +14,8 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long IdUsuario;
 
-	@Column(name = "Nombre", nullable = true)
-	private String Nombre;
-	@Column(name = "Apellido", nullable = true)
-	private String Apellido;
+	@Column(name = "NombreCompleto", nullable = true)
+	private String NombreCompleto;
 	@Column(name = "Documento", nullable = true)
 	private long Documento;
 	@Column(name = "Telefono", nullable = true)
@@ -52,10 +50,9 @@ public class Usuario {
 	public Usuario() {
 	}
 
-	public Usuario(long idUsuario, String nombre, String apellido, long documento, long telefono, String correo, String recidencia, String password, byte[] hojaDeVida, List<Venta> listVenta, Set<Rol> roles, com.app.web.modelos.HojaDeVida hojaDeVida1, Contrato contrato, Postulacion postulacion) {
+	public Usuario(long idUsuario, String nombreCompleto, long documento, long telefono, String correo, String recidencia, String password, byte[] hojaDeVida, List<Venta> listVenta, Set<Rol> roles, com.app.web.modelos.HojaDeVida hojaDeVida1, Contrato contrato, Postulacion postulacion) {
 		IdUsuario = idUsuario;
-		Nombre = nombre;
-		Apellido = apellido;
+		NombreCompleto = nombreCompleto;
 		Documento = documento;
 		Telefono = telefono;
 		Correo = correo;
@@ -77,20 +74,12 @@ public class Usuario {
 		IdUsuario = idUsuario;
 	}
 
-	public String getNombre() {
-		return Nombre;
+	public String getNombreCompleto() {
+		return NombreCompleto;
 	}
 
-	public void setNombre(String nombre) {
-		Nombre = nombre;
-	}
-
-	public String getApellido() {
-		return Apellido;
-	}
-
-	public void setApellido(String apellido) {
-		Apellido = apellido;
+	public void setNombreCompleto(String nombreCompleto) {
+		NombreCompleto = nombreCompleto;
 	}
 
 	public long getDocumento() {
@@ -181,8 +170,7 @@ public class Usuario {
 	public String toString() {
 		return "Usuario{" +
 				"IdUsuario=" + IdUsuario +
-				", Nombre='" + Nombre + '\'' +
-				", Apellido='" + Apellido + '\'' +
+				", NombreCompleto='" + NombreCompleto + '\'' +
 				", Documento=" + Documento +
 				", Telefono=" + Telefono +
 				", Correo='" + Correo + '\'' +
