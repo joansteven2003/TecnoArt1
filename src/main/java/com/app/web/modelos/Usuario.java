@@ -40,6 +40,8 @@ public class Usuario {
 
 	@OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
 	private HojaDeVida hojaDeVida;
+    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
+    private Cotizacion cotizacion;
 
 	@OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
 	private Contrato contrato;
@@ -50,138 +52,148 @@ public class Usuario {
 	public Usuario() {
 	}
 
-	public Usuario(long idUsuario, String nombreCompleto, long documento, long telefono, String correo, String recidencia, String password, byte[] hojaDeVida, List<Venta> listVenta, Set<Rol> roles, com.app.web.modelos.HojaDeVida hojaDeVida1, Contrato contrato, Postulacion postulacion) {
-		IdUsuario = idUsuario;
-		NombreCompleto = nombreCompleto;
-		Documento = documento;
-		Telefono = telefono;
-		Correo = correo;
-		Recidencia = recidencia;
-		this.password = password;
-		HojaDeVida = hojaDeVida;
-		ListVenta = listVenta;
-		this.roles = roles;
-		this.hojaDeVida = hojaDeVida1;
-		this.contrato = contrato;
-		this.postulacion = postulacion;
-	}
+    public Usuario(long idUsuario, String nombreCompleto, long documento, long telefono, String correo, String recidencia, String password, byte[] hojaDeVida, List<Venta> listVenta, Set<Rol> roles, com.app.web.modelos.HojaDeVida hojaDeVida1, Cotizacion cotizacion, Contrato contrato, Postulacion postulacion) {
+        IdUsuario = idUsuario;
+        NombreCompleto = nombreCompleto;
+        Documento = documento;
+        Telefono = telefono;
+        Correo = correo;
+        Recidencia = recidencia;
+        this.password = password;
+        HojaDeVida = hojaDeVida;
+        ListVenta = listVenta;
+        this.roles = roles;
+        this.hojaDeVida = hojaDeVida1;
+        this.cotizacion = cotizacion;
+        this.contrato = contrato;
+        this.postulacion = postulacion;
+    }
 
-	public long getIdUsuario() {
-		return IdUsuario;
-	}
+    public long getIdUsuario() {
+        return IdUsuario;
+    }
 
-	public void setIdUsuario(long idUsuario) {
-		IdUsuario = idUsuario;
-	}
+    public void setIdUsuario(long idUsuario) {
+        IdUsuario = idUsuario;
+    }
 
-	public String getNombreCompleto() {
-		return NombreCompleto;
-	}
+    public String getNombreCompleto() {
+        return NombreCompleto;
+    }
 
-	public void setNombreCompleto(String nombreCompleto) {
-		NombreCompleto = nombreCompleto;
-	}
+    public void setNombreCompleto(String nombreCompleto) {
+        NombreCompleto = nombreCompleto;
+    }
 
-	public long getDocumento() {
-		return Documento;
-	}
+    public long getDocumento() {
+        return Documento;
+    }
 
-	public void setDocumento(long documento) {
-		Documento = documento;
-	}
+    public void setDocumento(long documento) {
+        Documento = documento;
+    }
 
-	public long getTelefono() {
-		return Telefono;
-	}
+    public long getTelefono() {
+        return Telefono;
+    }
 
-	public void setTelefono(long telefono) {
-		Telefono = telefono;
-	}
+    public void setTelefono(long telefono) {
+        Telefono = telefono;
+    }
 
-	public String getCorreo() {
-		return Correo;
-	}
+    public String getCorreo() {
+        return Correo;
+    }
 
-	public void setCorreo(String correo) {
-		Correo = correo;
-	}
+    public void setCorreo(String correo) {
+        Correo = correo;
+    }
 
-	public String getRecidencia() {
-		return Recidencia;
-	}
+    public String getRecidencia() {
+        return Recidencia;
+    }
 
-	public void setRecidencia(String recidencia) {
-		Recidencia = recidencia;
-	}
+    public void setRecidencia(String recidencia) {
+        Recidencia = recidencia;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	public byte[] getHojaDeVida() {
-		return HojaDeVida;
-	}
+    public byte[] getHojaDeVida() {
+        return HojaDeVida;
+    }
 
-	public void setHojaDeVida(com.app.web.modelos.HojaDeVida hojaDeVida) {
-		this.hojaDeVida = hojaDeVida;
-	}
+    public void setHojaDeVida(com.app.web.modelos.HojaDeVida hojaDeVida) {
+        this.hojaDeVida = hojaDeVida;
+    }
 
-	public Contrato getContrato() {
-		return contrato;
-	}
+    public Cotizacion getCotizacion() {
+        return cotizacion;
+    }
 
-	public void setContrato(Contrato contrato) {
-		this.contrato = contrato;
-	}
+    public void setCotizacion(Cotizacion cotizacion) {
+        this.cotizacion = cotizacion;
+    }
 
-	public Postulacion getPostulacion() {
-		return postulacion;
-	}
+    public Contrato getContrato() {
+        return contrato;
+    }
 
-	public void setPostulacion(Postulacion postulacion) {
-		this.postulacion = postulacion;
-	}
+    public void setContrato(Contrato contrato) {
+        this.contrato = contrato;
+    }
 
-	public void setHojaDeVida(byte[] hojaDeVida) {
-		HojaDeVida = hojaDeVida;
-	}
+    public Postulacion getPostulacion() {
+        return postulacion;
+    }
 
-	public List<Venta> getListVenta() {
-		return ListVenta;
-	}
+    public void setPostulacion(Postulacion postulacion) {
+        this.postulacion = postulacion;
+    }
 
-	public void setListVenta(List<Venta> listVenta) {
-		ListVenta = listVenta;
-	}
+    public void setHojaDeVida(byte[] hojaDeVida) {
+        HojaDeVida = hojaDeVida;
+    }
 
-	public Set<Rol> getRoles() {
-		return roles;
-	}
+    public List<Venta> getListVenta() {
+        return ListVenta;
+    }
 
-	public void setRoles(Set<Rol> roles) {
-		this.roles = roles;
-	}
+    public void setListVenta(List<Venta> listVenta) {
+        ListVenta = listVenta;
+    }
 
-	@Override
-	public String toString() {
-		return "Usuario{" +
-				"IdUsuario=" + IdUsuario +
-				", NombreCompleto='" + NombreCompleto + '\'' +
-				", Documento=" + Documento +
-				", Telefono=" + Telefono +
-				", Correo='" + Correo + '\'' +
-				", Recidencia='" + Recidencia + '\'' +
-				", password='" + password + '\'' +
-				", HojaDeVida=" + Arrays.toString(HojaDeVida) +
-				", ListVenta=" + ListVenta +
-				", roles=" + roles +
-				", hojaDeVida=" + hojaDeVida +
-				", contrato=" + contrato +
-				", postulacion=" + postulacion +
-				'}';
-	}
+    public Set<Rol> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Rol> roles) {
+        this.roles = roles;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "IdUsuario=" + IdUsuario +
+                ", NombreCompleto='" + NombreCompleto + '\'' +
+                ", Documento=" + Documento +
+                ", Telefono=" + Telefono +
+                ", Correo='" + Correo + '\'' +
+                ", Recidencia='" + Recidencia + '\'' +
+                ", password='" + password + '\'' +
+                ", HojaDeVida=" + Arrays.toString(HojaDeVida) +
+                ", ListVenta=" + ListVenta +
+                ", roles=" + roles +
+                ", hojaDeVida=" + hojaDeVida +
+                ", cotizacion=" + cotizacion +
+                ", contrato=" + contrato +
+                ", postulacion=" + postulacion +
+                '}';
+    }
 }
