@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <!-- Created by CodingLab |www.youtube.com/CodingLabYT-->
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
   <title>Usuario </title>
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/w3.css">
   <!-- Boxiocns CDN Link -->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,7 +30,7 @@
       <div class="iocn-link">
         <a href="#">
           <i class='bx bx-collection' ></i>
-          <span class="link_name">Ventas</span>
+          <span class="link_name">Ventas    </span>
         </a>
         <i class='bx bxs-chevron-down arrow' ></i>
       </div>
@@ -47,7 +48,7 @@
       <div class="iocn-link">
         <a href="#">
           <i class='bx bx-book-alt' ></i>
-          <span class="link_name">Pqrs</span>
+          <span class="link_name">Pqrs    </span>
         </a>
         <i class='bx bxs-chevron-down arrow' ></i>
       </div>
@@ -64,15 +65,16 @@
       <div class="iocn-link">
         <a href="#">
           <i class='bx bx-plug' ></i>
-          <span class="link_name">Plugins</span>
+          <span class="link_name">Contratación</span>
         </a>
         <i class='bx bxs-chevron-down arrow' ></i>
       </div>
       <ul class="sub-menu">
-        <li><a class="link_name" href="#">Plugins</a></li>
-        <li><a href="#">UI Face</a></li>
-        <li><a href="#">Pigments</a></li>
-        <li><a href="#">Box Icons</a></li>
+        <li><a class="link_name" href="#">Contratación</a></li>
+        <li><a href="#">Consultar Citas</a></li>
+        <li><a href="#">Consultar cargos</a></li>
+        <li><a href="#">Consultar Contratos</a></li>
+        <li><a href="#">Consultar Vacante</a></li>
       </ul>
     </li>
 
@@ -92,7 +94,42 @@
 <section class="home-section">
   <div class="home-content">
     <i class='bx bx-menu' ></i>
-    <span class="text">Drop Down Sidebar</span>
+  </div>
+
+  <div class="container">
+    <div class="col-lg-3">
+      <a th:href="@{/Usuario/Registrar}" class="w3-button w3-round-large w3-blue" style="margin-button:100px;">Agregar Usuario</a>
+    </div>
+    <table class="w3-table w3-striped w3-border">
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Documento</th>
+        <th>Telefono</th>
+        <th>Correo</th>
+        <th>Recidencia</th>
+        <th>Hoja De Vidae</th>
+        <th>Venta</th>
+        <th>Rol</th>
+        <th>Contrato</th>
+        <th>Postulacion</th>
+
+      </tr>
+      <tr th:each="Usuario : ${Usuario}">
+        <td th:text="${Usuario.Nombre}">Nombres</td>
+        <td th:text="${Usuario.Apellido}">Nombres</td>
+        <td th:text="${Usuario.Documento}">Nombres</td>
+        <td th:text="${Usuario.Telefono}">Nombres</td>
+        <td th:text="${Usuario.Correo}">Nombres</td>
+        <td th:text="${Usuario.telefono}">Nombres</td>
+        <td th:text="${Usuario.Recidencia}">Nombres</td>
+
+
+
+
+
+      </tr>
+    </table>
   </div>
 </section>
 <script>

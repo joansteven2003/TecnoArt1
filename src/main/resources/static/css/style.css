@@ -257,4 +257,11 @@
     width: 100%;
     left: 0;
   }
+  .w3-table{
+  height:100px;
+  width:200px;
+   display: flex;
+
+  }
+
 }
