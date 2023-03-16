@@ -5,13 +5,13 @@ import com.app.web.modelos.Cotizacion;
 import java.util.List;
 
 public interface CotizacionServicio {
-    List<Cotizacion> ListaTodoLosContratos();
+    List<Cotizacion> ListarCotizaciones();
 
-    public Cotizacion guardarContrato (Cotizacion cotizacion);
+    public Cotizacion guardarCotizacion (Cotizacion cotizacion);
 
-    public Cotizacion  obtenerContratoPorId(Long IdContrato );
+    public Cotizacion  obtenerCotizacionPorId(Long IdCotizacion );
 
-    public Cotizacion actualizarContrato (Cotizacion cotizacion);
+    public Cotizacion actualizarCotizacion (Cotizacion cotizacion);
 
-    public void eliminarContrato(Long IdContrato );
+    public void eliminarCotizacion(Long IdContrato );
 }
