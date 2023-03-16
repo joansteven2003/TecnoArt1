@@ -66,7 +66,7 @@ public class UsuarioController {
 		UsuarioExistente.setRoles(usuario.getRoles());
 		UsuarioExistente.setPostulacion(usuario.getPostulacion());
 		UsuarioExistente.setContrato(usuario.getContrato());
-
+		UsuarioExistente.setCotizacion(usuario.getCotizacion());
 		servicio.actualizarUsuarios(UsuarioExistente);
 		return "redirect:/Usuario";
 	}
