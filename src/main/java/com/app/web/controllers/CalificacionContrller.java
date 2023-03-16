@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.app.web.modelos.Calificacion;
 import com.app.web.servicios.CalificacionServicio;
 
+import java.util.List;
+
 @Controller
 public class CalificacionContrller {
 	@Autowired
@@ -32,8 +34,10 @@ public class CalificacionContrller {
 	@GetMapping("/Calificacion/Registrar")
 	public String CalificacionFormulario(Model modelo) {
 		Calificacion calificacion = new Calificacion();
+		List<Calificacion> listaVenta = servicio.listarCalificacion();
 		modelo.addAttribute("Calificacion", calificacion);
-		return "/crearCalificacion";
+		modelo.addAttribute("venta", listaVenta);
+		return "/Generar_Calificacion";
 	}
 
 	@PostMapping("/Calificacion/Guardar")

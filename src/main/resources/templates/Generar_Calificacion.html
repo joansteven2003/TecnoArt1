@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href="css/style_roles.css">
-    <link rel="stylesheet" href="css/style_Calificacion.css">
-    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="/css/style_roles.css">
+    <link rel="stylesheet" href="/css/style_Calificacion.css">
+    <link rel="stylesheet" href="/css/w3.css">
     <!----===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
@@ -87,7 +87,7 @@
             <div class="container1">
 
                 <header>Generar calificación</header>
-                <form th:action="@{/Guardar}" th:object=${Calificacion} class="form formulario" id="formulario">
+                <form th:action="@{/Calificacion/Registrar}" th:object=${Calificacion} class="form formulario" id="formulario">
 
                     <!-- Grupo: Estrellas -->
                     <div class="input-box formulario__grupo" id="grupo__Estrellas">
@@ -103,16 +103,17 @@
                     <!-- Grupo: Venta -->
                     <div class="formulario__grupo input-box" id="grupo-select">
                         <label for="opcion" class="formulario__label">Venta que realizo</label>
-                        <select name="opcion" id="opcion" class="formulario__input select-box formulario__select">
+                        <select th:field="*{Venta}" name="opcion" id="opcion" class="formulario__input select-box formulario__select">
                             <option value="">--Seleccione una opción--</option>
-                            <option value="opcion1">Opción 1</option>
-                            <option value="opcion2">Opción 2</option>
-                            <option value="opcion3">Opción 3</option>
+                            <option value="opcion1" th:each="venta:${venta}"
+                                    th:value="${Venta.IdVenta}"
+                                    th:text="${Venta.IdVenta}"
+                            />
+
                         </select>
                         <p class="formulario__input-error"> Seleccione una opción válida.</p>
                     </div>
-                        <p class="formulario__input-error">Ingresa una opservación Valida.</p>
-                    </div>
+
         
                     <div class="formulario__mensaje" id="formulario__mensaje">
                         <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario
