@@ -14,10 +14,8 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long IdUsuario;
 
-	@Column(name = "Nombre", nullable = true)
-	private String Nombre;
-	@Column(name = "Apellido", nullable = true)
-	private String Apellido;
+	@Column(name = "NombreCompleto", nullable = true)
+	private String NombreCompleto;
 	@Column(name = "Documento", nullable = true)
 	private long Documento;
 	@Column(name = "Telefono", nullable = true)
@@ -40,7 +38,10 @@ public class Usuario {
 	@JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "id_usuario"), inverseJoinColumns = @JoinColumn(name = "id_rol"))
 	private Set<Rol> roles;
 
-
+	@OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
+	private HojaDeVida hojaDeVida;
+    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
+    private Cotizacion cotizacion;
 
 	@OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
 	private Contrato contrato;
@@ -51,142 +52,148 @@ public class Usuario {
 	public Usuario() {
 	}
 
-	public Usuario(long idUsuario, String nombre, String apellido, long documento, long telefono, String correo, String recidencia, String password, byte[] hojaDeVida, List<Venta> listVenta, Set<Rol> roles, Contrato contrato, Postulacion postulacion) {
-		IdUsuario = idUsuario;
-		Nombre = nombre;
-		Apellido = apellido;
-		Documento = documento;
-		Telefono = telefono;
-		Correo = correo;
-		Recidencia = recidencia;
-		this.password = password;
-		HojaDeVida = hojaDeVida;
-		ListVenta = listVenta;
-		this.roles = roles;
-		this.contrato = contrato;
-		this.postulacion = postulacion;
-	}
+    public Usuario(long idUsuario, String nombreCompleto, long documento, long telefono, String correo, String recidencia, String password, byte[] hojaDeVida, List<Venta> listVenta, Set<Rol> roles, com.app.web.modelos.HojaDeVida hojaDeVida1, Cotizacion cotizacion, Contrato contrato, Postulacion postulacion) {
+        IdUsuario = idUsuario;
+        NombreCompleto = nombreCompleto;
+        Documento = documento;
+        Telefono = telefono;
+        Correo = correo;
+        Recidencia = recidencia;
+        this.password = password;
+        HojaDeVida = hojaDeVida;
+        ListVenta = listVenta;
+        this.roles = roles;
+        this.hojaDeVida = hojaDeVida1;
+        this.cotizacion = cotizacion;
+        this.contrato = contrato;
+        this.postulacion = postulacion;
+    }
 
-	public long getIdUsuario() {
-		return IdUsuario;
-	}
+    public long getIdUsuario() {
+        return IdUsuario;
+    }
 
-	public void setIdUsuario(long idUsuario) {
-		IdUsuario = idUsuario;
-	}
+    public void setIdUsuario(long idUsuario) {
+        IdUsuario = idUsuario;
+    }
 
-	public String getNombre() {
-		return Nombre;
-	}
+    public String getNombreCompleto() {
+        return NombreCompleto;
+    }
 
-	public void setNombre(String nombre) {
-		Nombre = nombre;
-	}
+    public void setNombreCompleto(String nombreCompleto) {
+        NombreCompleto = nombreCompleto;
+    }
 
-	public String getApellido() {
-		return Apellido;
-	}
+    public long getDocumento() {
+        return Documento;
+    }
 
-	public void setApellido(String apellido) {
-		Apellido = apellido;
-	}
+    public void setDocumento(long documento) {
+        Documento = documento;
+    }
 
-	public long getDocumento() {
-		return Documento;
-	}
+    public long getTelefono() {
+        return Telefono;
+    }
 
-	public void setDocumento(long documento) {
-		Documento = documento;
-	}
+    public void setTelefono(long telefono) {
+        Telefono = telefono;
+    }
 
-	public long getTelefono() {
-		return Telefono;
-	}
+    public String getCorreo() {
+        return Correo;
+    }
 
-	public void setTelefono(long telefono) {
-		Telefono = telefono;
-	}
+    public void setCorreo(String correo) {
+        Correo = correo;
+    }
 
-	public String getCorreo() {
-		return Correo;
-	}
+    public String getRecidencia() {
+        return Recidencia;
+    }
 
-	public void setCorreo(String correo) {
-		Correo = correo;
-	}
+    public void setRecidencia(String recidencia) {
+        Recidencia = recidencia;
+    }
 
-	public String getRecidencia() {
-		return Recidencia;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public void setRecidencia(String recidencia) {
-		Recidencia = recidencia;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public byte[] getHojaDeVida() {
+        return HojaDeVida;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public void setHojaDeVida(com.app.web.modelos.HojaDeVida hojaDeVida) {
+        this.hojaDeVida = hojaDeVida;
+    }
 
-	public byte[] getHojaDeVida() {
-		return HojaDeVida;
-	}
+    public Cotizacion getCotizacion() {
+        return cotizacion;
+    }
 
-	public void setHojaDeVida(byte[] hojaDeVida) {
-		HojaDeVida = hojaDeVida;
-	}
+    public void setCotizacion(Cotizacion cotizacion) {
+        this.cotizacion = cotizacion;
+    }
 
-	public List<Venta> getListVenta() {
-		return ListVenta;
-	}
+    public Contrato getContrato() {
+        return contrato;
+    }
 
-	public void setListVenta(List<Venta> listVenta) {
-		ListVenta = listVenta;
-	}
+    public void setContrato(Contrato contrato) {
+        this.contrato = contrato;
+    }
 
-	public Set<Rol> getRoles() {
-		return roles;
-	}
+    public Postulacion getPostulacion() {
+        return postulacion;
+    }
 
-	public void setRoles(Set<Rol> roles) {
-		this.roles = roles;
-	}
+    public void setPostulacion(Postulacion postulacion) {
+        this.postulacion = postulacion;
+    }
 
-	public Contrato getContrato() {
-		return contrato;
-	}
+    public void setHojaDeVida(byte[] hojaDeVida) {
+        HojaDeVida = hojaDeVida;
+    }
 
-	public void setContrato(Contrato contrato) {
-		this.contrato = contrato;
-	}
+    public List<Venta> getListVenta() {
+        return ListVenta;
+    }
 
-	public Postulacion getPostulacion() {
-		return postulacion;
-	}
+    public void setListVenta(List<Venta> listVenta) {
+        ListVenta = listVenta;
+    }
 
-	public void setPostulacion(Postulacion postulacion) {
-		this.postulacion = postulacion;
-	}
+    public Set<Rol> getRoles() {
+        return roles;
+    }
 
-	@Override
-	public String toString() {
-		return "Usuario{" +
-				"IdUsuario=" + IdUsuario +
-				", Nombre='" + Nombre + '\'' +
-				", Apellido='" + Apellido + '\'' +
-				", Documento=" + Documento +
-				", Telefono=" + Telefono +
-				", Correo='" + Correo + '\'' +
-				", Recidencia='" + Recidencia + '\'' +
-				", password='" + password + '\'' +
-				", HojaDeVida=" + Arrays.toString(HojaDeVida) +
-				", ListVenta=" + ListVenta +
-				", roles=" + roles +
-				", contrato=" + contrato +
-				", postulacion=" + postulacion +
-				'}';
-	}
+    public void setRoles(Set<Rol> roles) {
+        this.roles = roles;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "IdUsuario=" + IdUsuario +
+                ", NombreCompleto='" + NombreCompleto + '\'' +
+                ", Documento=" + Documento +
+                ", Telefono=" + Telefono +
+                ", Correo='" + Correo + '\'' +
+                ", Recidencia='" + Recidencia + '\'' +
+                ", password='" + password + '\'' +
+                ", HojaDeVida=" + Arrays.toString(HojaDeVida) +
+                ", ListVenta=" + ListVenta +
+                ", roles=" + roles +
+                ", hojaDeVida=" + hojaDeVida +
+                ", cotizacion=" + cotizacion +
+                ", contrato=" + contrato +
+                ", postulacion=" + postulacion +
+                '}';
+    }
 }
