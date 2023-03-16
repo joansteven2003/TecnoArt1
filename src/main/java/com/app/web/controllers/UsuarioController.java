@@ -29,11 +29,11 @@ public class UsuarioController {
 	}
 		//experimentos//
 		
-	@GetMapping("/Usuario/Registrar")
+	@GetMapping("/Usuario/Registrarse")
 	public String UsuarioFormulario(Model modelo) {
 		Usuario usuario = new Usuario();
 		modelo.addAttribute("Usuario", usuario);
-		return "/crearUsuario";
+		return "/Registrarse";
 	}
 
 	@PostMapping("/Usuario/Guardar")
@@ -55,8 +55,7 @@ public class UsuarioController {
 
 		Usuario UsuarioExistente = servicio.obtenerUsuariosPorId(IdUsuario);
 		UsuarioExistente.setIdUsuario(IdUsuario);
-		UsuarioExistente.setNombre(usuario.getNombre());
-		UsuarioExistente.setApellido(usuario.getApellido());
+		UsuarioExistente.setNombreCompleto(usuario.getNombreCompleto());
 		UsuarioExistente.setDocumento(usuario.getDocumento());
 		UsuarioExistente.setTelefono(usuario.getTelefono());
 		UsuarioExistente.setCorreo(usuario.getCorreo());
