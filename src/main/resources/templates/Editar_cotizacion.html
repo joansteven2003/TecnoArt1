@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Editar Cotización</title>
+    <!---Archivo css--->
+    <link rel="stylesheet" href="css/Style_editarCotizacion.css" />
+</head>
+
+<body>
+    <section class="container">
+        <header>Actualizar cotización</header>
+        <form action="#" class="form formulario" id="formulario">
+            <div class="column">
+
+                <!-- Grupo: Usuario -->
+                <div class="input-box formulario__grupo" id="grupo__Usuario">
+                    <label for="Usuario" class="formulario__label">Usuario Completo</label>
+                    <div class="formulario__grupo-input">
+                        <input type="text" class="formulario__input" name="Usuario" id="Usuario"
+                            placeholder="John Rodrigues">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede
+                        contener numeros, letras y guion bajo.</p>
+                </div>
+
+                <!-- Grupo: fecha -->
+                <div class="input-box formulario__grupo" id="grupo__fecha">
+                    <label for="fecha" class="formulario__label">Fecha</label>
+                    <div class="formulario__grupo-input">
+                        <input type="date" class="formulario__input" name="fecha" id="fecha" required>
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <span class="formulario__input-error">Fecha no válida. Por favor, ingrese una fecha en formato
+                        DD/MM/YYYY.</span>
+                </div>
+            </div>
+
+
+            <!-- Grupo: Estado -->
+            <div class="input-box formulario__grupo" id="grupo__Estado">
+                <label for="ValorVenta" class="formulario__label">Estado</label>
+                <div class="formulario__grupo-input">
+                    <input type="number" class="formulario__input" name="Estado" id="Estado" placeholder="1000000">
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">Escriba su numero de Documento</p>
+            </div>
+
+
+            <!-- Grupo: DescripcionServicio -->
+            <div class="input-box formulario__grupo" id="grupo__comentarios">
+                <label for="comentarios" class="formulario__label">Comentarios</label>
+                <div class="formulario__grupo-input">
+                    <textarea class="formulario__input" name="comentarios" id="comentarios"  rows="4"></textarea>
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">Ingresa comentarios válidos.</p>
+            </div>
+
+            <div class="formulario__mensaje" id="formulario__mensaje">
+                <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario
+                    correctamente. </p>
+            </div>
+
+            <div class="formulario__grupo formulario__grupo-btn-enviar">
+                <button type="submit" class="formulario__btn">Enviar</button>
+                <p class="formulario__mensaje-exito" id="formulario__mensaje-exito"><i
+                        class="fa-solid fa-circle-check"></i> Formulario enviado exitosamente!</p>
+            </div>
+        </form>
+    </section>
+    <!--scrip de registrate------>
+    <script src="js/Cotizacion.js"></script>
+    <!--scrip de iconos------>
+    <script src="https://kit.fontawesome.com/f9d0333c9c.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
