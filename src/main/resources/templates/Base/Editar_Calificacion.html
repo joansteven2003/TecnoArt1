@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Editar Vacante</title>
+    <!---Archivo css--->
+    <link rel="stylesheet" href="css/Style_editarVacante.css" />
+</head>
+
+<body>
+    <section class="container">
+        <header>Actualizar calificación</header>
+        <form action="#" class="form formulario" id="formulario">
+
+            <!-- Grupo: Estrellas -->
+            <div class="input-box formulario__grupo" id="grupo__Estrellas">
+                <label for="Estrellas" class="formulario__label">Estrellas</label>
+                <div class="formulario__grupo-input">
+                    <input type="number" class="formulario__input" name="Estrellas" id="Estrellas"
+                        placeholder="aqui aplicar lo del tutorial de las Estrellas">
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">La cantidad de estrellas son incorrectas solo 1 numero del al 5</p>
+            </div>
+
+            <!-- Grupo: Opservacion -->
+            <div class="input-box formulario__grupo" id="grupo__comentarios">
+                <label for="comentarios" class="formulario__label">Opservación</label>
+                <div class="formulario__grupo-input">
+                    <textarea class="formulario__input" name="comentarios" id="comentarios" rows="4"></textarea>
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">Ingresa una opservación Valida.</p>
+            </div>
+
+            <div class="formulario__mensaje" id="formulario__mensaje">
+                <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario
+                    correctamente. </p>
+            </div>
+
+            <div class="formulario__grupo formulario__grupo-btn-enviar">
+                <button type="submit" class="formulario__btn">Enviar</button>
+                <p class="formulario__mensaje-exito" id="formulario__mensaje-exito"><i
+                        class="fa-solid fa-circle-check"></i> Formulario enviado exitosamente!</p>
+            </div>
+        </form>
+    </section>
+    <!--scrip de registrate------>
+    <script src="js/Calificacion.js"></script>
+    <!--scrip de iconos------>
+    <script src="https://kit.fontawesome.com/f9d0333c9c.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

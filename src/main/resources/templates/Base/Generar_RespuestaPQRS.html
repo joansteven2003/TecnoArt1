@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="css/style_roles.css">
+    <link rel="stylesheet" href="css/style_RespuestaPQRS.css">
+    <link rel="stylesheet" href="css/w3.css">
+    <!----===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Generar Respuesta PQRS</title>
+</head>
+
+<body>
+    <nav class="sidebar close">
+        <header>
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+                <li class="search-box">
+                    <i class='bx bx-search icon'></i>
+                    <input type="text" placeholder="Search...">
+                </li>
+
+
+
+                <li class="nav-link">
+                    <a href="#">
+                        <i class='bx bx-bar-chart-alt-2 icon'></i>
+                        <span class="text nav-text">Contratacion</span>
+                    </a>
+                </li>
+
+
+
+                <li class="nav-link">
+                    <a href="#">
+                        <i class='bx bx-pie-chart-alt icon'></i>
+                        <span class="text nav-text">Ventas</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="#">
+                        <i class='bx bx-heart icon'></i>
+                        <span class="text nav-text">Pqrs</span>
+                    </a>
+                </li>
+
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="">
+                    <a href="#">
+                        <i class='bx bx-log-out icon'></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+
+                <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+            </div>
+        </div>
+
+    </nav>
+
+    <section class="home">
+        <div class="container-div">
+            <div class="container1">
+
+                <header>Realizar Respuesta PQRS</header>
+                <form action="#" class="form formulario" id="formulario">
+
+                    <!-- Fecha de venta y entrega -->
+                    <div class="column">
+
+                        <div class="input-box">
+                            <label class="formulario__label">Fecha creacion PQRS</label>
+                            <input type="date" placeholder="Enter birth date" required />
+                        </div>
+
+                    </div>
+                    <!-- Grupo: Respuesta -->
+                    <div class="input-box formulario__grupo" id="grupo__Respuesta">
+                        <label for="Respuesta" class="formulario__label">Respuesta</label>
+                        <div class="formulario__grupo-input">
+                            <textarea class="formulario__input cajatexto" name="Respuesta"
+                                id="Respuesta"></textarea>
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="formulario__input-error">Escriba opservaciones</p>
+                    </div>
+
+                    <div class="formulario__mensaje" id="formulario__mensaje">
+                        <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario
+                            correctamente. </p>
+                    </div>
+
+                    <div class="formulario__grupo formulario__grupo-btn-enviar">
+                        <button type="submit" class="formulario__btn">Enviar</button>
+                        <p class="formulario__mensaje-exito" id="formulario__mensaje-exito"><i
+                                class="fa-solid fa-circle-check"></i> Formulario enviado exitosamente!</p>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+
+
+    </section>
+
+    <script>
+        const body = document.querySelector('body'),
+            sidebar = body.querySelector('nav'),
+            toggle = body.querySelector(".toggle"),
+            searchBtn = body.querySelector(".search-box"),
+            modeSwitch = body.querySelector(".toggle-switch"),
+            modeText = body.querySelector(".mode-text");
+
+
+        toggle.addEventListener("click", () => {
+            sidebar.classList.toggle("close");
+        })
+
+        searchBtn.addEventListener("click", () => {
+            sidebar.classList.remove("close");
+        })
+
+        modeSwitch.addEventListener("click", () => {
+            body.classList.toggle("dark");
+
+            if (body.classList.contains("dark")) {
+                modeText.innerText = "Light mode";
+            } else {
+                modeText.innerText = "Dark mode";
+
+            }
+        });
+    </script>
+
+</body>
+
+</html>
