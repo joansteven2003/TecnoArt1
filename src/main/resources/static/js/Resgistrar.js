@@ -2,36 +2,36 @@ const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 
 const expresiones = {
-	recidencia: /^[a-zA-Z0-9._#-]{4,25}$/, // Letras, numeros, guion y guion_bajo
-	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+	Recidencia: /^[a-zA-Z0-9._#-]{4,25}$/, // Letras, numeros, guion y guion_bajo
+	NombreCompleto: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
 	password: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/, /*
 	asegura que la cadena contiene al menos un dígito.
 	asegura que la cadena contiene al menos una letra minúscula.
 	asegura que la cadena contiene al menos una letra mayúscula.
 	asegura que la cadena contiene al menos una letra.
 	asegura que la cadena tiene una longitud mínima de 8 caracteres.
-	*/ 
-	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+	*/
+	Correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
 	Documento: /^\d{8,14}$/, // 7 a 14 numeros.
-    telefono: /^\d{10,14}$/ // 7 a 14 numeros.
+    Telefono: /^\d{10,14}$/ // 7 a 14 numeros.
 }
 
 const campos = {
-	recidencia: false,
-	nombre: false,
+	Recidencia: false,
+	NombreCompleto: false,
 	password: false,
-	correo: false,
+	Correo: false,
     Documento: false,
-	telefono: false
+	Telefono: false
 }
 
 const validarFormulario = (e) => {
 	switch (e.target.name) {
-		case "recidencia":
-			validarCampo(expresiones.recidencia, e.target, 'recidencia');
+		case "Recidencia":
+			validarCampo(expresiones.Recidencia, e.target, 'Recidencia');
 		break;
-		case "nombre":
-			validarCampo(expresiones.nombre, e.target, 'nombre');
+		case "NombreCompleto":
+			validarCampo(expresiones.NombreCompleto, e.target, 'NombreCompleto');
 		break;
 		case "password":
 			validarCampo(expresiones.password, e.target, 'password');
@@ -40,14 +40,14 @@ const validarFormulario = (e) => {
 		case "password2":
 			validarPassword2();
 		break;
-		case "correo":
-			validarCampo(expresiones.correo, e.target, 'correo');
+		case "Correo":
+			validarCampo(expresiones.Correo, e.target, 'Correo');
 		break;
         case "Documento":
 			validarCampo(expresiones.Documento, e.target, 'Documento');
 		break;
-		case "telefono":
-			validarCampo(expresiones.telefono, e.target, 'telefono');
+		case "Telefono":
+			validarCampo(expresiones.Telefono, e.target, 'Telefono');
 		break;
 	}
 }
@@ -100,7 +100,7 @@ formulario.addEventListener('submit', (e) => {
 	e.preventDefault();
 
 	const terminos = document.getElementById('terminos');
-	if(campos.recidencia && campos.nombre && campos.password && campos.correo && campos.telefono && campos.Documento && terminos.checked ){
+	if(campos.Recidencia && campos.NombreCompleto && campos.password && campos.Correo && campos.Telefono && campos.Documento && terminos.checked ){
 		formulario.reset();
 
 		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
