@@ -3,16 +3,98 @@
 <html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Usuario </title>
+  <title>Cargo </title>
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/w3.css">
+  <!-- Boxiocns CDN Link -->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-  <!-------- links data tables----------->
-  <link href="/datatables/datatables.min.js"/>
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+<div class="sidebar close">
+  <div class="logo-details">
+    <img class="logo-details" src="img/Logo.png">
+    <span class="logo_name">Tecno&Art</span>
+  </div>
+  <ul class="nav-links">
+    <li>
+      <a href="#">
+        <i class='bx bx-grid-alt' ></i>
+        <span class="link_name">Dashboard</span>
+      </a>
+      <ul class="sub-menu blank">
+        <li><a class="link_name" href="#">Category</a></li>
+      </ul>
+    </li>
+    <li>
+      <div class="iocn-link">
+        <a href="#">
+          <i class='bx bx-collection' ></i>
+          <span class="link_name">Ventas    </span>
+        </a>
+        <i class='bx bxs-chevron-down arrow' ></i>
+      </div>
+      <ul class="sub-menu">
+        <li><a class="link_name" href="#">Ventas</a></li>
+        <li><a href="#">Consultar Venta</a></li>
+        <li><a href="#">Registrar Venta</a></li>
+        <li><a href="#">Consultar Servicio</a></li>
+        <li><a href="#">Registrar Servicio</a></li>
+        <li><a href="#">Consultar Cotizacion</a></li>
+        <li><a href="#">Registrar Cotizacion</a></li>
+      </ul>
+    </li>
+    <li>
+      <div class="iocn-link">
+        <a href="#">
+          <i class='bx bx-book-alt' ></i>
+          <span class="link_name">Pqrs    </span>
+        </a>
+        <i class='bx bxs-chevron-down arrow' ></i>
+      </div>
+      <ul class="sub-menu">
+        <li><a class="link_name" href="#">Pqrs</a></li>
+        <li><a href="#">Requistrar Pqrs</a></li>
+        <li><a href="#">Consultar Pqrs</a></li>
+        <li><a href="#">Consultar Calificaciones</a></li>
+        <li><a href="#">Registrar Calificacion</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <div class="iocn-link">
+        <a href="#">
+          <i class='bx bx-plug' ></i>
+          <span class="link_name">Contratación</span>
+        </a>
+        <i class='bx bxs-chevron-down arrow' ></i>
+      </div>
+      <ul class="sub-menu">
+        <li><a class="link_name" href="#">Contratación</a></li>
+        <li><a href="#">Consultar Citas</a></li>
+        <li><a href="#">Consultar cargos</a></li>
+        <li><a href="#">Consultar Contratos</a></li>
+        <li><a href="#">Consultar Vacante</a></li>
+      </ul>
+    </li>
+
+    <div class="profile-details">
+      <div class="profile-content">
+        <!--<img src="image/profile.jpg" alt="profileImg">-->
+      </div>
+      <div class="name-job">
+        <div class="profile_name">Prem Shahi</div>
+        <div class="job">Web Desginer</div>
+      </div>
+      <i class='bx bx-log-out' ></i>
+    </div>
+    </li>
+  </ul>
+</div>
+<section class="home-section">
+  <div class="home-content">
+    <i class='bx bx-menu' ></i>
+  </div>
 
   <div class="container">
     <div class="col-lg-3">
