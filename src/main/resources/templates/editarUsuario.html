@@ -16,20 +16,20 @@
       <form  th:action="@{/Usuario/{IdUsuario}(IdUsuario=${Usuario.IdUsuario})}" th:object=${Usuario} method="post" class="form formulario" id="formulario">
 
         <!-- Grupo: Nombre -->
-        <div class="input-box formulario__grupo" id="grupo__nombre">
+        <div class="input-box formulario__grupo" id="grupo__NombreCompleto">
           <label for="nombre" class="formulario__label">Nombre Completo</label>
           <div class="formulario__grupo-input">
-					<input type="text" th:field="*{NombreCompleto}" class="formulario__input" name="nombre" id="nombre" placeholder="John Rodrigues">
+					<input type="text" th:field="*{NombreCompleto}" class="formulario__input" name="NombreCompleto" id="nombre" placeholder="John Rodrigues">
 					<i class="formulario__validacion-estado fas fa-times-circle"></i>
 				</div>
         <p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
         </div>
 
         <!-- Grupo: Correo Electronico -->
-        <div class="input-box formulario__grupo" id="grupo__correo">
+        <div class="input-box formulario__grupo" id="grupo__Correo">
           <label for="correo" class="formulario__label">Correo electronico</label>
           <div class="formulario__grupo-input">
-            <input type="email" th:field="*{Correo}" class="formulario__input" name="correo" id="correo" placeholder="correo@correo.com">
+            <input type="email" th:field="*{Correo}" class="formulario__input" name="Correo" id="correo" placeholder="correo@correo.com">
             <i class="formulario__validacion-estado fas fa-times-circle"></i>
           </div>
           <p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>     
@@ -48,10 +48,10 @@
             <p class="formulario__input-error">Escriba su numero de Documento</p>
           </div>
           <!-- Grupo: Telefono -->
-          <div class="input-box formulario__grupo" id="grupo__telefono">
+          <div class="input-box formulario__grupo" id="grupo__Telefono">
             <label for="telefono" class="formulario__label">Telefono</label>
             <div class="formulario__grupo-input">
-              <input type="number" th:field="*{Telefono}" class="formulario__input" name="telefono" id="telefono" placeholder="3125025">
+              <input type="number" th:field="*{Telefono}" class="formulario__input" name="Telefono" id="telefono" placeholder="3125025">
               <i class="formulario__validacion-estado fas fa-times-circle"></i>
             </div>
             <p class="formulario__input-error">El telefono solo puede contener numeros y el maximo son 14 dígitos.</p>
@@ -60,10 +60,10 @@
 
         <div class="input-box address">
           <!-- Grupo: recidencia -->
-			  <div class="formulario__grupo" id="grupo__recidencia">
+			  <div class="formulario__grupo" id="grupo__Recidencia">
 				<label for="recidencia" class="formulario__label">Recidencia</label>
 				<div class="formulario__grupo-input">
-					<input type="text" th:field="*{Recidencia}" class="formulario__input" name="recidencia" id="recidencia" placeholder="Crr95#65sur">
+					<input type="text" th:field="*{Recidencia}" class="formulario__input" name="Recidencia" id="recidencia" placeholder="Crr95#65sur">
 					<i class="formulario__validacion-estado fas fa-times-circle"></i>
 				</div>
 				<p class="formulario__input-error">El recidencia tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
@@ -95,11 +95,11 @@
 			<div class="formulario__grupo" id="grupo__terminos">
 				<label class="formulario__label">
 					<input class="formulario__checkbox" type="checkbox" name="terminos" id="terminos">
-					Acepto los Terminos y Condiciones
+					Acepto los cambios
 				</label>
 			</div>
       <div class="formulario__mensaje" id="formulario__mensaje">
-				<p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente. </p>
+				<p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Selecione todos los campos y comprobar si estan correctos </p>
 			</div>
 
 			<div class="formulario__grupo formulario__grupo-btn-enviar">
@@ -109,7 +109,7 @@
       </form>
     </section>
     <!--scrip de registrate------>
-    <script src="js/Resgistrar.js"></script>
+    <script src="/js/Resgistrar.js"></script>
     <!--scrip de iconos------>
     <script src="https://kit.fontawesome.com/f9d0333c9c.js" crossorigin="anonymous"></script>
 
