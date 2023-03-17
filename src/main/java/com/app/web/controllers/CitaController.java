@@ -33,7 +33,7 @@ public class CitaController {
 	public String CitaFormulario(Model modelo) {
 		Cita cita = new Cita();
 		modelo.addAttribute("Cita", cita);
-		return "/crearCita";
+		return "/Generar_Cita";
 	}
 
 	@PostMapping("/Cita/Guardar")
@@ -60,6 +60,8 @@ public class CitaController {
 		CitaExistente.setHora(cita.getHora());
 		CitaExistente.setResultado(cita.getResultado());
 		CitaExistente.setPostulacion(cita.getPostulacion());
+		CitaExistente.setCorreo(cita.getCorreo());
+		CitaExistente.setDocumento(cita.getDocumento());
 
 		servicio.actualizarCita(CitaExistente);
 		return "redirect:/Cita";

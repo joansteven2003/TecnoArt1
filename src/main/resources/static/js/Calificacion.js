@@ -70,12 +70,11 @@ inputs.forEach((input) => {
 
 
 formulario.addEventListener('submit', (e) => {
-	e.preventDefault();
+
 
 	const validacion = Object.values(campos).every((campo) => campo);
 
 	if(campos.Estrellas && validacion){
-		formulario.reset();
 
 		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
 		setTimeout(() => {
@@ -86,6 +85,7 @@ formulario.addEventListener('submit', (e) => {
 			icono.classList.remove('formulario__grupo-correcto');
 		});
 	} else {
+	    e.preventDefault();
 		document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
         setTimeout(() => {
 			document.getElementById('formulario__mensaje').classList.remove('formulario__mensaje-activo');

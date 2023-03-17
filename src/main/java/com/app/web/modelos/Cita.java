@@ -27,6 +27,13 @@ public class Cita {
 	@Column(name = "direccion", nullable = false, length = 50)
 	private String direccion;
 
+
+	@Column(name= "correo", nullable = false,length = 150)
+	private String correo;
+
+	@Column (name = "Documento", nullable = false)
+	private Long Documento;
+
 	@Column(name = "fecha", nullable = false)
 	private Date fecha;
 
@@ -43,9 +50,11 @@ public class Cita {
 	public Cita() {
 	}
 
-	public Cita(Long idCita, String direccion, Date fecha, Time hora, Postulacion postulacion, Resultado resultado) {
+	public Cita(Long idCita, String direccion, String correo, Long documento, Date fecha, Time hora, Postulacion postulacion, Resultado resultado) {
 		IdCita = idCita;
 		this.direccion = direccion;
+		this.correo = correo;
+		Documento = documento;
 		this.fecha = fecha;
 		this.hora = hora;
 		this.postulacion = postulacion;
@@ -66,6 +75,22 @@ public class Cita {
 
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
+	}
+
+	public String getCorreo() {
+		return correo;
+	}
+
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+
+	public Long getDocumento() {
+		return Documento;
+	}
+
+	public void setDocumento(Long documento) {
+		Documento = documento;
 	}
 
 	public Date getFecha() {
@@ -105,6 +130,8 @@ public class Cita {
 		return "Cita{" +
 				"IdCita=" + IdCita +
 				", direccion='" + direccion + '\'' +
+				", correo='" + correo + '\'' +
+				", Documento=" + Documento +
 				", fecha=" + fecha +
 				", hora=" + hora +
 				", postulacion=" + postulacion +
