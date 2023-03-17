@@ -34,6 +34,9 @@ public class Cita {
 	@Column (name = "Documento", nullable = false)
 	private Long Documento;
 
+	@Column(name = "nombre", nullable = false)
+	private String nombre;
+
 	@Column(name = "fecha", nullable = false)
 	private Date fecha;
 
@@ -50,92 +53,16 @@ public class Cita {
 	public Cita() {
 	}
 
-	public Cita(Long idCita, String direccion, String correo, Long documento, Date fecha, Time hora, Postulacion postulacion, Resultado resultado) {
+	public Cita(Long idCita, String direccion, String correo, Long documento, String nombre, Date fecha, Time hora, Postulacion postulacion, Resultado resultado) {
 		IdCita = idCita;
 		this.direccion = direccion;
 		this.correo = correo;
 		Documento = documento;
+		this.nombre = nombre;
 		this.fecha = fecha;
 		this.hora = hora;
 		this.postulacion = postulacion;
 		this.resultado = resultado;
 	}
 
-	public Long getIdCita() {
-		return IdCita;
-	}
-
-	public void setIdCita(Long idCita) {
-		IdCita = idCita;
-	}
-
-	public String getDireccion() {
-		return direccion;
-	}
-
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
-	}
-
-	public String getCorreo() {
-		return correo;
-	}
-
-	public void setCorreo(String correo) {
-		this.correo = correo;
-	}
-
-	public Long getDocumento() {
-		return Documento;
-	}
-
-	public void setDocumento(Long documento) {
-		Documento = documento;
-	}
-
-	public Date getFecha() {
-		return fecha;
-	}
-
-	public void setFecha(Date fecha) {
-		this.fecha = fecha;
-	}
-
-	public Time getHora() {
-		return hora;
-	}
-
-	public void setHora(Time hora) {
-		this.hora = hora;
-	}
-
-	public Postulacion getPostulacion() {
-		return postulacion;
-	}
-
-	public void setPostulacion(Postulacion postulacion) {
-		this.postulacion = postulacion;
-	}
-
-	public Resultado getResultado() {
-		return resultado;
-	}
-
-	public void setResultado(Resultado resultado) {
-		this.resultado = resultado;
-	}
-
-	@Override
-	public String toString() {
-		return "Cita{" +
-				"IdCita=" + IdCita +
-				", direccion='" + direccion + '\'' +
-				", correo='" + correo + '\'' +
-				", Documento=" + Documento +
-				", fecha=" + fecha +
-				", hora=" + hora +
-				", postulacion=" + postulacion +
-				", resultado=" + resultado +
-				'}';
-	}
 }
