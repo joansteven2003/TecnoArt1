@@ -98,31 +98,36 @@
 
   <div class="container">
     <div class="col-lg-3">
-      <a th:href="@{/Usuario/Registrar}" class="w3-button w3-round-large w3-blue" style="margin-button:100px;">Agregar Usuario</a>
+      <a th:href="@{/Usuario/Registrarse}" class="w3-button w3-round-large w3-blue" style="margin-button:100px;">Agregar Usuario</a>
     </div>
     <table class="w3-table w3-striped w3-border">
       <tr>
-        <th>Nombre</th>
-        <th>Apellido</th>
+        <th>Nombre completo</th>
         <th>Documento</th>
         <th>Telefono</th>
         <th>Correo</th>
         <th>Recidencia</th>
         <th>Hoja De Vida</th>
         <th>Rol</th>
+        <th>Acciones</th>
 
 
 
       </tr>
       <tr th:each="Usuario : ${Usuario}">
-        <td th:text="${Usuario.Nombre}">Nombres</td>
-        <td th:text="${Usuario.Apellido}">Nombres</td>
+        <td th:text="${Usuario.NombreCompleto}">Nombres</td>
         <td th:text="${Usuario.Documento}">Nombres</td>
         <td th:text="${Usuario.Telefono}">Nombres</td>
         <td th:text="${Usuario.Correo}">Nombres</td>
-
         <td th:text="${Usuario.Recidencia}">Nombres</td>
+        <td th:text="${Usuario.HojaDeVida}">Nombres</td>
+        <td th:text="${Usuario.roles}">Nombres</td>
+        <td>
 
+          <a th:href="@{/Usuario/editar/{IdUsuario}(IdUsuario=${Usuario.IdUsuario})}" class="btn btn-info">Editar</a>
+          <a
+                  th:href="@{/Usuario/eliminar/{IdUsuario}(IdUsuario=${Usuario.IdUsuario})}"
+                  class="btn btn-danger">Eliminar</a></td>
 
 
 
