@@ -2,16 +2,7 @@ package com.app.web.modelos;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "venta")
@@ -39,6 +30,9 @@ public class Venta {
 	@OneToMany(mappedBy = "venta", cascade = { CascadeType.MERGE })
 	List<Pqrs> ListPqrs;
 
+	@OneToOne
+	@JoinColumn(name = "Servicio")
+	private Servicio servicio;
 	@ManyToOne(cascade = { CascadeType.MERGE })
 	@JoinColumn(name = "usuario")
 	private Usuario usuario;
@@ -47,9 +41,7 @@ public class Venta {
 		super();
 	}
 
-	public Venta(Long idVenta, String fecha_venta, String fecha_entrega, double monto, String estado,
-			String observacion, List<Pqrs> listPqrs, Usuario usuario) {
-		super();
+	public Venta(Long idVenta, String fecha_venta, String fecha_entrega, double monto, String estado, String observacion, List<Pqrs> listPqrs, Servicio servicio, Usuario usuario) {
 		IdVenta = idVenta;
 		Fecha_venta = fecha_venta;
 		Fecha_entrega = fecha_entrega;
@@ -57,6 +49,7 @@ public class Venta {
 		Estado = estado;
 		Observacion = observacion;
 		ListPqrs = listPqrs;
+		this.servicio = servicio;
 		this.usuario = usuario;
 	}
 
@@ -116,6 +109,14 @@ public class Venta {
 		ListPqrs = listPqrs;
 	}
 
+	public Servicio getServicio() {
+		return servicio;
+	}
+
+	public void setServicio(Servicio servicio) {
+		this.servicio = servicio;
+	}
+
 	public Usuario getUsuario() {
 		return usuario;
 	}
@@ -126,9 +127,16 @@ public class Venta {
 
 	@Override
 	public String toString() {
-		return "Venta [IdVenta=" + IdVenta + ", Fecha_venta=" + Fecha_venta + ", Fecha_entrega=" + Fecha_entrega
-				+ ", Monto=" + Monto + ", Estado=" + Estado + ", Observacion=" + Observacion + ", ListPqrs=" + ListPqrs
-				+ ", usuario=" + usuario + "]";
+		return "Venta{" +
+				"IdVenta=" + IdVenta +
+				", Fecha_venta='" + Fecha_venta + '\'' +
+				", Fecha_entrega='" + Fecha_entrega + '\'' +
+				", Monto=" + Monto +
+				", Estado='" + Estado + '\'' +
+				", Observacion='" + Observacion + '\'' +
+				", ListPqrs=" + ListPqrs +
+				", servicio=" + servicio +
+				", usuario=" + usuario +
+				'}';
 	}
-
 }

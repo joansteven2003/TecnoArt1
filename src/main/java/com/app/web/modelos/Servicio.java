@@ -2,15 +2,7 @@ package com.app.web.modelos;
 
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
-import javax.persistence.JoinColumn;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "servicio")
@@ -29,22 +21,19 @@ public class Servicio {
 	@Column(name = "Descripcion", nullable = false, length = 20)
 	private String Descripcion;
 
-	@ManyToMany
-	@JoinTable(name = "Venta_servicio", joinColumns = @JoinColumn(name = "Id_servicio", nullable = false), inverseJoinColumns = @JoinColumn(name = "Id_venta", nullable = false))
-	List<Venta> ListarVenta;
+	@OneToOne(mappedBy = "servicio", cascade = CascadeType.ALL)
+	private Venta venta;
 
 	public Servicio() {
 		super();
 	}
 
-	public Servicio(Long idServicio, String nombre_servicio, int valor_venta, String descripcion,
-			List<Venta> listarVenta) {
-		super();
+	public Servicio(Long idServicio, String nombre_servicio, int valor_venta, String descripcion, Venta venta) {
 		IdServicio = idServicio;
 		Nombre_servicio = nombre_servicio;
 		Valor_venta = valor_venta;
 		Descripcion = descripcion;
-		ListarVenta = listarVenta;
+		this.venta = venta;
 	}
 
 	public Long getIdServicio() {
@@ -79,18 +68,22 @@ public class Servicio {
 		Descripcion = descripcion;
 	}
 
-	public List<Venta> getListarVenta() {
-		return ListarVenta;
+	public Venta getVenta() {
+		return venta;
 	}
 
-	public void setListarVenta(List<Venta> listarVenta) {
-		ListarVenta = listarVenta;
+	public void setVenta(Venta venta) {
+		this.venta = venta;
 	}
 
 	@Override
 	public String toString() {
-		return "Servicio [IdServicio=" + IdServicio + ", Nombre_servicio=" + Nombre_servicio + ", Valor_venta="
-				+ Valor_venta + ", Descripcion=" + Descripcion + ", ListarVenta=" + ListarVenta + "]";
+		return "Servicio{" +
+				"IdServicio=" + IdServicio +
+				", Nombre_servicio='" + Nombre_servicio + '\'' +
+				", Valor_venta=" + Valor_venta +
+				", Descripcion='" + Descripcion + '\'' +
+				", venta=" + venta +
+				'}';
 	}
-
 }
