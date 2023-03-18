@@ -18,10 +18,10 @@ public class Cotizacion {
     @Column(name = "Descriocion", nullable = false, length = 20)
     private String Descriocion;
 
-    @Column(name = "Respuesta", nullable = false, length = 20)
+    @Column(name = "Respuesta", nullable = true, length = 20)
     private String Respuesta;
 
-    @Column(name = "FechaRespuesta", nullable = false, length = 20)
+    @Column(name = "FechaRespuesta", nullable = true, length = 20)
     private Date FechaRespuesta;
 
     public Cotizacion() {

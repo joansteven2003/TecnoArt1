@@ -3,7 +3,7 @@
 <html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Usuario </title>
+  <title>Pqrs </title>
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/w3.css">
   <!-- Boxiocns CDN Link -->
@@ -98,33 +98,37 @@
 
   <div class="container">
     <div class="col-lg-3">
-      <a th:href="@{/Usuario/Registrarse}" class="w3-button w3-round-large w3-blue" style="margin-button:100px;">Agregar Usuario</a>
+      <a th:href="@{/Pqrs/Registrarse}" class="w3-button w3-round-large w3-blue" style="margin-button:100px;">Agregar Pqrs</a>
     </div>
     <table class="display" id="example">
       <tr>
-        <th>Nombre completo</th>
-        <th>Documento</th>
-        <th>Telefono</th>
-        <th>Correo</th>
-        <th>Recidencia</th>
-        <th>Rol</th>
+        <th>Venta</th>
+        <th>IdPqrs</th>
+        <th>Descripcion</th>
+        <th>Fecha</th>
+        <th>Tipo</th>
+        <th>Prioridad</th>
+        <th>Estado</th>
+        <th>Respuesta</th>
         <th>Acciones</th>
 
 
 
       </tr>
-      <tr th:each="Usuario : ${Usuario}">
-        <td th:text="${Usuario.NombreCompleto}">Nombres</td>
-        <td th:text="${Usuario.Documento}">Nombres</td>
-        <td th:text="${Usuario.Telefono}">Nombres</td>
-        <td th:text="${Usuario.Correo}">Nombres</td>
-        <td th:text="${Usuario.Recidencia}">Nombres</td>
-        <td th:text="${Usuario.roles}">Nombres</td>
+      <tr th:each="Pqrs : ${Pqrs}">
+        <td th:text="${Pqrs.Venta.IdVenta}">Nombres</td>
+        <td th:text="${Pqrs.IdPqrs}">Nombres</td>
+        <td th:text="${Pqrs.Descripcion}">Nombres</td>
+        <td th:text="${Pqrs.Fecha}">Nombres</td>
+        <td th:text="${Pqrs.Tipo.NombreTipo}">Nombres</td>
+        <td th:text="${Pqrs.Prioridad.NombrePrioridad}">Nombres</td>
+        <td th:text="${Pqrs.Estado.nombre}">Nombres</td>
+        <td th:text="${Pqrs.RespuestaPqrs}">Nombres</td>
         <td>
 
-          <a th:href="@{/Usuario/editar/{IdUsuario}(IdUsuario=${Usuario.IdUsuario})}" class="btn btn-info">Editar</a>
+          <a th:href="@{/Pqrs/editar/{IdPqrs}(IdPqrs=${Pqrs.IdPqrs})}" class="btn btn-info">Editar</a>
           <a
-                  th:href="@{/Usuario/eliminar/{IdUsuario}(IdUsuario=${Usuario.IdUsuario})}"
+                  th:href="@{/Pqrs/eliminar/{IdPqrs}(IdPqrs=${Pqrs.IdPqrs})}"
                   class="btn btn-danger">Eliminar</a></td>
 
 

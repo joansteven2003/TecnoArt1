@@ -3,7 +3,7 @@
 <html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Usuario </title>
+  <title>Resultado </title>
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/w3.css">
   <!-- Boxiocns CDN Link -->
@@ -98,33 +98,29 @@
 
   <div class="container">
     <div class="col-lg-3">
-      <a th:href="@{/Usuario/Registrarse}" class="w3-button w3-round-large w3-blue" style="margin-button:100px;">Agregar Usuario</a>
+      <a th:href="@{/Resultado/Registrarse}" class="w3-button w3-round-large w3-blue" style="margin-button:100px;">Agregar Resultado</a>
     </div>
     <table class="display" id="example">
       <tr>
-        <th>Nombre completo</th>
-        <th>Documento</th>
-        <th>Telefono</th>
-        <th>Correo</th>
-        <th>Recidencia</th>
-        <th>Rol</th>
-        <th>Acciones</th>
+        <th>Id Resultado</th>
+        <th>Resultado Examen</th>
+        <th>Resultado entrevista</th>
+        <th>Cita</th>
+
 
 
 
       </tr>
-      <tr th:each="Usuario : ${Usuario}">
-        <td th:text="${Usuario.NombreCompleto}">Nombres</td>
-        <td th:text="${Usuario.Documento}">Nombres</td>
-        <td th:text="${Usuario.Telefono}">Nombres</td>
-        <td th:text="${Usuario.Correo}">Nombres</td>
-        <td th:text="${Usuario.Recidencia}">Nombres</td>
-        <td th:text="${Usuario.roles}">Nombres</td>
+      <tr th:each="Resultado : ${Resultado}">
+        <td th:text="${Resultado.IdResultado}">Nombres</td>
+        <td th:text="${Resultado.Resultado_Examen}">Nombres</td>
+        <td th:text="${Resultado.Resultado_entrevista}">Nombres</td>
+        <td th:text="${Resultado.Cita.IdCita}">Nombres</td>
         <td>
 
-          <a th:href="@{/Usuario/editar/{IdUsuario}(IdUsuario=${Usuario.IdUsuario})}" class="btn btn-info">Editar</a>
+          <a th:href="@{/Resultado/editar/{IdResultado}(IdResultado=${Resultado.IdResultado})}" class="btn btn-info">Editar</a>
           <a
-                  th:href="@{/Usuario/eliminar/{IdUsuario}(IdUsuario=${Usuario.IdUsuario})}"
+                  th:href="@{/Resultado/eliminar/{IdResultado}(IdResultado=${Resultado.IdResultado})}"
                   class="btn btn-danger">Eliminar</a></td>
 
 

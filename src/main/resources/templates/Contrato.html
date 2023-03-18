@@ -3,7 +3,7 @@
 <html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Cita </title>
+    <title>Contrato </title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/w3.css">
     <!-- Boxiocns CDN Link -->
@@ -98,47 +98,43 @@
 
 
     <div class="container">
-    <div class="col-lg-3">
-        <a th:href="@{/Cita/Registrar}" class="w3-button w3-round-large w3-blue" style="margin-button:100px;">Agregar Cita</a>
+        <div class="col-lg-3">
+            <a th:href="@{/Contrato/Registrar}" class="w3-button w3-round-large w3-blue" style="margin-button:100px;">Agregar Contrato</a>
+        </div>
+        <table class="display" id="example">
+            <tr>
+                <th>Nombre Contrato</th>
+                <th>Periodo</th>
+                <th>Usuario</th>
+                <th>Nombre Usuario</th>
+
+            </tr>
+            <tr th:each="Contrato : ${Contrato}">
+                <td th:text="${Contrato.NombreContrato}">Nombres</td>
+                <td th:text="${Contrato.Periodo}">Nombres</td>
+                <td th:text="${Contrato.Usuario.IdUsuario}">Nombres</td>
+                <td th:text="${Contrato.Usuario.NombreCompleto}">Nombres</td>
+
+
+                <td>
+
+                    <a th:href="@{/Contrato/editar/{IdContrato}(IdContrato=${Contrato.IdContrato})}" class="btn btn-info">Editar</a>
+                    <a
+                            th:href="@{/Contrato/eliminar/{IdContrato}(IdContrato=${Contrato.IdContrato})}"
+                            class="btn btn-danger">Eliminar</a></td>
+
+
+
+
+            </tr>
+        </table>
     </div>
-    <table class="display" id="example">
-        <tr>
-            <th>Direccion/th>
-            <th>Fecha</th>
-            <th>Hora</th>
-            <th>Correo</th>
-            <th>Documento</th>
-            <th>Postulacion</th>
-
-
-
-
-        </tr>
-        <tr th:each="Cita : ${Cita}">
-            <td th:text="${Cita.Direccion}">Nombres</td>
-            <td th:text="${Cita.Fecha}">Nombres</td>
-            <td th:text="${Cita.Hora}">Nombres</td>
-            <td th:text="${Cita.Postulacion.IdPostulacion}">Nombres</td>
-
-            <td>
-
-                <a th:href="@{/Cita/editar/{IdCita}(IdCita=${Cita.IdCita})}" class="btn btn-info">Editar</a>
-                <a
-                        th:href="@{/Cita/eliminar/{IdCita}(IdCita=${Cita.IdCita})}"
-                        class="btn btn-danger">Eliminar</a></td>
-
-
-
-
-        </tr>
-    </table>
-</div>
 </section>>
 
 
 
 
-<script>
+    <script>
   let arrow = document.querySelectorAll(".arrow");
   for (var i = 0; i < arrow.length; i++) {
     arrow[i].addEventListener("click", (e)=>{
