@@ -147,14 +147,12 @@
         <td th:text="${Usuario.Recidencia}">Nombres</td>
         <td th:text="${Usuario.roles}">Nombres</td>
         <td>
-
-
           <a style="margin-bottom: 5px;" th:href="@{/Usuario/editar/{IdUsuario}(IdUsuario=${Usuario.IdUsuario})}" class="btn btn-info"><i class="fa-solid fa-pencil"></i></a>
          <br>
           <a style="margin-bottom: 5px;"
                   th:href="@{/Usuario/eliminar/{IdUsuario}(IdUsuario=${Usuario.IdUsuario})}"
-                  class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a></td>
-
+                  class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
+        </td>
       </tr>
       </tbody>
     </table>

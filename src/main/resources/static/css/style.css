@@ -265,3 +265,10 @@
   justify-content: center;
   display: flex;
   }
+
+ #containerTabla{
+  margin: auto;
+  width: 1000px;
+  justify-content: center;
+  display: flex;
+ }
