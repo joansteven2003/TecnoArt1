@@ -65,4 +65,90 @@ public class Cita {
 		this.resultado = resultado;
 	}
 
+	public Long getIdCita() {
+		return IdCita;
+	}
+
+	public void setIdCita(Long idCita) {
+		IdCita = idCita;
+	}
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+	public String getCorreo() {
+		return correo;
+	}
+
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+
+	public Long getDocumento() {
+		return Documento;
+	}
+
+	public void setDocumento(Long documento) {
+		Documento = documento;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public Date getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
+	public Time getHora() {
+		return hora;
+	}
+
+	public void setHora(Time hora) {
+		this.hora = hora;
+	}
+
+	public Postulacion getPostulacion() {
+		return postulacion;
+	}
+
+	public void setPostulacion(Postulacion postulacion) {
+		this.postulacion = postulacion;
+	}
+
+	public Resultado getResultado() {
+		return resultado;
+	}
+
+	public void setResultado(Resultado resultado) {
+		this.resultado = resultado;
+	}
+
+	@Override
+	public String toString() {
+		return "Cita{" +
+				"IdCita=" + IdCita +
+				", direccion='" + direccion + '\'' +
+				", correo='" + correo + '\'' +
+				", Documento=" + Documento +
+				", nombre='" + nombre + '\'' +
+				", fecha=" + fecha +
+				", hora=" + hora +
+				", postulacion=" + postulacion +
+				", resultado=" + resultado +
+				'}';
+	}
 }

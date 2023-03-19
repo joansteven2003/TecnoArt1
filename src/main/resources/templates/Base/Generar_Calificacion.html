@@ -11,8 +11,10 @@
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <!-- Boxiocns CDN Link -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Generar Calificacion</title>
 </head>
+
 <body>
 <div class="sidebar close">
     <div class="logo-details">
@@ -121,7 +123,7 @@
                     <label for="opcion" class="formulario__label">Venta que realizo</label>
                     <select th:field="*{Venta}" name="opcion" id="opcion" class="formulario__input select-box formulario__select">
                         <option value="">--Seleccione una opción--</option>
-                        <option value="opcion1" th:each="venta:${venta}"
+                        <option value="opcion1" th:each="Venta:${ventas}"
                                 th:value="${Venta.IdVenta}"
                                 th:text="${Venta.IdVenta}"
                         />

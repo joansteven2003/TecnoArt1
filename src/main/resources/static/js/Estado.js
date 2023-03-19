@@ -2,18 +2,18 @@ const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 
 const expresiones = {
-	Estado: /^[a-zA-ZÀ-ÿ\s]{5,25}$/, // Letras y espacios, pueden llevar acentos.
+	nombre: /^[a-zA-ZÀ-ÿ\s]{5,25}$/, // Letras y espacios, pueden llevar acentos.
 }
 
 const campos = {
-	Estado: false
+	nombre: false
 
 }
 
 const validarFormulario = (e) => {
 	switch (e.target.name) {
-		case "Estado":
-			validarCampo(expresiones.Estado, e.target, 'Estado');
+		case "nombre":
+			validarCampo(expresiones.nombre, e.target, 'nombre');
 		break;
 		
 	}
@@ -43,11 +43,7 @@ inputs.forEach((input) => {
 });
 
 formulario.addEventListener('submit', (e) => {
-	e.preventDefault();
-
-	if(campos.Estado ){
-		formulario.reset();
-
+	if(campos.nombre ){
 		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
 		setTimeout(() => {
 			document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
@@ -57,6 +53,7 @@ formulario.addEventListener('submit', (e) => {
 			icono.classList.remove('formulario__grupo-correcto');
 		});
 	} else {
+	    e.preventDefault();
 		document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
         setTimeout(() => {
 			document.getElementById('formulario__mensaje').classList.remove('formulario__mensaje-activo');

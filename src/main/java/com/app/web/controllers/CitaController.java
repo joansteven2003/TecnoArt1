@@ -62,6 +62,7 @@ public class CitaController {
 		CitaExistente.setPostulacion(cita.getPostulacion());
 		CitaExistente.setCorreo(cita.getCorreo());
 		CitaExistente.setDocumento(cita.getDocumento());
+		CitaExistente.setNombre(cita.getNombre());
 
 		servicio.actualizarCita(CitaExistente);
 		return "redirect:/Cita";

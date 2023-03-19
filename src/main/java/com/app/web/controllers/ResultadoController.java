@@ -1,5 +1,7 @@
 package com.app.web.controllers;
 
+import com.app.web.modelos.Cita;
+import com.app.web.servicios.CitaServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,10 +13,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.app.web.modelos.Resultado;
 import com.app.web.servicios.ResultadoServicio;
 
+import java.util.List;
+
 @Controller
 public class ResultadoController {
 	@Autowired
 	private ResultadoServicio servicio;
+
+	@Autowired
+	private CitaServicio citaServicio;
 	
 	@GetMapping("/Resultado")
 	public String ListaResultado(Model modelo) {
@@ -32,7 +39,10 @@ public class ResultadoController {
 	@GetMapping("/Resultado/Registrar")
 	public String ResultadoFormulario(Model modelo) {
 		Resultado resultado = new Resultado();
+
+		List<Cita> ListaCitas = citaServicio.listarTodasLasCitas();
 		modelo.addAttribute("Resultado", resultado);
+		modelo.addAttribute("Citas",ListaCitas);
 		return "/crearResultado";
 	}
 
