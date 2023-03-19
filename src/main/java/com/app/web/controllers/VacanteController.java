@@ -1,5 +1,7 @@
 package com.app.web.controllers;
 
+import com.app.web.modelos.Cargo;
+import com.app.web.servicios.CargoServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,10 +13,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.app.web.modelos.Vacante;
 import com.app.web.servicios.VacanteServicio;
 
+import java.util.List;
+
 @Controller
 public class VacanteController {
 	@Autowired
 	private VacanteServicio servicio;
+
+	@Autowired
+	private CargoServicio cargoServicio;
 	
 	@GetMapping("/Vacante")
 	public String ListaVacantes(Model modelo) {
@@ -32,8 +39,11 @@ public class VacanteController {
 	@GetMapping("/Vacante/Registrar")
 	public String VacanteFormulario(Model modelo) {
 		Vacante vacante = new Vacante();
+		List<Cargo> ListaCargo = cargoServicio.ListaTodoLosCargos();
 		modelo.addAttribute("Vacante", vacante);
-		return "/crearVacante";
+		modelo.addAttribute("Cargos",ListaCargo);
+
+		return "/Generar_Vacante";
 	}
 
 	@PostMapping("/Vacante/Guardar")
