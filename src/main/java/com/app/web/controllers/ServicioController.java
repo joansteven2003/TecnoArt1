@@ -1,5 +1,7 @@
 package com.app.web.controllers;
 
+import com.app.web.modelos.Venta;
+import com.app.web.servicios.VentaServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,10 +13,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.app.web.modelos.Servicio;
 import com.app.web.servicios.ServiciosServicio;
 
+import java.util.List;
+
 @Controller
 public class ServicioController {
 	@Autowired
 	private ServiciosServicio servicios;
+
+	@Autowired
+	private VentaServicio ventaServicio;
 
 	@GetMapping("/Servicio")
 	public String listarServicios(Model modelo) {
@@ -25,7 +32,9 @@ public class ServicioController {
 	@GetMapping("/Servicio/Registrar")
 	public String mostrarFormularioRegistroServicio(Model modelo) {
 		Servicio servicio = new Servicio();
+		List<Venta> Listaventa = ventaServicio.listarVentas();
 		modelo.addAttribute("Servicio", servicio);
+		modelo.addAttribute("ventas",Listaventa);
 		return "/crearServicio";
 	}
 

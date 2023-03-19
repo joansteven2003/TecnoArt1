@@ -1,5 +1,7 @@
 package com.app.web.controllers;
 
+import com.app.web.modelos.*;
+import com.app.web.servicios.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,13 +10,22 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.app.web.modelos.Pqrs;
-import com.app.web.servicios.PqrsServicio;
+import java.util.List;
 
 @Controller
 public class PqrsController {
 	@Autowired
 	private PqrsServicio servicio;
+	@Autowired
+ 	private TipoServicio tipoServicio;
+	@Autowired
+	private PrioridadServicio prioridadServicio;
+	@Autowired
+	private EstadoServicio estadoServicio;
+
+	@Autowired
+	private VentaServicio ServicioVenta;
+
 
 	@GetMapping("/Pqrs")
 	public String listarPqrs(Model modelo) {
@@ -25,15 +36,24 @@ public class PqrsController {
 	@GetMapping("/Pqrs/Registrar")
 	public String MostrarRegistrarPqrsFormulario(Model modelo) {
 		Pqrs pqrs = new Pqrs();
+		List<Tipo> ListaTipo = tipoServicio.listarTipo();
+		List<Prioridad> ListaPrio = prioridadServicio.listarPrioridad();
+		List<Estado> ListaEstado = estadoServicio.listarEstado();
+		List<Venta> listaVenta = ServicioVenta.listarVentas();
+
 		modelo.addAttribute("Pqrs", pqrs);
-		return "crearPqrs";
+		modelo.addAttribute("Tipos", ListaTipo);
+		modelo.addAttribute("Prioridades", ListaPrio);
+		modelo.addAttribute("Estados", ListaEstado);
+		modelo.addAttribute("ventas", listaVenta);
+
+		return "Generar_PQRS";
 	}
 
 	@PostMapping("/Pqrs/Guardar")
 	public String guardarPqrs(@ModelAttribute("Pqrs") Pqrs pqrs) {
 		servicio.guardarPqrs(pqrs);
 		return "redirect:/Pqrs";
-
 	}
 
 	@GetMapping("/Pqrs/editar/{IdPqrs}")

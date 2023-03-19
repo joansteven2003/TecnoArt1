@@ -1,102 +1,122 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" dir="ltr" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href="css/style_roles.css">
-    <link rel="stylesheet" href="css/style_Vacante.css">
-    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="/css/style_roles.css">
+    <link rel="stylesheet" href="/css/style_Vacante.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/w3.css">
     <!----===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Boxiocns CDN Link -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Generar Vacante</title>
 </head>
 
 <body>
-    <nav class="sidebar close">
-        <header>
-            <i class='bx bx-chevron-right toggle'></i>
-        </header>
 
-        <div class="menu-bar">
-            <div class="menu">
-
-                <li class="search-box">
-                    <i class='bx bx-search icon'></i>
-                    <input type="text" placeholder="Search...">
-                </li>
-
-
-
-                <li class="nav-link">
-                    <a href="#">
-                        <i class='bx bx-bar-chart-alt-2 icon'></i>
-                        <span class="text nav-text">Contratacion</span>
-                    </a>
-                </li>
-
-
-
-                <li class="nav-link">
-                    <a href="#">
-                        <i class='bx bx-pie-chart-alt icon'></i>
-                        <span class="text nav-text">Ventas</span>
-                    </a>
-                </li>
-
-                <li class="nav-link">
-                    <a href="#">
-                        <i class='bx bx-heart icon'></i>
-                        <span class="text nav-text">Pqrs</span>
-                    </a>
-                </li>
-
-                </ul>
+<div class="sidebar close">
+    <div class="logo-details">
+        <img class="logo-details" src="img/Logo.png">
+        <span class="logo_name">Tecno&Art</span>
+    </div>
+    <ul class="nav-links">
+        <li>
+            <a href="#">
+                <i class='bx bx-grid-alt' ></i>
+                <span class="link_name">Dashboard</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link_name" href="#">Category</a></li>
+            </ul>
+        </li>
+        <li>
+            <div class="iocn-link">
+                <a href="#">
+                    <i class='bx bx-collection' ></i>
+                    <span class="link_name">Ventas    </span>
+                </a>
+                <i class='bx bxs-chevron-down arrow' ></i>
             </div>
-
-            <div class="bottom-content">
-                <li class="">
-                    <a href="#">
-                        <i class='bx bx-log-out icon'></i>
-                        <span class="text nav-text">Logout</span>
-                    </a>
-                </li>
-
-                <li class="mode">
-                    <div class="sun-moon">
-                        <i class='bx bx-moon icon moon'></i>
-                        <i class='bx bx-sun icon sun'></i>
-                    </div>
-                    <span class="mode-text text">Dark mode</span>
-
-                    <div class="toggle-switch">
-                        <span class="switch"></span>
-                    </div>
-                </li>
+            <ul class="sub-menu">
+                <li><a class="link_name" href="#">Ventas</a></li>
+                <li><a href="#">Consultar Venta</a></li>
+                <li><a href="#">Registrar Venta</a></li>
+                <li><a href="#">Consultar Servicio</a></li>
+                <li><a href="#">Registrar Servicio</a></li>
+                <li><a href="#">Consultar Cotizacion</a></li>
+                <li><a href="#">Registrar Cotizacion</a></li>
+            </ul>
+        </li>
+        <li>
+            <div class="iocn-link">
+                <a href="#">
+                    <i class='bx bx-book-alt' ></i>
+                    <span class="link_name">Pqrs    </span>
+                </a>
+                <i class='bx bxs-chevron-down arrow' ></i>
             </div>
+            <ul class="sub-menu">
+                <li><a class="link_name" href="#">Pqrs</a></li>
+                <li><a href="#">Requistrar Pqrs</a></li>
+                <li><a href="#">Consultar Pqrs</a></li>
+                <li><a href="#">Consultar Calificaciones</a></li>
+                <li><a href="#">Registrar Calificacion</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <div class="iocn-link">
+                <a href="#">
+                    <i class='bx bx-plug' ></i>
+                    <span class="link_name">Contratación</span>
+                </a>
+                <i class='bx bxs-chevron-down arrow' ></i>
+            </div>
+            <ul class="sub-menu">
+                <li><a class="link_name" href="#">Contratación</a></li>
+                <li><a href="#">Consultar Citas</a></li>
+                <li><a href="#">Consultar cargos</a></li>
+                <li><a href="#">Consultar Contratos</a></li>
+                <li><a href="#">Consultar Vacante</a></li>
+            </ul>
+        </li>
+
+        <div class="profile-details">
+            <div class="profile-content">
+                <!--<img src="image/profile.jpg" alt="profileImg">-->
+            </div>
+            <div class="name-job">
+                <div class="profile_name">Prem Shahi</div>
+                <div class="job">Web Desginer</div>
+            </div>
+            <i class='bx bx-log-out' ></i>
+        </div>
+        </li>
+    </ul>
+</div>
+    <section class="home-section">
+        <div class="home-content">
+            <i class='bx bx-menu' ></i>
         </div>
 
-    </nav>
-
-    <section class="home">
         <div class="container-div">
             <div class="container1">
 
                 <header>Realizar Vacante</header>
-                <form action="#" class="form formulario" id="formulario">
-
-                    <!-- Hora de inicio y Fin -->
+                <form th:action="@{/Vacante/Registrar}" class="form formulario" id="formulario">
                     <div class="column">
 
                         <!-- Grupo: hora inicial -->
-                        <div class="input-box formulario__grupo" id="grupo__horaInicial">
-                            <label for="horaInicial" class="formulario__label">Hora inicial:</label>
+                        <div class="input-box formulario__grupo" id="grupo__HoraInicio">
+                            <label for="HoraInicio" class="formulario__label">Hora inicial:</label>
                             <div class="formulario__grupo-input">
-                                <input type="time" class="formulario__input" id="horaInicial" name="horaInicial"
+                                <input type="time" th:field="*{HoraInicio}" class="formulario__input" id="HoraInicio" name="HoraInicio"
                                     required>
                                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
                             </div>
@@ -107,7 +127,7 @@
                         <div class="input-box formulario__grupo" id="grupo__horaFinal">
                             <label for="horaFinal" class="formulario__label">Hora final:</label>
                             <div class="formulario__grupo-input">
-                                <input type="time" class="formulario__input" id="horaFinal" name="horaFinal" required>
+                                <input type="time" th:field="*{HoraFin}" class="formulario__input" id="horaFinal" name="horaFinal" required>
                                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
                             </div>
                             <p class="formulario__input-error">La hora debe ser válida (formato HH:mm).</p>
@@ -120,7 +140,7 @@
                         <div class="formulario__grupo" id="grupo__LugarTrabajo">
                             <label for="LugarTrabajo" class="formulario__label">Lugar de trabajo</label>
                             <div class="formulario__grupo-input">
-                                <input type="text" class="formulario__input" name="LugarTrabajo" id="LugarTrabajo"
+                                <input type="text" th:field="*{LugarTrabajo}" class="formulario__input" name="LugarTrabajo" id="LugarTrabajo"
                                     placeholder="Crr95#65sur">
                                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
                             </div>
@@ -132,7 +152,7 @@
                     <div class="input-box formulario__grupo" id="grupo__Salario">
                         <label for="Salario" class="formulario__label">Salario acordado</label>
                         <div class="formulario__grupo-input">
-                            <input type="number" class="formulario__input" name="Salario" id="Salario"
+                            <input type="number" th:field="*{Salario}" class="formulario__input" name="Salario" id="Salario"
                                 placeholder="4491234567">
                             <i class="formulario__validacion-estado fas fa-times-circle"></i>
                         </div>
@@ -146,7 +166,7 @@
                         <div class="input-box formulario__grupo" id="grupo__Educacion">
                             <label for="Educacion" class="formulario__label">Educacion requerida</label>
                             <div class="formulario__grupo-input">
-                                <input type="text" class="formulario__input" name="Educacion" id="Educacion"
+                                <input type="text" th:field="*{Eduacion}" class="formulario__input" name="Educacion" id="Educacion"
                                     placeholder="Diseñador">
                                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
                             </div>
@@ -156,11 +176,13 @@
                         <!----Grupo: tipo Cargo------>
                         <div class="formulario__grupo input-box" id="grupo__opcion">
                             <label for="opcion" class="formulario__label">Cargo</label>
-                            <select name="opcion" id="opcion" class="formulario__input select-box formulario__select">
+                            <select name="opcion" th:field="*{IdCargo}" id="opcion" class="formulario__input select-box formulario__select">
                                 <option value="">--Seleccione una opción--</option>
-                                <option value="opcion1">Opción 1</option>
-                                <option value="opcion2">Opción 2</option>
-                                <option value="opcion3">Opción 3</option>
+                                <option value="opcion1" th:each="Cargo:${Cargos}"
+                                        th:value="${Cargo.IdCargo}"
+                                        th:text="${Cargo.nombeCargo}"
+
+                                />
                             </select>
                             <p class="formulario__input-error"> Seleccione una opción válida.</p>
                         </div>
@@ -168,10 +190,10 @@
 
 
                     <!-- Grupo: Descripcion del perfil -->
-                    <div class="input-box formulario__grupo" id="grupo__comentarios">
-                        <label for="comentarios" class="formulario__label">Descripción del perfil</label>
+                    <div class="input-box formulario__grupo" id="grupo__Perfil">
+                        <label for="Perfil" class="formulario__label">Descripción del perfil</label>
                         <div class="formulario__grupo-input">
-                            <textarea class="formulario__input" name="comentarios" id="comentarios" rows="4"></textarea>
+                            <textarea class="formulario__input" th:field="*{Perfil}" name="Perfil" id="Perfil" rows="4"></textarea>
                             <i class="formulario__validacion-estado fas fa-times-circle"></i>
                         </div>
                         <p class="formulario__input-error">Ingresa una descripción Valida.</p>
@@ -198,38 +220,25 @@
     </section>
 
     <!--scrip de registrate------>
-    <script src="js/Vacante.js"></script>
+    <script src="/js/Vacante.js"></script>
     <!--scrip de iconos------>
     <script src="https://kit.fontawesome.com/f9d0333c9c.js" crossorigin="anonymous"></script>
 
     <script>
-        const body = document.querySelector('body'),
-            sidebar = body.querySelector('nav'),
-            toggle = body.querySelector(".toggle"),
-            searchBtn = body.querySelector(".search-box"),
-            modeSwitch = body.querySelector(".toggle-switch"),
-            modeText = body.querySelector(".mode-text");
-
-
-        toggle.addEventListener("click", () => {
-            sidebar.classList.toggle("close");
-        })
-
-        searchBtn.addEventListener("click", () => {
-            sidebar.classList.remove("close");
-        })
-
-        modeSwitch.addEventListener("click", () => {
-            body.classList.toggle("dark");
-
-            if (body.classList.contains("dark")) {
-                modeText.innerText = "Light mode";
-            } else {
-                modeText.innerText = "Dark mode";
-
-            }
-        });
-    </script>
+  let arrow = document.querySelectorAll(".arrow");
+  for (var i = 0; i < arrow.length; i++) {
+    arrow[i].addEventListener("click", (e)=>{
+   let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+   arrowParent.classList.toggle("showMenu");
+    });
+  }
+  let sidebar = document.querySelector(".sidebar");
+  let sidebarBtn = document.querySelector(".bx-menu");
+  console.log(sidebarBtn);
+  sidebarBtn.addEventListener("click", ()=>{
+    sidebar.classList.toggle("close");
+  });
+  </script>
 
 </body>
 
