@@ -122,11 +122,11 @@
     <i class='bx bx-menu' ></i>
   </div>
   <div class="col-lg-3" id="botonAgregar">
-    <a th:href="@{/Pqrs/Registrar}" class="w3-button w3-round-large w3-blue"><i class="fa-solid fa-star-christmas"></i> Agregar</a>
+    <a th:href="@{/Pqrs/Registrar}" class="btn btn-info" style="margin-left: 100px;"> Agregar</a>
   <br>  
   </div>
-  <div class="container" id="containerTabla">
-    <table class="table table-hover" id="example">
+  <div class="container" id="containerTabla" >
+    <table class="table table-hover" id="example"style="background-color: white;">
       <thead>
       <tr>
         <th>Venta</th>
@@ -152,10 +152,10 @@
         <td th:text="${Pqrs.RespuestaPqrs}">Nombres</td>
         <td>
 
-          <a th:href="@{/Pqrs/editar/{IdPqrs}(IdPqrs=${Pqrs.IdPqrs})}" class="btn btn-info">Editar</a>
+          <a th:href="@{/Pqrs/editar/{IdPqrs}(IdPqrs=${Pqrs.IdPqrs})}" class="btn btn-info"><i class="fa-solid fa-pencil"></i></a>
           <a
                   th:href="@{/Pqrs/eliminar/{IdPqrs}(IdPqrs=${Pqrs.IdPqrs})}"
-                  class="btn btn-danger">Eliminar</a></td>
+                  class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a></td>
       </tr>
     </tbody>
     </table>
