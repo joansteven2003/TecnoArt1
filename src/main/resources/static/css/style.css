@@ -19,19 +19,14 @@
 .sidebar.close{
   width: 78px;
 }
-.sidebar .logo-details{
-  height: 60px;
-  width: 95%;
-  display: flex;
-  align-items: center;
+.logo-details{
+    margin-top: 20px;
 }
-.sidebar .logo-details i{
-  font-size: 30px;
-  color: #fff;
-  height: 50px;
-  min-width: 78px;
-  text-align: center;
-  line-height: 50px;
+.sidebar .logo-details img{
+  max-width: 50px;
+  margin-left: 15px;
+  margin-top: 0px;
+
 }
 .sidebar .logo-details .logo_name{
   font-size: 22px;
@@ -47,7 +42,7 @@
 }
 .sidebar .nav-links{
   height: 100%;
-  padding: 30px 0 150px 0;
+  padding: 0px 0 150px 0;
   overflow: auto;
 }
 .sidebar.close .nav-links{
@@ -163,7 +158,7 @@
 .sidebar .profile-details{
   position: fixed;
   bottom: 0;
-  width: 260px;
+  width: 257px;
   display: flex;
   align-items: center;
   justify-content: space-between;

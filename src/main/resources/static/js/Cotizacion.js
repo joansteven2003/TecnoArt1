@@ -22,7 +22,7 @@ const validarFormulario = (e) => {
 		break;
 
         case "Respuesta":
-			validarCampo(expresiones.Respuesta, e.target, 'Estado');
+			validarCampo(expresiones.Respuesta, e.target, 'Respuesta');
 		break;
 
         case "fecha":
@@ -77,7 +77,6 @@ formulario.addEventListener('submit', (e) => {
 		});
 	} else {
 	    e.preventDefault();
-        console.log(campos);
 		document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
         setTimeout(() => {
 			document.getElementById('formulario__mensaje').classList.remove('formulario__mensaje-activo');

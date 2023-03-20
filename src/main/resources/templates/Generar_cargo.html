@@ -1,24 +1,25 @@
 <!DOCTYPE html>
-<html lang="es" dir="ltr" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" dir="ltr" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Boxiocns CDN Link -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href=" /css/style_roles.css">
-    <link rel="stylesheet" href=" /css/style_Calificacion.css">
+    <link rel="stylesheet" href="/css/style_Cargo.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/w3.css">
     <!----===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    <!-- Boxiocns CDN Link -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Generar Calificacion</title>
+    <title>Generar Cargo</title>
 </head>
 
 <body>
-<div class="sidebar close">
+ <div class="sidebar close">
     <div class="logo-details">
-        <img class="logo-details" src="img/Logo.png">
+        <img class="logo-details" src="/img/Logosolo.png">
         <span class="logo_name">Tecno&Art</span>
     </div>
     <ul class="nav-links">
@@ -96,62 +97,58 @@
         </li>
     </ul>
 </div>
-<section class="home-section">
-    <div class="home-content">
-        <i class='bx bx-menu' ></i>
-    </div>
 
-    <div class="container-div">
-        <div class="container1">
-
-            <header>Generar calificación</header>
-            <form th:action="@{/Calificacion/Registrar}" th:object=${Calificacion} class="form formulario" id="formulario">
-
-                <!-- Grupo: Estrellas -->
-                <div class="input-box formulario__grupo" id="grupo__Estrellas">
-                    <label for="Estrellas" class="formulario__label">Estrellas</label>
-                    <div class="formulario__grupo-input">
-                        <input type="number" th:field="*{Estrellas}" class="formulario__input" name="Estrellas" id="Estrellas"
-                               placeholder="aqui aplicar lo del tutorial de las Estrellas">
-                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                    </div>
-                    <p class="formulario__input-error">La cantidad de estrellas son incorrectas solo 1 numero del al 5</p>
-                </div>
-
-                <!-- Grupo: Venta -->
-                <div class="formulario__grupo input-box" id="grupo-select">
-                    <label for="opcion" class="formulario__label">Venta que realizo</label>
-                    <select th:field="*{Venta}" name="opcion" id="opcion" class="formulario__input select-box formulario__select">
-                        <option value="">--Seleccione una opción--</option>
-                        <option value="opcion1" th:each="Venta:${ventas}"
-                                th:value="${Venta.IdVenta}"
-                                th:text="${Venta.IdVenta}"
-                        />
-
-                    </select>
-                    <p class="formulario__input-error"> Seleccione una opción válida.</p>
-                </div>
-
-
-                <div class="formulario__mensaje" id="formulario__mensaje">
-                    <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario
-                        correctamente. </p>
-                </div>
-
-                <div class="formulario__grupo formulario__grupo-btn-enviar">
-                    <button type="submit" class="formulario__btn">Enviar</button>
-                    <p class="formulario__mensaje-exito" id="formulario__mensaje-exito"><i
-                            class="fa-solid fa-circle-check"></i> Formulario enviado exitosamente!</p>
-                </div>
-            </form>
+    <section class="home-section">
+        <div class="home-content">
+            <i class='bx bx-menu' ></i>
         </div>
-    </div>
+        <div class="container-div">
+            <div class="container1">
 
-</section>
-<!--scrip de registrate------>
-<script src="/js/Calificacion.js"></script>
-<!--scrip de iconos------>
-<script src="https://kit.fontawesome.com/f9d0333c9c.js" crossorigin="anonymous"></script>
+                <header>Generar Cargo</header>
+                <form th:action="@{/Cargo/Guardar}" th:object="${Cargo}" class="form formulario" id="formulario">
+                    <div class="column" >
+        
+                         <!-- Grupo: NombreCargo -->
+                         <div class="input-box formulario__grupo" id="grupo__nombeCargo">
+                            <label for="nombeCargo" class="formulario__label">Nombre del Cargo </label>
+                            <div class="formulario__grupo-input">
+                                <input type="text" th:field="*{nombeCargo}" class="formulario__input" name="nombeCargo" id="nombeCargo"
+                                    placeholder="Administrador">
+                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            </div>
+                            <p class="formulario__input-error">Por favor no escribir caracteres no validos</p>
+                        </div>
+
+        
+                    </div>
+        
+                       
+                    <div class="formulario__mensaje" id="formulario__mensaje">
+                        <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario
+                            correctamente. </p>
+                    </div>
+        
+                    <div class="formulario__grupo formulario__grupo-btn-enviar">
+                        <button type="submit" class="formulario__btn">Enviar</button>
+                        <p class="formulario__mensaje-exito" id="formulario__mensaje-exito"><i
+                                class="fa-solid fa-circle-check"></i> Formulario enviado exitosamente!</p>
+                    </div>
+        
+        
+        
+                </form>
+
+            </div>
+        </div>
+
+
+
+    </section>
+    <!--scrip de registrate------>
+    <script src="/js/Cargo.js"></script>
+    <!--scrip de iconos------>
+    <script src="https://kit.fontawesome.com/f9d0333c9c.js" crossorigin="anonymous"></script>
 
 <script>
   let arrow = document.querySelectorAll(".arrow");
@@ -168,5 +165,7 @@
     sidebar.classList.toggle("close");
   });
   </script>
+
 </body>
+
 </html>

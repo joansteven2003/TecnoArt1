@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href="/css/style_roles.css">
     <link rel="stylesheet" href="/css/style_Cotizacion.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/w3.css">
@@ -20,7 +19,7 @@
 <body>
  <div class="sidebar close">
     <div class="logo-details">
-        <img class="logo-details" src="img/Logo.png">
+        <img class="logo-details" src="/img/LogoSolo.png">
         <span class="logo_name">Tecno&Art</span>
     </div>
     <ul class="nav-links">
@@ -108,7 +107,7 @@
             <div class="container1">
 
                 <header>Generar cotizacion</header>
-                <form th:action="@{/Cotizacion/Registrar}" th:object="${Cotizacion}" class="form formulario" id="formulario">
+                <form th:action="@{/Cotizacion/Guardar}" th:object="${Cotizacion}" class="form formulario" id="formulario">
                     <div class="column">
         
                         <!-- Grupo: Usuario -->
@@ -151,7 +150,7 @@
                     <div class="input-box formulario__grupo" id="grupo__Descriocion">
                         <label for="Descriocion" class="formulario__label">Comentarios</label>
                         <div class="formulario__grupo-input">
-                            <textarea class="formulario__input" th:field="Descriocion" name="Descriocion" id="Descriocion"  rows="4"></textarea>
+                            <textarea class="formulario__input" th:field="*{Descriocion}" name="Descriocion" id="Descriocion"  rows="4"></textarea>
                             <i class="formulario__validacion-estado fas fa-times-circle"></i>
                         </div>
                         <p class="formulario__input-error">Ingresa comentarios válidos.</p>

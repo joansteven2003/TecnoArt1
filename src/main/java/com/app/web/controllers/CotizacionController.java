@@ -35,7 +35,7 @@ public class CotizacionController {
     public String CotizacionFormulario(Model modelo) {
         Cotizacion cotizacion = new Cotizacion();
         modelo.addAttribute("Cotizacion", cotizacion);
-        return "/crearCotizacion";
+        return "/Generar_Cotizacion";
     }
 
     @PostMapping("/Cotizacion/Guardar")

@@ -1,8 +1,8 @@
 const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
-// select violento con diferentes campos
-const selects = document.querySelectorAll('#formulario select');
-const gruposSelect = document.querySelectorAll('.grupo-select');
+//traer los campor opcion
+const opcion = document.getElementById('opcion');
+const grupoOpcion = document.getElementById('grupo__opcion');
 
 const expresiones = {
 	Estrellas: /^\d{1,1}$/ //1 a 1 numeros.
@@ -39,22 +39,23 @@ const validarCampo = (expresion, input, campo) => {
 	}
 }
 
-const validarFormulario2 = (e) => {
-    const select = e.target;
-    const grupoSelect = select.parentElement;
-
-    if (select.value !== "") {
-        grupoSelect.classList.remove('formulario__grupo-incorrecto');
-        grupoSelect.classList.add('formulario__grupo-correcto');
-        grupoSelect.querySelector('.formulario__input-error').classList.remove('formulario__input-error-activo');
-        campos[select.name] = true;
+// validar campo de select pero de solo 1
+const validarCampo2 = (valor, grupo, campo) => {
+    if (valor) {
+        grupo.classList.remove('formulario__grupo-incorrecto');
+        grupo.classList.add('formulario__grupo-correcto');
+        document.querySelector(`#${campo} .formulario__validacion-estado.fa-check-circle`).classList.add('formulario__validacion-estado-activo');
+        document.querySelector(`#${campo} .formulario__validacion-estado.fa-times-circle`).classList.remove('formulario__validacion-estado-activo');
+        document.querySelector(`#${campo} .formulario__input-error`).classList.remove('formulario__input-error-activo');
     } else {
-        grupoSelect.classList.add('formulario__grupo-incorrecto');
-        grupoSelect.classList.remove('formulario__grupo-correcto');
-        grupoSelect.querySelector('.formulario__input-error').classList.add('formulario__input-error-activo');
-        campos[select.name] = false;
+        grupo.classList.add('formulario__grupo-incorrecto');
+        grupo.classList.remove('formulario__grupo-correcto');
+        document.querySelector(`#${campo} .formulario__validacion-estado.fa-times-circle`).classList.add('formulario__validacion-estado-activo');
+        document.querySelector(`#${campo} .formulario__validacion-estado.fa-check-circle`).classList.remove('formulario__validacion-estado-activo');
+        document.querySelector(`#${campo} .formulario__input-error`).classList.add('formulario__input-error-activo');
     }
 }
+
 
     
 
@@ -64,17 +65,13 @@ inputs.forEach((input) => {
 });
 
 //parte de opciones
-    selects.forEach((select) => {
-    select.addEventListener('change', validarFormulario2);
-});
+opcion.addEventListener('change', validarFormulario);
 
 
 formulario.addEventListener('submit', (e) => {
 
 
-	const validacion = Object.values(campos).every((campo) => campo);
-
-	if(campos.Estrellas && validacion){
+	if(campos.Estrellas && opcion.value !== ""){
 
 		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
 		setTimeout(() => {

@@ -35,7 +35,7 @@ public class VentaController {
 		List<Usuario> ListaUsuario= usuarioServicio.listarUsuarios();
 		modelo.addAttribute("Venta", venta);
 		modelo.addAttribute("Usuarios", ListaUsuario);
-		return "crearVenta";
+		return "/Generar_Venta";
 	}
 
 	@PostMapping("/Venta/Guardar")
