@@ -23,6 +23,11 @@ public class CotizacionController {
         modelo.addAttribute("Cotizacion", servicio.ListarCotizaciones());
         return "/Cotizacion";
     }
+    @GetMapping("/Cliente_Cotizacion")
+    public String ListarCotizacionCliente(Model modelo) {
+        modelo.addAttribute("Cotizacion", servicio.ListarCotizaciones());
+        return "/Ciente_Cotizacion";
+    }
 
     @GetMapping("/Cotizacion/eliminar/{IdCotizacion}")
     public String eliminarCotizacion(@PathVariable long IdCotizacion) {

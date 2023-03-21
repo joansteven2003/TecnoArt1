@@ -28,6 +28,11 @@ public class ResultadoController {
 		modelo.addAttribute("Resultado", servicio.ListaTodoLosResultados());
 		return "/Resultado";
 	}
+	@GetMapping("/Cliente_Resultado")
+	public String ListaResultadoCliente(Model modelo) {
+		modelo.addAttribute("Resultado", servicio.ListaTodoLosResultados());
+		return "/Cliente_Resultado";
+	}
 	
 	@GetMapping("/Resultado/eliminar/{IdResultado}")
 	public String eliminarResultado(@PathVariable long IdResultado) {

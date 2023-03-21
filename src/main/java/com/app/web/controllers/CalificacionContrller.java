@@ -27,7 +27,13 @@ public class CalificacionContrller {
 		modelo.addAttribute("Calificacion", servicio.listarCalificacion());
 		return "/Calificacion";
 	}
-	
+
+	@GetMapping("/Cliente_Calificacion")
+	public String ListarCalificacionClientes(Model modelo) {
+		modelo.addAttribute("Calificacion", servicio.listarCalificacion());
+		return "/Cliente_Calificacion";
+	}
+
 	@GetMapping("/Calificacion/eliminar/{IdCalificacion}")
 	public String eliminarCalificacion(@PathVariable long IdCalificacion) {
 		servicio.eliminarCalificacion(IdCalificacion);
@@ -48,7 +54,7 @@ public class CalificacionContrller {
 	@PostMapping("/Calificacion/Guardar")
 	public String guardarCalificacion(@ModelAttribute("Calificacion") Calificacion calificacion) {
 		servicio.guardarCalificacion(calificacion);
-		return "redirect:/Generar_Calificacion";
+		return "redirect:/Calificacion";
 
 	}
 

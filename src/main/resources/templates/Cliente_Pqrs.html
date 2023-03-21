@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+<!-- Created by CodingLab |www.youtube.com/CodingLabYT-->
 <html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
 <head>
   <link rel="icon" type="image/png" href="/img/logosolo.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vacante</title>
+  <title>Pqrs</title>
   <link rel="stylesheet" href="/css/style_Calificacion.css">
   <link rel="stylesheet" href="/css/w3.css">
   <!-- Boxiocns CDN Link -->
@@ -122,41 +123,39 @@
     <i class='bx bx-menu' ></i>
   </div>
   <div class="col-lg-3" id="botonAgregar">
-    <a th:href="@{/Vacante/Registrar}" class="btn btn-info" style="margin-left: 100px;"> Agregar</a>
+    <a th:href="@{/Pqrs/Registrar}" class="btn btn-info" style="margin-left: 100px;"> Agregar</a>
   <br>  
   </div>
-  <div class="container" id="containerTabla" style="margin-left: 140px;">
-    <table class="table table-hover" id="example" style="background-color: white;">
+  <div class="container" id="containerTabla" >
+    <table class="table table-hover" id="example"style="background-color: white;">
       <thead>
       <tr>
-        <th>Id Vacante</th>
-        <th>Hora De Inicio</th>
-        <th>Hora De Fin</th>
-        <th>Perfil</th>
-        <th>Lugar De Trabajo</th>
-        <th>Salario</th>
-        <th>Educacion requerida</th>
-        <th>Cargo</th>
-        <th>Postulacion</th>
+        <th>Venta</th>
+        <th>IdPqrs</th>
+        <th>Descripcion</th>
+        <th>Fecha</th>
+        <th>Tipo</th>
+        <th>Prioridad</th>
+        <th>Estado</th>
+        <th>Respuesta</th>
         <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
-      <tr th:each="Vacante : ${Vacante}">
-        <td th:text="${Vacante.IdVacante}">Nombres</td>
-        <td th:text="${Vacante.HoraInicio}">Nombres</td>
-        <td th:text="${Vacante.HoraFin}">Nombres</td>
-        <td th:text="${Vacante.Perfil}">Nombres</td>
-        <td th:text="${Vacante.LugarTrabajo}">Nombres</td>
-        <td th:text="${Vacante.Salario}">Nombres</td>
-        <td th:text="${Vacante.Eduacion}">Nombres</td>
-        <td th:text="${Vacante.cargo.IdCargo}">Nombres</td>
-        <td th:text="${Vacante.postulacion.IdPostulacion}">Nombres</td>
+      <tr th:each="Pqrs : ${Pqrs}">
+        <td th:text="${Pqrs.Venta.IdVenta}">Nombres</td>
+        <td th:text="${Pqrs.IdPqrs}">Nombres</td>
+        <td th:text="${Pqrs.Descripcion}">Nombres</td>
+        <td th:text="${Pqrs.Fecha}">Nombres</td>
+        <td th:text="${Pqrs.Tipo.NombreTipo}">Nombres</td>
+        <td th:text="${Pqrs.Prioridad.NombrePrioridad}">Nombres</td>
+        <td th:text="${Pqrs.Estado.nombre}">Nombres</td>
+        <td th:text="${Pqrs.RespuestaPqrs}">Nombres</td>
         <td>
 
-          <a th:href="@{/Vacante/editar/{IdVacante}(IdVacante=${Vacante.IdVacante})}" class="btn btn-info"><i class="fa-solid fa-pencil"></i></a>
+          <a th:href="@{/Pqrs/editar/{IdPqrs}(IdPqrs=${Pqrs.IdPqrs})}" class="btn btn-info"><i class="fa-solid fa-pencil"></i></a>
           <a
-                  th:href="@{/Vacante/eliminar/{IdVacante}(IdVacante=${Vacante.IdVacante})}"
+                  th:href="@{/Pqrs/eliminar/{IdPqrs}(IdPqrs=${Pqrs.IdPqrs})}"
                   class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a></td>
       </tr>
     </tbody>

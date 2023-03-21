@@ -30,6 +30,11 @@ public class HojaDeVidaController {
 		modelo.addAttribute("HojaDeVida", servicio.ListaTodosHojadevida());
 		return "/HojaDeVida";
 	}
+	@GetMapping("/Cliente_HojaDeVida")
+	public String ListaHojaDeVidaCliente(Model modelo) {
+		modelo.addAttribute("HojaDeVida", servicio.ListaTodosHojadevida());
+		return "/Cliente_HojaDeVida";
+	}
 	
 	@GetMapping("/HojaDeVida/eliminar/{idaspirante}")
 	public String eliminarHojaDeVida(@PathVariable long IdHojaDeVida) {
