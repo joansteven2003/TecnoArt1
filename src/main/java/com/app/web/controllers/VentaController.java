@@ -1,5 +1,7 @@
 package com.app.web.controllers;
 
+import com.app.web.modelos.Usuario;
+import com.app.web.servicios.UsuarioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,10 +13,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.app.web.modelos.Venta;
 import com.app.web.servicios.VentaServicio;
 
+import java.util.List;
+
 @Controller
 public class VentaController {
 	@Autowired
 	private VentaServicio servicio;
+
+	@Autowired
+	private UsuarioServicio usuarioServicio;
 
 	@GetMapping("/Venta")
 	public String listarVentas(Model modelo) {
@@ -25,7 +32,9 @@ public class VentaController {
 	@GetMapping("/Venta/Registrar")
 	public String mostrarFormularioRegistroVenta(Model modelo) {
 		Venta venta = new Venta();
+		List<Usuario> ListaUsuario= usuarioServicio.listarUsuarios();
 		modelo.addAttribute("Venta", venta);
+		modelo.addAttribute("Usuarios", ListaUsuario);
 		return "crearVenta";
 	}
 

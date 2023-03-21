@@ -1,5 +1,7 @@
 package com.app.web.controllers;
 
+import com.app.web.modelos.Venta;
+import com.app.web.servicios.VentaServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +19,8 @@ import java.util.List;
 public class CalificacionContrller {
 	@Autowired
 	private CalificacionServicio servicio;
+	@Autowired
+	private VentaServicio ServicioVenta;
 	
 	@GetMapping("/Calificacion")
 	public String ListarCalificaciones(Model modelo) {
@@ -34,9 +38,10 @@ public class CalificacionContrller {
 	@GetMapping("/Calificacion/Registrar")
 	public String CalificacionFormulario(Model modelo) {
 		Calificacion calificacion = new Calificacion();
-		List<Calificacion> listaVenta = servicio.listarCalificacion();
+		List<Venta> listaVenta = ServicioVenta.listarVentas();
+
 		modelo.addAttribute("Calificacion", calificacion);
-		modelo.addAttribute("venta", listaVenta);
+		modelo.addAttribute("ventas", listaVenta);
 		return "/Generar_Calificacion";
 	}
 

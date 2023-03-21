@@ -35,7 +35,7 @@ public class CargoController {
 	public String CargoFormulario(Model modelo) {
 		Cargo cargo = new Cargo();
 		modelo.addAttribute("Cargo", cargo);
-		return "/crearAspirante";
+		return "/Generar_cargo";
 	}
 
 	@PostMapping("/Cargo/Guardar")
