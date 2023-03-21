@@ -58,14 +58,14 @@ public class ServicioController {
 		servicioExistente.setNombre_servicio(servicio.getNombre_servicio());
 		servicioExistente.setValor_venta(servicio.getValor_venta());
 		servicioExistente.setDescripcion(servicio.getDescripcion());
-		servicioExistente.setListarVenta(servicio.getListarVenta());
+
 
 		servicios.actualizarServicios(servicioExistente);
 		return "redirect:/Servicio";
 
 	}
 
-	@GetMapping("/Servicio/{IdServicio}")
+	@GetMapping("/Servicio/eliminar/{IdServicio}")
 	public String eliminarServicios(@PathVariable Long IdServicio) {
 		servicios.eliminarServicios(IdServicio);
 		return "redirect:/Servicio";

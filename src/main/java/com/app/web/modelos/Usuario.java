@@ -27,9 +27,6 @@ public class Usuario {
 	@Column(name = "password", nullable = true)
 	private String password;
 
-	@Lob
-	@Column(name = "HojaDeVida", nullable = true)
-	private byte[] HojaDeVida;
 
 	@OneToMany(mappedBy = "usuario")
 	List<Venta> ListVenta;
@@ -38,8 +35,9 @@ public class Usuario {
 	@JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "id_usuario"), inverseJoinColumns = @JoinColumn(name = "id_rol"))
 	private Set<Rol> roles;
 
-	@OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
-	private HojaDeVida hojaDeVida;
+    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
+    private HojaDeVida hojaDeVida;
+
     @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
     private Cotizacion cotizacion;
 
@@ -49,10 +47,11 @@ public class Usuario {
 	@OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
 	private Postulacion postulacion;
 
-	public Usuario() {
-	}
 
-    public Usuario(long idUsuario, String nombreCompleto, long documento, long telefono, String correo, String recidencia, String password, byte[] hojaDeVida, List<Venta> listVenta, Set<Rol> roles, com.app.web.modelos.HojaDeVida hojaDeVida1, Cotizacion cotizacion, Contrato contrato, Postulacion postulacion) {
+    public Usuario() {
+    }
+
+    public Usuario(long idUsuario, String nombreCompleto, long documento, long telefono, String correo, String recidencia, String password, List<Venta> listVenta, Set<Rol> roles, HojaDeVida hojaDeVida, Cotizacion cotizacion, Contrato contrato, Postulacion postulacion) {
         IdUsuario = idUsuario;
         NombreCompleto = nombreCompleto;
         Documento = documento;
@@ -60,10 +59,9 @@ public class Usuario {
         Correo = correo;
         Recidencia = recidencia;
         this.password = password;
-        HojaDeVida = hojaDeVida;
         ListVenta = listVenta;
         this.roles = roles;
-        this.hojaDeVida = hojaDeVida1;
+        this.hojaDeVida = hojaDeVida;
         this.cotizacion = cotizacion;
         this.contrato = contrato;
         this.postulacion = postulacion;
@@ -125,11 +123,27 @@ public class Usuario {
         this.password = password;
     }
 
-    public byte[] getHojaDeVida() {
-        return HojaDeVida;
+    public List<Venta> getListVenta() {
+        return ListVenta;
     }
 
-    public void setHojaDeVida(com.app.web.modelos.HojaDeVida hojaDeVida) {
+    public void setListVenta(List<Venta> listVenta) {
+        ListVenta = listVenta;
+    }
+
+    public Set<Rol> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Rol> roles) {
+        this.roles = roles;
+    }
+
+    public HojaDeVida getHojaDeVida() {
+        return hojaDeVida;
+    }
+
+    public void setHojaDeVida(HojaDeVida hojaDeVida) {
         this.hojaDeVida = hojaDeVida;
     }
 
@@ -157,26 +171,6 @@ public class Usuario {
         this.postulacion = postulacion;
     }
 
-    public void setHojaDeVida(byte[] hojaDeVida) {
-        HojaDeVida = hojaDeVida;
-    }
-
-    public List<Venta> getListVenta() {
-        return ListVenta;
-    }
-
-    public void setListVenta(List<Venta> listVenta) {
-        ListVenta = listVenta;
-    }
-
-    public Set<Rol> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<Rol> roles) {
-        this.roles = roles;
-    }
-
     @Override
     public String toString() {
         return "Usuario{" +
@@ -187,7 +181,6 @@ public class Usuario {
                 ", Correo='" + Correo + '\'' +
                 ", Recidencia='" + Recidencia + '\'' +
                 ", password='" + password + '\'' +
-                ", HojaDeVida=" + Arrays.toString(HojaDeVida) +
                 ", ListVenta=" + ListVenta +
                 ", roles=" + roles +
                 ", hojaDeVida=" + hojaDeVida +

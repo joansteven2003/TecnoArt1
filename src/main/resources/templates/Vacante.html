@@ -2,11 +2,10 @@
 <!-- Created by CodingLab |www.youtube.com/CodingLabYT-->
 <html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <link rel="icon" type="image/png" href="/img/logosolo.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Usuario </title>
-  <link rel="stylesheet" href="/css/style.css">
+  <title>Vacante</title>
+  <link rel="stylesheet" href="/css/style_Calificacion.css">
   <link rel="stylesheet" href="/css/w3.css">
   <!-- Boxiocns CDN Link -->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -36,11 +35,11 @@
           referrerpolicy="no-referrer"
   />
 
-</head>
+ </head>
 <body>
 <div class="sidebar close">
   <div class="logo-details">
-    <img class="logo-details" src="/img/Logosolo.png">
+    <img class="logo-details" src="img/Logo.png">
     <span class="logo_name">Tecno&Art</span>
   </div>
   <ul class="nav-links">
@@ -107,7 +106,7 @@
 
     <div class="profile-details">
       <div class="profile-content">
-        <!--<img src="image/profile.jpg" alt="profileImg">-->
+        <!--img src="image/profile.jpg" alt="profileImg"-->
       </div>
       <div class="name-job">
         <div class="profile_name">Prem Shahi</div>
@@ -122,45 +121,51 @@
   <div class="home-content">
     <i class='bx bx-menu' ></i>
   </div>
-
-  <div class="container" id="containerTabla">
-    <div class="col-lg-3">
-      <a th:href="@{/Usuario/Registrarse}" class="btn btn-info" style="margin-left: 100px;"><i class="fa-solid fa-user-plus"></i> Agregar </a>
-    </div>
+  <div class="col-lg-3" id="botonAgregar">
+    <a th:href="@{/Vacante/Registrar}" class="btn btn-info" style="margin-left: 100px;"> Agregar</a>
+  <br>  
+  </div>
+  <div class="container" id="containerTabla" style="margin-left: 140px;">
     <table class="table table-hover" id="example" style="background-color: white;">
       <thead>
       <tr>
-        <th>Nombre completo</th>
-        <th>Documento</th>
-        <th>Telefono</th>
-        <th>Correo</th>
-        <th>Recidencia</th>
-        <th>Rol</th>
+        <th>Id Vacante</th>
+        <th>Hora De Inicio</th>
+        <th>Hora De Fin</th>
+        <th>Perfil</th>
+        <th>Lugar De Trabajo</th>
+        <th>Salario</th>
+        <th>Educacion requerida</th>
+        <th>Cargo</th>
+        <th>Postulacion</th>
         <th>Acciones</th>
       </tr>
-      </thead>
-      <tbody>
-      <tr th:each="Usuario : ${Usuario}">
-        <td th:text="${Usuario.NombreCompleto}">Nombres</td>
-        <td th:text="${Usuario.Documento}">Nombres</td>
-        <td th:text="${Usuario.Telefono}">Nombres</td>
-        <td th:text="${Usuario.Correo}">Nombres</td>
-        <td th:text="${Usuario.Recidencia}">Nombres</td>
-        <td th:text="${Usuario.roles}">Nombres</td>
+    </thead>
+    <tbody>
+      <tr th:each="Vacante : ${Vacante}">
+        <td th:text="${Vacante.IdVacante}">Nombres</td>
+        <td th:text="${Vacante.HoraInicio}">Nombres</td>
+        <td th:text="${Vacante.HoraFin}">Nombres</td>
+        <td th:text="${Vacante.Perfil}">Nombres</td>
+        <td th:text="${Vacante.LugarTrabajo}">Nombres</td>
+        <td th:text="${Vacante.Salario}">Nombres</td>
+        <td th:text="${Vacante.Eduacion}">Nombres</td>
+        <td th:text="${Vacante.cargo.IdCargo}">Nombres</td>
+        <td th:text="${Vacante.postulacion.IdPostulacion}">Nombres</td>
         <td>
-          <a style="margin-bottom: 5px;" th:href="@{/Usuario/editar/{IdUsuario}(IdUsuario=${Usuario.IdUsuario})}" class="btn btn-info"><i class="fa-solid fa-pencil"></i></a>
-          <br>
-          <a style="margin-bottom: 5px;"
-             th:href="@{/Usuario/eliminar/{IdUsuario}(IdUsuario=${Usuario.IdUsuario})}"
-             class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
-        </td>
-      </tr>
-      </tbody>
-    </table>
 
+          <a th:href="@{/Vacante/editar/{IdVacante}(IdVacante=${Vacante.IdVacante})}" class="btn btn-info"><i class="fa-solid fa-pencil"></i></a>
+          <a
+                  th:href="@{/Vacante/eliminar/{IdVacante}(IdVacante=${Vacante.IdVacante})}"
+                  class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a></td>
+      </tr>
+    </tbody>
+    </table>
   </div>
 
 </section>>
+
+
 
 <script>
   let arrow = document.querySelectorAll(".arrow");
@@ -177,56 +182,54 @@
     sidebar.classList.toggle("close");
   });
   </script>
-
-<!---scrips de data tables ---->
+   <!---scrips de data tables ---->
 <!-- JQuery -->
 <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
-        integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"
+src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+crossorigin="anonymous"
+referrerpolicy="no-referrer"
 ></script>
 <!-- DataTable -->
 <script
-        type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"
+type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"
 ></script>
 <script
-        type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"
+type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"
 ></script>
 <script
-        type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"
+type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"
 ></script>
 <script
-        type="text/javascript"
-        src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"
+type="text/javascript"
+src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"
 ></script>
 <script
-        type="text/javascript"
-        src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"
+type="text/javascript"
+src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"
 ></script>
 <script
-        type="text/javascript"
-        src="https://cdn.datatables.net/buttons/2.3.3/js/dataTables.buttons.min.js"
+type="text/javascript"
+src="https://cdn.datatables.net/buttons/2.3.3/js/dataTables.buttons.min.js"
 ></script>
 <script
-        type="text/javascript"
-        src="https://cdn.datatables.net/buttons/2.3.3/js/buttons.bootstrap5.min.js"
+type="text/javascript"
+src="https://cdn.datatables.net/buttons/2.3.3/js/buttons.bootstrap5.min.js"
 ></script>
 <script
-        type="text/javascript"
-        src="https://cdn.datatables.net/buttons/2.3.3/js/buttons.html5.min.js"
+type="text/javascript"
+src="https://cdn.datatables.net/buttons/2.3.3/js/buttons.html5.min.js"
 ></script>
 <script
-        type="text/javascript"
-        src="https://cdn.datatables.net/buttons/2.3.3/js/buttons.print.min.js"
+type="text/javascript"
+src="https://cdn.datatables.net/buttons/2.3.3/js/buttons.print.min.js"
 ></script>
 <!-- Bootstrap-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/prueba.js"></script>
-
 
 </body>
 </html>

@@ -2,11 +2,10 @@
 <!-- Created by CodingLab |www.youtube.com/CodingLabYT-->
 <html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <link rel="icon" type="image/png" href="/img/logosolo.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Usuario </title>
-  <link rel="stylesheet" href="/css/style.css">
+  <title>Calificacion </title>
+  <link rel="stylesheet" href="/css/style_Calificacion.css">
   <link rel="stylesheet" href="/css/w3.css">
   <!-- Boxiocns CDN Link -->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -36,11 +35,11 @@
           referrerpolicy="no-referrer"
   />
 
-</head>
+ </head>
 <body>
 <div class="sidebar close">
   <div class="logo-details">
-    <img class="logo-details" src="/img/Logosolo.png">
+    <img class="logo-details" src="img/Logo.png">
     <span class="logo_name">Tecno&Art</span>
   </div>
   <ul class="nav-links">
@@ -107,7 +106,7 @@
 
     <div class="profile-details">
       <div class="profile-content">
-        <!--<img src="image/profile.jpg" alt="profileImg">-->
+        <!--img src="image/profile.jpg" alt="profileImg"-->
       </div>
       <div class="name-job">
         <div class="profile_name">Prem Shahi</div>
@@ -122,37 +121,31 @@
   <div class="home-content">
     <i class='bx bx-menu' ></i>
   </div>
-
-  <div class="container" id="containerTabla">
-    <div class="col-lg-3">
-      <a th:href="@{/Usuario/Registrarse}" class="btn btn-info" style="margin-left: 100px;"><i class="fa-solid fa-user-plus"></i> Agregar </a>
-    </div>
-    <table class="table table-hover" id="example" style="background-color: white;">
+  <div class="col-lg-3" id="botonAgregar">
+    <a id="boton" th:href="@{/Calificacion/Registrar}" class="btn btn-info" ><i class="fa-solid:check-circle"></i> Agregar</a>
+  <br>  
+  </div>
+  <div class="container"   id="containerTabla" >
+    <table class="table table-hover" id="example" style="background-color: white;" >
       <thead>
       <tr>
-        <th>Nombre completo</th>
-        <th>Documento</th>
-        <th>Telefono</th>
-        <th>Correo</th>
-        <th>Recidencia</th>
-        <th>Rol</th>
+        <th>Estrellas</th>
+        <th>Venta</th>
         <th>Acciones</th>
       </tr>
       </thead>
+      <br>
+      <br>
       <tbody>
-      <tr th:each="Usuario : ${Usuario}">
-        <td th:text="${Usuario.NombreCompleto}">Nombres</td>
-        <td th:text="${Usuario.Documento}">Nombres</td>
-        <td th:text="${Usuario.Telefono}">Nombres</td>
-        <td th:text="${Usuario.Correo}">Nombres</td>
-        <td th:text="${Usuario.Recidencia}">Nombres</td>
-        <td th:text="${Usuario.roles}">Nombres</td>
+      <tr th:each="Calificacion : ${Calificacion}">
+        <td th:text="${Calificacion.Estrellas}">Nombres</td>
+        <td th:text="${Calificacion.Venta.IdVenta}">Nombres</td>
         <td>
-          <a style="margin-bottom: 5px;" th:href="@{/Usuario/editar/{IdUsuario}(IdUsuario=${Usuario.IdUsuario})}" class="btn btn-info"><i class="fa-solid fa-pencil"></i></a>
-          <br>
+          <a style="margin-bottom: 5px;" th:href="@{/Calificacion/editar/{IdCalificacion}(IdCalificacion=${Calificacion.IdCalificacion})}" class="btn btn-info"><i class="fa-solid fa-pencil"></i></a>
+         <br>
           <a style="margin-bottom: 5px;"
-             th:href="@{/Usuario/eliminar/{IdUsuario}(IdUsuario=${Usuario.IdUsuario})}"
-             class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
+                  th:href="@{/Calificacion/eliminar/{IdCalificacion}(IdCalificacion=${Calificacion.IdCalificacion})}"
+                  class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
         </td>
       </tr>
       </tbody>
