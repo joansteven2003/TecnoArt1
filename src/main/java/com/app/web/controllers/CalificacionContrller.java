@@ -48,14 +48,14 @@ public class CalificacionContrller {
 	@PostMapping("/Calificacion/Guardar")
 	public String guardarCalificacion(@ModelAttribute("Calificacion") Calificacion calificacion) {
 		servicio.guardarCalificacion(calificacion);
-		return "redirect:/Calificacion";
+		return "redirect:/Generar_Calificacion";
 
 	}
 
 	@GetMapping("/Calificacion/editar/{idaspirante}")
 	public String EditarCalificacionFomulario(@PathVariable long IdCalificacion, Model modelo) {
 		modelo.addAttribute("Calificacion", servicio.obtenerCalificacionPorId(IdCalificacion));
-		return "/editarCalificacion";
+		return "/Editar_Calificacion";
 	}
 
 	@PostMapping("/Calificacion/{IdCalificacion}")

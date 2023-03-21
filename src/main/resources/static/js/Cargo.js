@@ -2,17 +2,17 @@ const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 
 const expresiones = {
-	NombreCargo: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+	nombeCargo: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
 }
 
 const campos = {
-	NombreCargo: false
+	nombeCargo: false
 }
 
 const validarFormulario = (e) => {
 	switch (e.target.name) {
-		case "NombreCargo":
-			validarCampo(expresiones.NombreCargo, e.target, 'NombreCargo');
+		case "nombeCargo":
+			validarCampo(expresiones.nombeCargo, e.target, 'nombeCargo');
 		break;
 		
 	}
@@ -46,7 +46,7 @@ inputs.forEach((input) => {
 formulario.addEventListener('submit', (e) => {
 
 
-	if(campos.NombreCargo ){
+	if(campos.nombeCargo ){
 		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
 		setTimeout(() => {
 			document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');

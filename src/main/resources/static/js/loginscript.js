@@ -74,11 +74,11 @@ inputs.forEach((input) => {
 });
 
 formulario.addEventListener('submit', (e) => {
-	e.preventDefault();
+
 
 	
 	if(campos.correo && campos.password){
-		formulario.reset();
+
 
 		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
 		setTimeout(() => {
@@ -90,6 +90,7 @@ formulario.addEventListener('submit', (e) => {
 			return campos.password=false;
 		});
 	} else {
+	    e.preventDefault();
 		document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
         setTimeout(() => {
 			document.getElementById('formulario__mensaje').classList.remove('formulario__mensaje-activo');

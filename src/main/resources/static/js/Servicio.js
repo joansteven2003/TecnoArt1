@@ -6,31 +6,31 @@ const grupoOpcion = document.getElementById('grupo__opcion');
 
 
 const expresiones = {
-	NombreServicio: /^[a-zA-ZÀ-ÿ\s]{4,10}$/, // Letras y espacios, pueden llevar acentos.
-    comentarios: /^[a-zA-ZÀ-ÿ0-9.,;:_\s]{1,500}$/, // observacion dondepermite mayusculas,minusculas y espacios y ortografia. 
-    ValorVenta: /^\d{1,14}$/, // 7 a 14 numeros.
+	Nombre_servicio: /^[a-zA-ZÀ-ÿ\s]{4,10}$/, // Letras y espacios, pueden llevar acentos.
+    Descripcion: /^[a-zA-ZÀ-ÿ0-9.,;:_\s]{10,500}$/, // observacion dondepermite mayusculas,minusculas y espacios y ortografia.
+    Valor_venta: /^\d{2,14}$/, // 7 a 14 numeros.
 }
 
 const campos = {
-	NombreServicio: false,
-    comentarios:false,
-    ValorVenta: false
+	Nombre_servicio: false,
+    Descripcion:false,
+    Valor_venta: false
 
 }
 
 const validarFormulario = (e) => {
 	switch (e.target.name) {
-		case "NombreServicio":
-			validarCampo(expresiones.NombreServicio, e.target, 'NombreServicio');
+		case "Nombre_servicio":
+			validarCampo(expresiones.Nombre_servicio, e.target, 'Nombre_servicio');
 		break;
-        case "ValorVenta":
-            validarCampo(expresiones.ValorVenta, e.target, 'ValorVenta');
+        case "Valor_venta":
+            validarCampo(expresiones.Valor_venta, e.target, 'Valor_venta');
             break;
         case "opcion":
             validarCampo2(opcion.value !== "", grupoOpcion, 'opcion');
             break;
-        case "comentarios":
-            validarCampo(expresiones.comentarios, e.target, 'comentarios');  
+        case "Descripcion":
+            validarCampo(expresiones.Descripcion, e.target, 'Descripcion');
             break;  
 		
 	}
@@ -79,14 +79,14 @@ inputs.forEach((input) => {
 opcion.addEventListener('change', validarFormulario);
 
 //parte del campo del texto mas grande
-comentarios.addEventListener('keyup', validarFormulario);
-comentarios.addEventListener('blur', validarFormulario);
+Descripcion.addEventListener('keyup', validarFormulario);
+Descripcion.addEventListener('blur', validarFormulario);
 
 formulario.addEventListener('submit', (e) => {
-	e.preventDefault();
 
-	if(campos.NombreServicio && opcion.value !== "" && campos.comentarios && campos.ValorVenta){
-		formulario.reset();
+
+	if(campos.Nombre_servicio && opcion.value !== "" && campos.Descripcion && campos.Valor_venta){
+
 
 		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
 		setTimeout(() => {
@@ -97,6 +97,7 @@ formulario.addEventListener('submit', (e) => {
 			icono.classList.remove('formulario__grupo-correcto');
 		});
 	} else {
+	    e.preventDefault();
 		document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
         setTimeout(() => {
 			document.getElementById('formulario__mensaje').classList.remove('formulario__mensaje-activo');

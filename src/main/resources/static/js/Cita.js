@@ -5,7 +5,7 @@ const expresiones = {
 	direccion: /^[a-zA-Z0-9._#-]{4,25}$/, // Letras, numeros, guion y guion_bajo
     correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
     Documento: /^\d{7,10}$/, // 7 a 10 numeros.
-	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+	Nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
     fecha: /^\d{4}-\d{2}-\d{2}$/, // Formato de fecha yyyy-mm-dd
     hora: /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/
 }
@@ -14,7 +14,7 @@ const campos = {
 	direccion: false,
     correo: false,
     Documento: false,
-	nombre: false,
+	Nombre: false,
     fecha:false,
     hora:false
 }
@@ -30,8 +30,8 @@ const validarFormulario = (e) => {
         case "Documento":
 			validarCampo(expresiones.Documento, e.target, 'Documento');
 		break;
-        case "nombre":
-			validarCampo(expresiones.nombre, e.target, 'nombre');
+        case "Nombre":
+			validarCampo(expresiones.Nombre, e.target, 'Nombre');
 		break;
 
         case "fecha":
@@ -71,10 +71,9 @@ inputs.forEach((input) => {
 });
 
 formulario.addEventListener('submit', (e) => {
-	e.preventDefault();
 
-	if(campos.direccion && campos.correo && campos.Documento && campos.nombre  && campos.fecha &&  campos.hora ){
-		formulario.reset();
+
+	if(campos.direccion && campos.correo && campos.Documento && campos.Nombre  && campos.fecha &&  campos.hora ){
 
 		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
 		setTimeout(() => {
@@ -85,7 +84,7 @@ formulario.addEventListener('submit', (e) => {
 			icono.classList.remove('formulario__grupo-correcto');
 		});
 	} else {
-        console.log(campos);
+	    e.preventDefault();
 		document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
         setTimeout(() => {
 			document.getElementById('formulario__mensaje').classList.remove('formulario__mensaje-activo');

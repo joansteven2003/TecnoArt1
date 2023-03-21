@@ -43,7 +43,7 @@ public class ResultadoController {
 		List<Cita> ListaCitas = citaServicio.listarTodasLasCitas();
 		modelo.addAttribute("Resultado", resultado);
 		modelo.addAttribute("Citas",ListaCitas);
-		return "/crearResultado";
+		return "/Generar_Resultado";
 	}
 
 	@PostMapping("/Resultado/Guardar")
@@ -56,7 +56,7 @@ public class ResultadoController {
 	@GetMapping("/Resultado/editar/{IdResultado}")
 	public String EditarResultadoFomulario(@PathVariable long IdResultado, Model modelo) {
 		modelo.addAttribute("Resultado", servicio.obtenerResultadoPorId(IdResultado));
-		return "/editarResultado";
+		return "/Editar_Resultado";
 	}
 
 	@PostMapping("/Resultado/{IdResultado}")

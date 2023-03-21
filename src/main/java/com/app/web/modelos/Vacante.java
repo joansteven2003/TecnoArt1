@@ -36,7 +36,7 @@ public class Vacante {
 	private String Eduacion;
 
 	@OneToOne
-	@JoinColumn(name = "IdCargo")
+	@JoinColumn(name = "Cargo")
 	private Cargo cargo;
 
 	@OneToOne(mappedBy = "vacante", cascade = CascadeType.ALL)

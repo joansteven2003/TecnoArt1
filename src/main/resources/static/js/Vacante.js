@@ -5,30 +5,30 @@ const opcion = document.getElementById('opcion');
 const grupoOpcion = document.getElementById('grupo__opcion');
 
 const expresiones = {
-    horaInicial: /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/, //permite la hora de HH:mm
-    horaFinal: /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/, //permite la hora de HH:mm
+    HoraInicio: /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/, //permite la hora de HH:mm
+    HoraFin: /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/, //permite la hora de HH:mm
     LugarTrabajo: /^[a-zA-Z0-9._#-]{4,25}$/, // Letras, numeros, guion y guion_bajo
     Salario: /^\d{5,20}$/, // 5 a 20 numeros.
-    Educacion: /^[a-zA-ZÀ-ÿ\s]{5,20}$/, // Letras y espacios, pueden llevar acentos.
-    comentarios: /^[a-zA-ZÀ-ÿ0-9.,;:_\s]{1,500}$/, // observacion dondepermite mayusculas,minusculas y espacios y ortografia. 
+    Eduacion: /^[a-zA-ZÀ-ÿ\s]{5,20}$/, // Letras y espacios, pueden llevar acentos.
+    Perfil: /^[a-zA-ZÀ-ÿ0-9.,;:_\s]{10,500}$/, // observacion dondepermite mayusculas,minusculas y espacios y ortografia.
 }
 
 const campos = {
-	horaInicial: false,
-    horaFinal: false,
+	HoraInicio: false,
+    HoraFin: false,
     LugarTrabajo: false,
     Salario: false,
-    Educacion: false,
-    comentarios: false
+    Eduacion: false,
+    Perfil: false
 }
 
 const validarFormulario = (e) => {
 	switch (e.target.name) {
-		case "horaInicial":
-			validarCampo(expresiones.horaInicial, e.target, 'horaInicial');
+		case "HoraInicio":
+			validarCampo(expresiones.HoraInicio, e.target, 'HoraInicio');
 		break;
-        case "horaFinal":
-			validarCampo(expresiones.horaFinal, e.target, 'horaFinal');
+        case "HoraFin":
+			validarCampo(expresiones.HoraFin, e.target, 'HoraFin');
 		break;
         case "LugarTrabajo":
 			validarCampo(expresiones.LugarTrabajo, e.target, 'LugarTrabajo');
@@ -37,14 +37,14 @@ const validarFormulario = (e) => {
 			validarCampo(expresiones.Salario, e.target, 'Salario');
 		break;
 
-        case "Educacion":
-			validarCampo(expresiones.Educacion, e.target, 'Educacion');
+        case "Eduacion":
+			validarCampo(expresiones.Eduacion, e.target, 'Eduacion');
 		break;
         case "opcion":
             validarCampo2(opcion.value !== "", grupoOpcion, 'opcion');
             break;
-        case "comentarios":
-			validarCampo(expresiones.comentarios, e.target, 'comentarios');
+        case "Perfil":
+			validarCampo(expresiones.Perfil, e.target, 'Perfil');
 		break;
 
         
@@ -96,14 +96,14 @@ inputs.forEach((input) => {
 opcion.addEventListener('change', validarFormulario);
 
 //parte del campo del texto mas grande
-comentarios.addEventListener('keyup', validarFormulario);
-comentarios.addEventListener('blur', validarFormulario);
+Perfil.addEventListener('keyup', validarFormulario);
+Perfil.addEventListener('blur', validarFormulario);
 
 formulario.addEventListener('submit', (e) => {
-	e.preventDefault();
 
-	if(campos.horaInicial && campos.horaFinal && campos.Salario && campos.LugarTrabajo && campos.Educacion && opcion.value !== "" && campos.comentarios ){
-		formulario.reset();
+
+	if(campos.HoraInicio && campos.HoraFin && campos.Salario && campos.LugarTrabajo && campos.Eduacion && opcion.value !== "" && campos.Perfil ){
+
 
 		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
 		setTimeout(() => {
@@ -114,7 +114,7 @@ formulario.addEventListener('submit', (e) => {
 			icono.classList.remove('formulario__grupo-correcto');
 		});
 	} else {
-        console.log(campos);
+        e.preventDefault();
 		document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
         setTimeout(() => {
 			document.getElementById('formulario__mensaje').classList.remove('formulario__mensaje-activo');

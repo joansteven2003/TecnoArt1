@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 30px;
+    padding: 0px;
   }
   .container1 {
       max-width: 700px;
@@ -20,15 +20,11 @@
     }
     .container1 .form {
       margin-top: 30px;
-      
+
     }
     .form .input-box {
       width: 100%;
       margin-top: 10px;
-    }
-
-    #grupo__cargo{
-        margin-top: auto;
     }
     .input-box label {
       color: #333;
@@ -114,51 +110,51 @@
         row-gap: 15px;
       }
     }
-    
+
     /*Css de el fomulario de validacion*/
-    
-    
+
+
     .formulario {
         gap: 20px;
     }
-    
+
     .formulario__label {
       cursor: pointer;
         display: block;
         font-weight: 700;
         padding: 10px;
     }
-    
+
     .formulario__grupo-input {
         position: relative;
     }
     .formulario__grupo-input textarea{
       width: 100%;
     }
-    
-    .formulario__input {
+
+    .formulario__input, textarea {
         border-radius: 6px;
         line-height: 45px;
         transition: .1s ease all;
     }
-    
-    
-    .formulario__input:focus {
+
+
+    .formulario__input,textarea:focus {
         border: 3px solid none;
         outline: none;
         box-shadow: 3px 0px 30px rgba(163,163,163, 0.4);
     }
-    
+
     .formulario__input-error {
         font-size: 12px;
         margin-bottom: 0;
         display: none;
     }
-    
+
     .formulario__input-error-activo {
         display: block;
     }
-    
+
     .formulario__validacion-estado {
         position: absolute;
         right: 10px;
@@ -167,17 +163,17 @@
         font-size: 16px;
         opacity: 0;
     }
-    
+
     .formulario__checkbox {
         margin-right: 10px;
     }
-    
-    .formulario__grupo-terminos, 
+
+    .formulario__grupo-terminos,
     .formulario__mensaje,
     .formulario__grupo-btn-enviar {
         grid-column: span 2;
     }
-    
+
     .formulario__mensaje {
         height: 40px;
         line-height: 45px;
@@ -191,21 +187,21 @@
         text-align: center;
         border-radius: 4px;
     }
-    
+
     .formulario__mensaje-activo {
         display: block;
     }
-    
+
     .formulario__mensaje p {
         margin: 0;
     }
-    
+
     .formulario__grupo-btn-enviar {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-    
+
     .formulario__btn {
         font-weight: bold;
         border: none;
@@ -213,11 +209,11 @@
         cursor: pointer;
         transition: .3s ease all;
     }
-    
+
     .formulario__btn:hover {
         box-shadow: 3px 0px 30px rgba(163,163,163, 1);
     }
-    
+
     .formulario__mensaje-exito {
         height: 40px;
         line-height: 45px;
@@ -232,40 +228,40 @@
         text-align: center;
         border-radius: 4px;
     }
-    
+
     .formulario__mensaje-exito-activo {
         display: block;
     }
-    
+
     /* ----- -----  Estilos para Validacion ----- ----- */
     .formulario__grupo-correcto .formulario__validacion-estado {
         color: #1ed12d;
         opacity: 1;
     }
-    
+
     .formulario__grupo-incorrecto .formulario__label {
         color: #e76373;
     }
-    
+
     .formulario__grupo-incorrecto .formulario__validacion-estado {
         color: #f3b1b9;
         opacity: 1;
     }
-    
+
     .formulario__grupo-incorrecto .formulario__input {
         border: 3px solid #dc152e;
     }
-    
-    
+
+
     /* ----- -----  Mediaqueries ----- ----- */
     @media screen and (max-width: 800px) {
-        
-        .formulario__grupo-terminos, 
+
+        .formulario__grupo-terminos,
         .formulario__mensaje,
         .formulario__grupo-btn-enviar {
             grid-column: 1;
         }
-    
+
         .formulario__btn {
             width: 100%;
         }

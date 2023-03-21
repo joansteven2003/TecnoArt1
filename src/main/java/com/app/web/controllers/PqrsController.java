@@ -59,7 +59,7 @@ public class PqrsController {
 	@GetMapping("/Pqrs/editar/{IdPqrs}")
 	public String mostrarFormularioDeEitar(@PathVariable long IdPqrs, Model modelo) {
 		modelo.addAttribute("pqrs", servicio.obtenerPqrsPorId(IdPqrs));
-		return "/editarPqrs";
+		return "/Editar_PQRS";
 	}
 
 	@PostMapping("/Pqrs/{IdPqrs}")

@@ -5,23 +5,23 @@ const selects = document.querySelectorAll('#formulario select');
 const gruposSelect = document.querySelectorAll('.grupo-select');
 
 const expresiones = {
-    fecha: /^\d{4}-\d{2}-\d{2}$/, // Formato de fecha yyyy-mm-dd
-    comentarios: /^[a-zA-ZÀ-ÿ0-9.,;:_\s]{1,500}$/ // 7 a 14 numeros. 
+    Fecha: /^\d{4}-\d{2}-\d{2}$/, // Formato de fecha yyyy-mm-dd
+    RespuestaPqrs: /^[a-zA-ZÀ-ÿ0-9.,;:_\s]{10,500}$/ // 7 a 14 numeros.
 }
 
 const campos = {
-    fecha: false,
-    comentarios: false
+    Fecha: false,
+    RespuestaPqrs: false
 }
 
 const validarFormulario = (e) => {
     switch (e.target.name) {
-        case "fecha":
-            validarCampo(expresiones.fecha, e.target, 'fecha');
+        case "Fecha":
+            validarCampo(expresiones.Fecha, e.target, 'Fecha');
             break;
 
-        case "comentarios":
-            validarCampo(expresiones.comentarios, e.target, 'comentarios');
+        case "RespuestaPqrs":
+            validarCampo(expresiones.RespuestaPqrs, e.target, 'RespuestaPqrs');
             break;
     }
 }
@@ -72,16 +72,15 @@ inputs.forEach((input) => {
 });
 
 //parte del campo del texto mas grande
-comentarios.addEventListener('keyup', validarFormulario);
-comentarios.addEventListener('blur', validarFormulario);
+RespuestaPqrs.addEventListener('keyup', validarFormulario);
+RespuestaPqrs.addEventListener('blur', validarFormulario);
 
 formulario.addEventListener('submit', (e) => {
-    e.preventDefault();
+
 
     const validacion = Object.values(campos).every((campo) => campo);
 
-    if (validacion && campos.comentarios && campos.fecha) {
-        formulario.reset();
+    if (validacion && campos.RespuestaPqrs && campos.Fecha) {
 
         document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
         setTimeout(() => {
@@ -92,6 +91,7 @@ formulario.addEventListener('submit', (e) => {
             icono.classList.remove('formulario__grupo-correcto');
         });
     } else {
+        e.preventDefault();
         document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
         setTimeout(() => {
             document.getElementById('formulario__mensaje').classList.remove('formulario__mensaje-activo');

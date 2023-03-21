@@ -1,42 +1,46 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
+    <link rel="icon" type="image/png" href="/img/logosolo.png">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Editar PQRS</title>
     <!---Archivo css--->
-    <link rel="stylesheet" href="css/Style_editarPQRS.css" />
+    <link rel="stylesheet" href="/css/Style_editarPQRS.css" />
 </head>
 
 <body>
     <section class="container">
         <header>Editar PQRS</header>
-        <form action="#" class="form formulario" id="formulario">
+        <form th:action="@{/Pqrs/{IdPqrs}(IdPqrs=${Pqrs.IdPqrs})}" th:object="${Pqrs}" class="form formulario" id="formulario">
 
             <div class="column">
-                
+
                 <!-- Grupo: Tipo -->
                 <div class="formulario__grupo input-box" id="grupo-select">
                     <label for="opcion" class="formulario__label">Tipo</label>
-                    <select name="opcion" id="opcion" class="formulario__input select-box formulario__select">
+                    <select th:field="*{Tipo}" name="opcion" id="opcion" class="formulario__input select-box formulario__select">
                         <option value="">--Seleccione una opción--</option>
-                        <option value="opcion1">Opción 1</option>
-                        <option value="opcion2">Opción 2</option>
-                        <option value="opcion3">Opción 3</option>
+                        <option value="opcion1" th:each="Tipo:${Tipos}"
+                                th:value="${Tipo.IdTipo}"
+                                th:text="${Tipo.NombreTipo}"
+                        />
+
                     </select>
                     <p class="formulario__input-error"> Seleccione una opción válida.</p>
                 </div>
 
                 <!----Grupo: prioridad ------>
-                <div class="formulario__grupo input-box" id="grupo-select">
+                <div class="formulario__grupo input-box" id="grupo-select1">
                     <label for="opcion" class="formulario__label">prioridad</label>
-                    <select name="opcion1" id="opcion" class="formulario__input select-box formulario__select">
+                    <select th:field="*{Prioridad}" name="opcion1" id="opcion1" class="formulario__input select-box formulario__select">
                         <option value="">--Seleccione una opción--</option>
-                        <option value="opcion1">Opción 1</option>
-                        <option value="opcion2">Opción 2</option>
-                        <option value="opcion3">Opción 3</option>
+                        <option value="opcion1" th:each="Prioridad:${Prioridades}"
+                                th:value="${Prioridad.IdPrioridad}"
+                                th:text="${Prioridad.NombrePrioridad}"
+                        />
                     </select>
                     <p class="formulario__input-error"> Seleccione una opción válida.</p>
                 </div>
@@ -44,36 +48,39 @@
 
 
             <!-- Grupo: Estado -->
-            <div class="formulario__grupo input-box" id="grupo-select">
+            <div class="formulario__grupo input-box" id="grupo-select2">
                 <label for="opcion" class="formulario__label">Estado</label>
-                <select name="opcion2" id="opcion" class="formulario__input select-box formulario__select">
+                <select th:field="*{Estado}" name="opcion2" id="opcion2" class="formulario__input select-box formulario__select">
                     <option value="">--Seleccione una opción--</option>
-                    <option value="opcion1">Opción 1</option>
-                    <option value="opcion2">Opción 2</option>
-                    <option value="opcion3">Opción 3</option>
+                    <option value="opcion1" th:each="Estado:${Estados}"
+                            th:value="${Estado.IdEstado}"
+                            th:text="${Estado.nombre}"
+                    />
                 </select>
                 <p class="formulario__input-error"> Seleccione una opción válida.</p>
             </div>
 
             <div class="column">
-                 <!-- Grupo: fecha -->
-                 <div class="input-box formulario__grupo" id="grupo__fecha">
-                    <label for="fecha" class="formulario__label">Fecha</label>
+                <!-- Grupo: fecha -->
+                <div class="input-box formulario__grupo" id="grupo__Fecha">
+                    <label for="Fecha" class="formulario__label">Fecha</label>
                     <div class="formulario__grupo-input">
-                        <input type="date" class="formulario__input" name="fecha" id="fecha" required>
+                        <input type="date" th:field="*{Fecha}" name="Fecha" id="Fecha" class="formulario__input"  required>
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
-                    <span class="formulario__input-error">Fecha no válida. Por favor, ingrese una fecha en formato
-                        YYYY/MM/DD.</span>
+                    <span class="formulario__input-error">Fecha no válida. Por favor, ingrese una fecha en
+                                formato
+                                YYYY/MM/DD.</span>
                 </div>
                 <!----Grupo: Venta------>
-                <div class="formulario__grupo input-box" id="grupo-select">
+                <div class="formulario__grupo input-box" id="grupo-select3">
                     <label for="opcion" class="formulario__label">Venta</label>
-                    <select name="opcion3" id="opcion" class="formulario__input select-box formulario__select">
+                    <select th:field="*{Venta}" name="opcion3" id="opcion3" class="formulario__input select-box formulario__select">
                         <option value="">--Seleccione una opción--</option>
-                        <option value="opcion1">Opción 1</option>
-                        <option value="opcion2">Opción 2</option>
-                        <option value="opcion3">Opción 3</option>
+                        <option value="opcion1" th:each="Venta:${ventas}"
+                                th:value="${Venta.IdVenta}"
+                                th:text="${Venta.IdVenta}"
+                        />
                     </select>
                     <p class="formulario__input-error"> Seleccione una opción válida.</p>
                 </div>
@@ -82,10 +89,10 @@
             </div>
 
             <!-- Grupo: Descripcion -->
-            <div class="input-box formulario__grupo" id="grupo__comentarios">
-                <label for="comentarios" class="formulario__label">Descripción</label>
+            <div class="input-box formulario__grupo" id="grupo__RespuestaPqrs">
+                <label for="RespuestaPqrs" class="formulario__label">Descripción</label>
                 <div class="formulario__grupo-input">
-                    <textarea class="formulario__input" name="comentarios" id="comentarios"  rows="4"></textarea>
+                    <textarea th:field="*{RespuestaPqrs}" class="formulario__input" name="RespuestaPqrs" id="RespuestaPqrs" rows="4"></textarea>
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">Ingresa una descripcion Valida.</p>
@@ -107,7 +114,7 @@
 
     </section>
     <!--scrip de registrate------>
-    <script src="js/PQRS.js"></script>
+    <script src="/js/PQRS.js"></script>
     <!--scrip de iconos------>
     <script src="https://kit.fontawesome.com/f9d0333c9c.js" crossorigin="anonymous"></script>
 

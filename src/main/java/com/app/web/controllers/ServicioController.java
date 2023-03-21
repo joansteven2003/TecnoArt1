@@ -35,19 +35,19 @@ public class ServicioController {
 		List<Venta> Listaventa = ventaServicio.listarVentas();
 		modelo.addAttribute("Servicio", servicio);
 		modelo.addAttribute("ventas",Listaventa);
-		return "/crearServicio";
+		return "/Generar_Servicio";
 	}
 
 	@PostMapping("/Servicio/Guardar")
 	public String guardarServicio(@ModelAttribute("Servicio") Servicio servicio) {
 		servicios.guardarServicio(servicio);
-		return "redirect:/Aspirante";
+		return "redirect:/Servicio";
 	}
 
 	@GetMapping("/Servicio/editar/{IdServicio}")
 	public String mostrarFormularioDeEditar(@PathVariable Long IdServicio, Model modelo) {
 		modelo.addAttribute("Servicio", servicios.obtenerServicioPorId(IdServicio));
-		return "/editarServicio";
+		return "/Editar_servicio";
 	}
 
 	@PostMapping("/Servicio/{IdServicio}")

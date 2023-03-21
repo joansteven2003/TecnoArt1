@@ -6,28 +6,28 @@ const gruposSelect = document.querySelectorAll('.grupo-select');
 
 
 const expresiones = {
-    FechaVenta: /^\d{4}-\d{2}-\d{2}$/, // Formato de fecha yyyy-mm-dd
-    FechaEntrega: /^\d{4}-\d{2}-\d{2}$/, // Formato de fecha yyyy-mm-dd
+    Fecha_venta: /^\d{4}-\d{2}-\d{2}$/, // Formato de fecha yyyy-mm-dd
+    Fecha_entrega: /^\d{4}-\d{2}-\d{2}$/, // Formato de fecha yyyy-mm-dd
     Monto: /^\d{5,20}$/, // 5 a 20 numeros.
     Estado:/^[a-zA-ZÀ-ÿ\s]{5,10}$/, // Letras y espacios, pueden llevar acentos.
-    comentarios:/^[a-zA-ZÀ-ÿ0-9.,;:_\s]{1,500}$/, // observacion dondepermite mayusculas,minusculas y espacios y ortografia. 
+    Observacion:/^[a-zA-ZÀ-ÿ0-9.,;:_\s]{1,500}$/, // observacion dondepermite mayusculas,minusculas y espacios y ortografia.
 }
 
 const campos = {
-	FechaVenta: false,
-    FechaEntrega: false,
+	Fecha_venta: false,
+    Fecha_entrega: false,
     Monto: false,
     Estado: false,
-    comentarios: false
+    Observacion: false
 }
 
 const validarFormulario = (e) => {
 	switch (e.target.name) {
-		case "FechaVenta":
-			validarCampo(expresiones.FechaVenta, e.target, 'FechaVenta');
+		case "Fecha_venta":
+			validarCampo(expresiones.Fecha_venta, e.target, 'Fecha_venta');
 		break;
-        case "FechaEntrega":
-			validarCampo(expresiones.FechaEntrega, e.target, 'FechaEntrega');
+        case "Fecha_entrega":
+			validarCampo(expresiones.Fecha_entrega, e.target, 'Fecha_entrega');
 		break;
         case "Monto":
 			validarCampo(expresiones.Monto, e.target, 'Monto');
@@ -35,8 +35,8 @@ const validarFormulario = (e) => {
         case "Estado":
 			validarCampo(expresiones.Estado, e.target, 'Estado');
 		break;
-        case "comentarios":
-			validarCampo(expresiones.comentarios, e.target, 'comentarios');
+        case "Observacion":
+			validarCampo(expresiones.Observacion, e.target, 'Observacion');
 		break;
 
         
@@ -93,16 +93,15 @@ selects.forEach((select) => {
 
 
 //parte del campo del texto mas grande
-comentarios.addEventListener('keyup', validarFormulario);
-comentarios.addEventListener('blur', validarFormulario);
+Observacion.addEventListener('keyup', validarFormulario);
+Observacion.addEventListener('blur', validarFormulario);
 
 formulario.addEventListener('submit', (e) => {
-	e.preventDefault();
+
 
     const validacion = Object.values(campos).every((campo) => campo);
 
-	if(validacion && campos.FechaEntrega && campos.FechaVenta && campos.Monto && campos.Estado && campos.comentarios ){
-		formulario.reset();
+	if(validacion && campos.Fecha_entrega && campos.Fecha_venta && campos.Monto && campos.Estado && campos.Observacion ){
 
 		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
 		setTimeout(() => {
@@ -113,6 +112,7 @@ formulario.addEventListener('submit', (e) => {
 			icono.classList.remove('formulario__grupo-correcto');
 		});
 	} else {
+	    e.preventDefault();
         console.log(campos);
 		document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
         setTimeout(() => {

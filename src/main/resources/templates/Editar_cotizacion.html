@@ -1,27 +1,28 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
+    <link rel="icon" type="image/png" href="/img/logosolo.png">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Editar Cotización</title>
     <!---Archivo css--->
-    <link rel="stylesheet" href="css/Style_editarCotizacion.css" />
+    <link rel="stylesheet" href="/css/Style_editarCotizacion.css" />
 </head>
 
 <body>
     <section class="container">
         <header>Actualizar cotización</header>
-        <form action="#" class="form formulario" id="formulario">
+        <form th:action="@{/Cotizacion/{IdCotizacion}(IdCotizacion=${Cotizacion.IdCotizacion})}" th:object="${Cotizacion}" class="form formulario" id="formulario">
             <div class="column">
 
                 <!-- Grupo: Usuario -->
                 <div class="input-box formulario__grupo" id="grupo__Usuario">
                     <label for="Usuario" class="formulario__label">Usuario Completo</label>
                     <div class="formulario__grupo-input">
-                        <input type="text" class="formulario__input" name="Usuario" id="Usuario"
-                            placeholder="John Rodrigues">
+                        <input type="text" th:field="*{Usuario}" class="formulario__input" name="Usuario" id="Usuario"
+                               placeholder="John Rodrigues">
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
                     <p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede
@@ -32,20 +33,20 @@
                 <div class="input-box formulario__grupo" id="grupo__fecha">
                     <label for="fecha" class="formulario__label">Fecha</label>
                     <div class="formulario__grupo-input">
-                        <input type="date" class="formulario__input" name="fecha" id="fecha" required>
+                        <input type="date" th:field="*{fecha}" class="formulario__input" name="fecha" id="fecha" required>
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
                     <span class="formulario__input-error">Fecha no válida. Por favor, ingrese una fecha en formato
-                        DD/MM/YYYY.</span>
+                                DD/MM/YYYY.</span>
                 </div>
             </div>
 
 
-            <!-- Grupo: Estado -->
-            <div class="input-box formulario__grupo" id="grupo__Estado">
-                <label for="ValorVenta" class="formulario__label">Estado</label>
+            <!-- Grupo: Respuesta -->
+            <div class="input-box formulario__grupo" id="grupo__Respuesta">
+                <label for="Respuesta" class="formulario__label">Respuesta</label>
                 <div class="formulario__grupo-input">
-                    <input type="number" class="formulario__input" name="Estado" id="Estado" placeholder="1000000">
+                    <input type="number" th:field="*{Respuesta}" class="formulario__input" name="Respuesta" id="Respuesta" placeholder="1000000">
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">Escriba su numero de Documento</p>
@@ -53,10 +54,10 @@
 
 
             <!-- Grupo: DescripcionServicio -->
-            <div class="input-box formulario__grupo" id="grupo__comentarios">
-                <label for="comentarios" class="formulario__label">Comentarios</label>
+            <div class="input-box formulario__grupo" id="grupo__Descriocion">
+                <label for="Descriocion" class="formulario__label">Comentarios</label>
                 <div class="formulario__grupo-input">
-                    <textarea class="formulario__input" name="comentarios" id="comentarios"  rows="4"></textarea>
+                    <textarea class="formulario__input" th:field="*{Descriocion}" name="Descriocion" id="Descriocion"  rows="4"></textarea>
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">Ingresa comentarios válidos.</p>
@@ -73,9 +74,10 @@
                         class="fa-solid fa-circle-check"></i> Formulario enviado exitosamente!</p>
             </div>
         </form>
+
     </section>
     <!--scrip de registrate------>
-    <script src="js/Cotizacion.js"></script>
+    <script src="/js/Cotizacion.js"></script>
     <!--scrip de iconos------>
     <script src="https://kit.fontawesome.com/f9d0333c9c.js" crossorigin="anonymous"></script>
 

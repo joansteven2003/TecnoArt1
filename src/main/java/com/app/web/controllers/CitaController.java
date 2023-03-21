@@ -46,7 +46,7 @@ public class CitaController {
 	@GetMapping("/Cita/editar/{IdCita}")
 	public String EditarCitaFomulario(@PathVariable long IdCita, Model modelo) {
 		modelo.addAttribute("Cita", servicio.obtenerCitaPorId(IdCita));
-		return "/editarCita";
+		return "/Editar_Cita";
 	}
 
 	@PostMapping("/Cita/{IdCita}")

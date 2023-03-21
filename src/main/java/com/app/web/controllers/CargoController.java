@@ -45,10 +45,10 @@ public class CargoController {
 
 	}
 
-	@GetMapping("/Cargo/editar/{idaspirante}")
+	@GetMapping("/Cargo/editar/{IdCargo}")
 	public String EditarCargoFomulario(@PathVariable long IdCargo, Model modelo) {
 		modelo.addAttribute("Cargo", servicio.obtenerCargoPorId(IdCargo));
-		return "/editarCargo";
+		return "/Editar_Cargo";
 	}
 
 	@PostMapping("/Cargo/{IdCargo}")
