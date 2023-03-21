@@ -2,11 +2,11 @@
 <html lang="es" dir="ltr" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
+    <link rel="icon" type="image/png" href="/img/logosolo.png">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href="/css/style_roles.css">
     <link rel="stylesheet" href="/css/style_Vacante.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/w3.css">
@@ -22,7 +22,7 @@
 
 <div class="sidebar close">
     <div class="logo-details">
-        <img class="logo-details" src="img/Logo.png">
+        <img class="logo-details" src="/img/LogoSolo.png">
         <span class="logo_name">Tecno&Art</span>
     </div>
     <ul class="nav-links">
@@ -109,7 +109,7 @@
             <div class="container1">
 
                 <header>Realizar Vacante</header>
-                <form th:action="@{/Vacante/Registrar}" class="form formulario" id="formulario">
+                <form th:action="@{/Vacante/Guardar}" th:object=${Vacante} class="form formulario"  id="formulario">
                     <div class="column">
 
                         <!-- Grupo: hora inicial -->
@@ -124,10 +124,10 @@
                         </div>
 
                         <!-- Grupo: hora final -->
-                        <div class="input-box formulario__grupo" id="grupo__horaFinal">
-                            <label for="horaFinal" class="formulario__label">Hora final:</label>
+                        <div class="input-box formulario__grupo" id="grupo__HoraFin">
+                            <label for="HoraFin" class="formulario__label">Hora final:</label>
                             <div class="formulario__grupo-input">
-                                <input type="time" th:field="*{HoraFin}" class="formulario__input" id="horaFinal" name="horaFinal" required>
+                                <input type="time" th:field="*{HoraFin}" class="formulario__input" id="HoraFin" name="HoraFin" required>
                                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
                             </div>
                             <p class="formulario__input-error">La hora debe ser válida (formato HH:mm).</p>
@@ -163,10 +163,10 @@
 
                     <div class="column">
                         <!-- Grupo: Educacion -->
-                        <div class="input-box formulario__grupo" id="grupo__Educacion">
-                            <label for="Educacion" class="formulario__label">Educacion requerida</label>
+                        <div class="input-box formulario__grupo" id="grupo__Eduacion">
+                            <label for="Eduacion" class="formulario__label">Educacion requerida</label>
                             <div class="formulario__grupo-input">
-                                <input type="text" th:field="*{Eduacion}" class="formulario__input" name="Educacion" id="Educacion"
+                                <input type="text" th:field="*{Eduacion}" class="formulario__input" name="Eduacion" id="Eduacion"
                                     placeholder="Diseñador">
                                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
                             </div>
@@ -176,7 +176,7 @@
                         <!----Grupo: tipo Cargo------>
                         <div class="formulario__grupo input-box" id="grupo__opcion">
                             <label for="opcion" class="formulario__label">Cargo</label>
-                            <select name="opcion" th:field="*{IdCargo}" id="opcion" class="formulario__input select-box formulario__select">
+                            <select name="opcion" th:field="*{Cargo}" id="opcion" class="formulario__input select-box formulario__select">
                                 <option value="">--Seleccione una opción--</option>
                                 <option value="opcion1" th:each="Cargo:${Cargos}"
                                         th:value="${Cargo.IdCargo}"
@@ -199,7 +199,6 @@
                         <p class="formulario__input-error">Ingresa una descripción Valida.</p>
                     </div>
 
-
                     <div class="formulario__mensaje" id="formulario__mensaje">
                         <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario
                             correctamente. </p>
@@ -214,9 +213,6 @@
 
             </div>
         </div>
-
-
-
     </section>
 
     <!--scrip de registrate------>

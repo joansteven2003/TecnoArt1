@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es" dir="ltr" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
+    <link rel="icon" type="image/png" href="/img/logosolo.png">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href="/css/style_roles.css">
     <link rel="stylesheet" href="/css/style_Servicio.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/w3.css">
@@ -20,7 +20,7 @@
 <body>
  <div class="sidebar close">
     <div class="logo-details">
-        <img class="logo-details" src="img/Logo.png">
+        <img class="logo-details" src="/img/LogoSolo.png">
         <span class="logo_name">Tecno&Art</span>
     </div>
     <ul class="nav-links">
@@ -107,14 +107,14 @@
             <div class="container1">
 
                 <header>Generar Servicio</header>
-                <form th:action="@{/Servicio/Registrar}" th:object=${Servicio} class="form formulario" id="formulario">
+                <form th:action="@{/Servicio/Guardar}" th:object=${Servicio} class="form formulario" id="formulario">
                     <div class="input-box address">
               
               
                       <div class="column">
               
                         <!-- Grupo: NombreServicio -->
-                        <div class="input-box formulario__grupo" id="grupo__Nombre_servicioo">
+                        <div class="input-box formulario__grupo" id="grupo__Nombre_servicio">
                           <label for="Nombre_servicio" class="formulario__label">Nombre del Servicio</label>
                           <div class="formulario__grupo-input">
                             <input type="text" th:field="*{Nombre_servicio}" class="formulario__input" name="Nombre_servicio" id="Nombre_servicio" placeholder="">
@@ -138,7 +138,7 @@
                       <!----Grupo: VentaServicio------>
                       <div class="formulario__grupo input-box" id="grupo__opcion">
                         <label for="opcion" class="formulario__label">Venta Servicio</label>
-                        <select th:field="*{Venta}" name="opcion" id="opcion" class="formulario__input select-box formulario__select">
+                        <select th:field="*{listarVenta}" name="opcion" id="opcion" class="formulario__input select-box formulario__select">
                             <option value="">--Seleccione una opción--</option>
                             <option value="opcion1" th:each="Venta:${ventas}"
                             th:value="${Venta.IdVenta}"
@@ -150,7 +150,7 @@
                 </div>
               
                       <!-- Grupo: DescripcionServicio -->
-                      <div class="input-box formulario__grupo" id="grupo__comentarios">
+                      <div class="input-box formulario__grupo" id="grupo__Descripcion">
                         <label for="Descripcion" class="formulario__label">Descripción Servicio</label>
                         <div class="formulario__grupo-input">
                           <textarea th:field="*{Descripcion}" class="formulario__input" name="Descripcion" id="Descripcion" rows="4"></textarea>

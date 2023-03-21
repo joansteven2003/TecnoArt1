@@ -55,7 +55,7 @@ public class CalificacionContrller {
 	@GetMapping("/Calificacion/editar/{idaspirante}")
 	public String EditarCalificacionFomulario(@PathVariable long IdCalificacion, Model modelo) {
 		modelo.addAttribute("Calificacion", servicio.obtenerCalificacionPorId(IdCalificacion));
-		return "/editarCalificacion";
+		return "/Editar_Calificacion";
 	}
 
 	@PostMapping("/Calificacion/{IdCalificacion}")

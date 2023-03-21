@@ -5,23 +5,23 @@ const opcion = document.getElementById('opcion');
 const grupoOpcion = document.getElementById('grupo__opcion');
 
 const expresiones = {
-	Resultado: /^[a-zA-ZÀ-ÿ\s]{4,10}$/, // Letras y espacios, pueden llevar acentos.
-    ResultadoEntrevis: /^[a-zA-ZÀ-ÿ\s]{4,10}$/, // Letras y espacios, pueden llevar acentos.
+	Resultado_Examen: /^[a-zA-ZÀ-ÿ\s]{4,10}$/, // Letras y espacios, pueden llevar acentos.
+    Resultado_entrevista: /^[a-zA-ZÀ-ÿ\s]{4,10}$/, // Letras y espacios, pueden llevar acentos.
 }
 
 const campos = {
-	Resultado: false,
-    ResultadoEntrevis: false
+	Resultado_Examen: false,
+    Resultado_entrevista: false
 
 }
 
 const validarFormulario = (e) => {
 	switch (e.target.name) {
-		case "Resultado":
-			validarCampo(expresiones.Resultado, e.target, 'Resultado');
+		case "Resultado_Examen":
+			validarCampo(expresiones.Resultado_Examen, e.target, 'Resultado_Examen');
 		break;
-        case "ResultadoEntrevis":
-			validarCampo(expresiones.ResultadoEntrevis, e.target, 'ResultadoEntrevis');
+        case "Resultado_entrevista":
+			validarCampo(expresiones.Resultado_entrevista, e.target, 'Resultado_entrevista');
 		break;
         case "opcion":
             validarCampo2(opcion.value !== "", grupoOpcion, 'opcion');
@@ -73,10 +73,9 @@ inputs.forEach((input) => {
 opcion.addEventListener('change', validarFormulario);
 
 formulario.addEventListener('submit', (e) => {
-	e.preventDefault();
 
-	if(campos.Resultado && campos.ResultadoEntrevis && opcion.value !== "" ){
-		formulario.reset();
+
+	if(campos.Resultado_Examen && campos.Resultado_entrevista && opcion.value !== "" ){
 
 		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
 		setTimeout(() => {
@@ -87,6 +86,7 @@ formulario.addEventListener('submit', (e) => {
 			icono.classList.remove('formulario__grupo-correcto');
 		});
 	} else {
+	    e.preventDefault();
 		document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
         setTimeout(() => {
 			document.getElementById('formulario__mensaje').classList.remove('formulario__mensaje-activo');

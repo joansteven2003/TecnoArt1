@@ -47,7 +47,7 @@ public class VentaController {
 	@GetMapping("/Venta/editar/{IdVenta}")
 	public String mostrarFormularioDeEditar(@PathVariable Long IdVenta, Model modelo) {
 		modelo.addAttribute("Venta", servicio.obtenerVentaPorId(IdVenta));
-		return "editarVenta";
+		return "/Editar_Venta";
 	}
 
 	@PostMapping("/Venta/{IdVenta}")

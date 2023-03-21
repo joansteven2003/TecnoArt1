@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+  <link rel="icon" type="image/png" href="/img/logosolo.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Editar Servicio</title>
+  <!---Archivo css--->
+  <link rel="stylesheet" href="/css/Style_editarServicio.css" />
+</head>
+
+<body>
+  <section class="container">
+    <header>Actualizar Servicio</header>
+    <form th:action="@{/Servicio/{IdServicio}(IdServicio=${Servicio.IdServicio})}" th:object=${Servicio} class="form formulario" id="formulario">
+      <div class="input-box address">
+
+
+        <div class="column">
+
+          <!-- Grupo: NombreServicio -->
+          <div class="input-box formulario__grupo" id="grupo__Nombre_servicio">
+            <label for="Nombre_servicio" class="formulario__label">Nombre del Servicio</label>
+            <div class="formulario__grupo-input">
+              <input type="text" th:field="*{Nombre_servicio}" class="formulario__input" name="Nombre_servicio" id="Nombre_servicio" placeholder="">
+              <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">El nombre del Servicio es incorrecto</p>
+          </div>
+
+          <!-- Grupo: ValorVenta -->
+          <div class="input-box formulario__grupo" id="grupo__Valor_venta">
+            <label for="Valor_venta" class="formulario__label">ValorVenta</label>
+            <div class="formulario__grupo-input">
+              <input type="number" th:field="*{Valor_venta}" class="formulario__input" name="Valor_venta" id="Valor_venta" placeholder="1000000">
+              <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">Escriba su numero del Valor de la venta</p>
+          </div>
+
+        </div>
+
+        <!----Grupo: VentaServicio------>
+        <div class="formulario__grupo input-box" id="grupo__opcion">
+          <label for="opcion" class="formulario__label">Venta Servicio</label>
+          <select th:field="*{listarVenta}" name="opcion" id="opcion" class="formulario__input select-box formulario__select">
+            <option value="">--Seleccione una opción--</option>
+            <option value="opcion1" th:each="Venta:${ventas}"
+                    th:value="${Venta.IdVenta}"
+                    th:text="{Venta.IdVenta}"
+            />
+          </select>
+          <p class="formulario__input-error"> Seleccione una opción válida.</p>
+        </div>
+      </div>
+
+      <!-- Grupo: DescripcionServicio -->
+      <div class="input-box formulario__grupo" id="grupo__Descripcion">
+        <label for="Descripcion" class="formulario__label">Descripción Servicio</label>
+        <div class="formulario__grupo-input">
+          <textarea th:field="*{Descripcion}" class="formulario__input" name="Descripcion" id="Descripcion" rows="4"></textarea>
+          <i class="formulario__validacion-estado fas fa-times-circle"></i>
+        </div>
+        <p class="formulario__input-error">Ingresa una descripción Valida.</p>
+      </div>
+
+
+      <div class="formulario__mensaje" id="formulario__mensaje">
+        <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente.
+        </p>
+      </div>
+
+      <div class="formulario__grupo formulario__grupo-btn-enviar">
+        <button type="submit" class="formulario__btn">Guardar</button>
+        <p class="formulario__mensaje-exito" id="formulario__mensaje-exito"><i class="fa-solid fa-circle-check"></i>
+          Formulario enviado exitosamente!</p>
+      </div>
+    </form>
+
+  </section>
+  <!--scrip de registrate------>
+  <script src="/js/Servicio.js"></script>
+  <!--scrip de iconos------>
+  <script src="https://kit.fontawesome.com/f9d0333c9c.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

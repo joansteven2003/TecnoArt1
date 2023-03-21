@@ -48,7 +48,7 @@ public class CotizacionController {
     @GetMapping("/Cotizacion/editar/{IdCotizacion}")
     public String EditarCotizacionFomulario(@PathVariable long IdCotizacion, Model modelo) {
         modelo.addAttribute("Cotizacion", servicio.obtenerCotizacionPorId(IdCotizacion));
-        return "/editarCotizacion";
+        return "/Editar_cotizacion";
     }
 
     @PostMapping("/Cotizacion/{IdCotizacion}")

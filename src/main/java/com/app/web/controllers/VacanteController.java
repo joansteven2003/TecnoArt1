@@ -56,7 +56,7 @@ public class VacanteController {
 	@GetMapping("/Vacante/editar/{IdVacante}")
 	public String EditarVacanteFomulario(@PathVariable long IdVacante, Model modelo) {
 		modelo.addAttribute("Vacante", servicio.obtenerVacantePorId(IdVacante));
-		return "/editarVacante";
+		return "/Editar_Vacante";
 	}
 
 	@PostMapping("/Vacante/{IdVacante}")

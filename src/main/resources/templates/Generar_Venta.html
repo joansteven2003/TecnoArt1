@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es" dir="ltr" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
+    <link rel="icon" type="image/png" href="/img/logosolo.png">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href="/css/style_roles.css">
     <link rel="stylesheet" href="/css/style_Venta.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/w3.css">
@@ -20,7 +20,7 @@
 <body>
 <div class="sidebar close">
     <div class="logo-details">
-        <img class="logo-details" src="img/Logo.png">
+        <img class="logo-details" src="/img/Logosolo.png">
         <span class="logo_name">Tecno&Art</span>
     </div>
     <ul class="nav-links">
@@ -181,10 +181,10 @@
                     </div>
 
                     <!-- Grupo: Opservacion -->
-                    <div class="input-box formulario__grupo" id="grupo__comentarios">
-                        <label for="comentarios" class="formulario__label">Opservación</label>
+                    <div class="input-box formulario__grupo" id="grupo__Observacion">
+                        <label for="Observacion" class="formulario__label">Opservación</label>
                         <div class="formulario__grupo-input">
-                            <textarea class="formulario__input" th:field="*{Observacion}" name="comentarios" id="comentarios" rows="4"></textarea>
+                            <textarea class="formulario__input" th:field="*{Observacion}" name="Observacion" id="Observacion" rows="4"></textarea>
                             <i class="formulario__validacion-estado fas fa-times-circle"></i>
                         </div>
                         <p class="formulario__input-error">La opservacion no es valida.</p>
@@ -204,14 +204,12 @@
 
             </div>
         </div>
-        <!--scrip de registrate------>
-        <script src="/js/Venta.js"></script>
-        <!--scrip de iconos------>
-        <script src="https://kit.fontawesome.com/f9d0333c9c.js" crossorigin="anonymous"></script>
-
-
     </section>
 
+<!--scrip de registrate------>
+<script src="/js/Venta.js"></script>
+<!--scrip de iconos------>
+<script src="https://kit.fontawesome.com/f9d0333c9c.js" crossorigin="anonymous"></script>
     <script>
   let arrow = document.querySelectorAll(".arrow");
   for (var i = 0; i < arrow.length; i++) {
