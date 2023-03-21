@@ -33,6 +33,12 @@ public class PqrsController {
 		return "/Pqrs";
 	}
 
+	@GetMapping("/Cliente_Pqrs")
+	public String listarPqrsCliente(Model modelo) {
+		modelo.addAttribute("Pqrs", servicio.listarPQRS());
+		return "/Cliente_Pqrs";
+	}
+
 	@GetMapping("/Pqrs/Registrar")
 	public String MostrarRegistrarPqrsFormulario(Model modelo) {
 		Pqrs pqrs = new Pqrs();

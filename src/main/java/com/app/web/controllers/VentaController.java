@@ -28,6 +28,11 @@ public class VentaController {
 		modelo.addAttribute("Venta", servicio.listarVentas());
 		return "/Venta";
 	}
+	@GetMapping("/Cliente_Venta")
+	public String listarVentasCliente(Model modelo) {
+		modelo.addAttribute("Venta", servicio.listarVentas());
+		return "/Cliente_Venta";
+	}
 
 	@GetMapping("/Venta/Registrar")
 	public String mostrarFormularioRegistroVenta(Model modelo) {

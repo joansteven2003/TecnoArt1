@@ -23,6 +23,11 @@ public class HojaDeVidaController {
 		modelo.addAttribute("HojaDeVida", servicio.ListaTodosHojadevida());
 		return "/HojaDeVida";
 	}
+	@GetMapping("/Cliente_HojaDeVida")
+	public String ListaHojaDeVidaCliente(Model modelo) {
+		modelo.addAttribute("HojaDeVida", servicio.ListaTodosHojadevida());
+		return "/Cliente_HojaDeVida";
+	}
 	
 	@GetMapping("/HojaDeVida/eliminar/{idaspirante}")
 	public String eliminarHojaDeVida(@PathVariable long IdHojaDeVida) {
@@ -38,7 +43,7 @@ public class HojaDeVidaController {
 		return "/crearHojaDeVida";
 	}
 
-	@PostMapping("/HojaDeVida")
+	@PostMapping("/HojaDeVida/Guardar")
 	public String guardarHojaDeVida(@ModelAttribute("HojaDeVida") HojaDeVida hojaDeVida) {
 		servicio.guardarHojadevida(hojaDeVida);
 		return "redirect:/HojaDeVida";

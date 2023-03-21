@@ -18,6 +18,18 @@ public class IndexController {
 
 		return "/index";
 	}
+
+	@GetMapping("/index_Cliente")
+	public String indexCliente(Model modelo) {
+
+		return "/Cliente_index";
+	}
+
+	@GetMapping("/Bienvenida")
+	public String TablasBienvenida(Model modelo) {
+
+		return "/Tablas_Bienvenida";
+	}
 	
 	@GetMapping("/conocenos")
 	public String conocenos(Model modelo) {

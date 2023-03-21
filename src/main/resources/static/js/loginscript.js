@@ -79,7 +79,6 @@ formulario.addEventListener('submit', (e) => {
 	
 	if(campos.correo && campos.password){
 
-
 		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
 		setTimeout(() => {
 			document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
