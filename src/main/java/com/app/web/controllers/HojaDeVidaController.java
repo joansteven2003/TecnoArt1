@@ -1,5 +1,7 @@
 package com.app.web.controllers;
 
+import com.app.web.modelos.Usuario;
+import com.app.web.servicios.UsuarioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,10 +15,15 @@ import com.app.web.modelos.HojaDeVida;
 
 import com.app.web.servicios.HojaDeVidaServicio;
 
+import java.util.List;
+
 @Controller
 public class HojaDeVidaController {
 	@Autowired
 	private HojaDeVidaServicio servicio;
+
+	@Autowired
+	private UsuarioServicio usuarioServicio;
 	
 	@GetMapping("/HojaDeVida")
 	public String ListaHojaDeVida(Model modelo) {
@@ -35,10 +42,10 @@ public class HojaDeVidaController {
 	public String AspiranteHojaDeVida(Model modelo) {
 		HojaDeVida hojaDeVida = new HojaDeVida();
 		modelo.addAttribute("HojaDeVida", hojaDeVida);
-		return "/crearHojaDeVida";
+		return "/Generar_HojaVida";
 	}
 
-	@PostMapping("/HojaDeVida")
+	@PostMapping("/HojaDeVida/Guardar")
 	public String guardarHojaDeVida(@ModelAttribute("HojaDeVida") HojaDeVida hojaDeVida) {
 		servicio.guardarHojadevida(hojaDeVida);
 		return "redirect:/HojaDeVida";
@@ -57,10 +64,16 @@ public class HojaDeVidaController {
 
 		HojaDeVida HojaDeVidaExistente = servicio.obtenerHojadevidaPorId(IdHojaDeVida);
 		HojaDeVidaExistente.setIdHojaDeVida(IdHojaDeVida);
-		HojaDeVidaExistente.setExperienciaEnmeses(hojaDeVida.getExperienciaEnmeses());
-		HojaDeVidaExistente.setDescripcionMi(hojaDeVida.getDescripcionMi());
-		HojaDeVidaExistente.setFechaNacimiento(hojaDeVida.getFechaNacimiento());
-		HojaDeVidaExistente.setEstadoCivil(hojaDeVida.getEstadoCivil());
+		HojaDeVidaExistente.setInstitucion(hojaDeVida.getInstitucion());
+		HojaDeVidaExistente.setTitulo(hojaDeVida.getTitulo());
+		HojaDeVidaExistente.setFecha_grado(hojaDeVida.getFecha_grado());
+		HojaDeVidaExistente.setEmpresa(hojaDeVida.getEmpresa());
+		HojaDeVidaExistente.setPuesto(hojaDeVida.getPuesto());
+		HojaDeVidaExistente.setFecha_inicio(hojaDeVida.getFecha_inicio());
+		HojaDeVidaExistente.setFecha_fin(hojaDeVida.getFecha_fin());
+		HojaDeVidaExistente.setDescripcionT(hojaDeVida.getDescripcionT());
+		HojaDeVidaExistente.setHabilidades(hojaDeVida.getHabilidades());
+		HojaDeVidaExistente.setReferencias(hojaDeVida.getReferencias());
 		HojaDeVidaExistente.setUsuario(hojaDeVida.getUsuario());
 		
 

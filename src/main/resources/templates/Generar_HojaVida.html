@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <link rel="icon" type="image/png" href="/img/logosolo.png">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="/css/style_HojaDvida.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/w3.css">
+    <!----===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Boxiocns CDN Link -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Generar Hoja de vida</title>
+</head>
+
+<body>
+
+    <div class="sidebar close">
+        <div class="logo-details">
+            <img class="logo-details" src="/img/LogoSolo.png">
+            <span class="logo_name">Tecno&Art</span>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="#">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="link_name">Dashboard</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="#">Category</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="iocn-link">
+                    <a href="#">
+                        <i class='bx bx-collection'></i>
+                        <span class="link_name">Ventas </span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="link_name" href="#">Ventas</a></li>
+                    <li><a href="#">Consultar Venta</a></li>
+                    <li><a href="#">Registrar Venta</a></li>
+                    <li><a href="#">Consultar Servicio</a></li>
+                    <li><a href="#">Registrar Servicio</a></li>
+                    <li><a href="#">Consultar Cotizacion</a></li>
+                    <li><a href="#">Registrar Cotizacion</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="iocn-link">
+                    <a href="#">
+                        <i class='bx bx-book-alt'></i>
+                        <span class="link_name">Pqrs </span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="link_name" href="#">Pqrs</a></li>
+                    <li><a href="#">Requistrar Pqrs</a></li>
+                    <li><a href="#">Consultar Pqrs</a></li>
+                    <li><a href="#">Consultar Calificaciones</a></li>
+                    <li><a href="#">Registrar Calificacion</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <div class="iocn-link">
+                    <a href="#">
+                        <i class='bx bx-plug'></i>
+                        <span class="link_name">Contratación</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="link_name" href="#">Contratación</a></li>
+                    <li><a href="#">Consultar Citas</a></li>
+                    <li><a href="#">Consultar cargos</a></li>
+                    <li><a href="#">Consultar Contratos</a></li>
+                    <li><a href="#">Consultar Vacante</a></li>
+                </ul>
+            </li>
+
+            <div class="profile-details">
+                <div class="profile-content">
+                    <!--<img src="image/profile.jpg" alt="profileImg">-->
+                </div>
+                <div class="name-job">
+                    <div class="profile_name">Prem Shahi</div>
+                    <div class="job">Web Desginer</div>
+                </div>
+                <i class='bx bx-log-out'></i>
+            </div>
+            </li>
+        </ul>
+    </div>
+    <section class="home-section">
+        <div class="home-content">
+            <i class='bx bx-menu'></i>
+        </div>
+
+        <div class="container-div">
+            <div class="container1">
+
+                <header>Realizar Hoja de vida</header>
+                <form th:action="@{/HojaDeVida/Guardar}" th:object=${HojaDeVida} class="form formulario"
+                    id="formulario">
+
+                    <h2>Educación</h2>
+                    <!-- Grupo: institucion -->
+                    <div class="input-box formulario__grupo" id="grupo__institucion">
+                        <label for="institucion" class="formulario__label">Institución:</label>
+                        <div class="formulario__grupo-input">
+                            <input type="text" th:field="*{institucion}" class="formulario__input" id="institucion"
+                                name="institucion" required>
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="formulario__input-error">Por Favor digitar la institucion</p>
+                    </div>
+
+                    <div class="column">
+                        <!-- Grupo: Título -->
+                        <div class="input-box formulario__grupo" id="grupo__Titulo">
+                            <label for="Titulo" class="formulario__label">Título:</label>
+                            <div class="formulario__grupo-input">
+                                <input type="text" th:field="*{Titulo}" class="formulario__input" id="Titulo"
+                                    name="Titulo" required>
+                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            </div>
+                            <p class="formulario__input-error">Validar la informacion</p>
+                        </div>
+
+                        <!-- Grupo: Fecha de grado -->
+                        <div class="input-box formulario__grupo" id="grupo__fecha_grado">
+                            <label for="fecha_grado" class="formulario__label">Fecha de grado:</label>
+                            <div class="formulario__grupo-input">
+                                <input type="date" th:field="*{fecha_grado}" class="formulario__input" id="fecha_grado"
+                                    name="fecha_grado" required>
+                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            </div>
+                            <p class="formulario__input-error">Fecha no válida. Por favor, ingrese una fecha en formato
+                                YYYY/MM/DD</p>
+                        </div>
+
+                    </div>
+
+                    <h2>Experiencia laboral</h2>
+                    <div class="column">
+                        <!-- Grupo: Empresa -->
+                        <div class="input-box formulario__grupo" id="grupo__Empresa">
+                            <label for="Empresa" class="formulario__label">Empresa:</label>
+                            <div class="formulario__grupo-input">
+                                <input type="text" th:field="*{Empresa}" class="formulario__input" id="Empresa"
+                                    name="Empresa" required>
+                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            </div>
+                            <p class="formulario__input-error">Por Favor digitar la Empresa</p>
+                        </div>
+
+                        <!-- Grupo: Puesto -->
+                        <div class="input-box formulario__grupo" id="grupo__Puesto">
+                            <label for="Puesto" class="formulario__label">Puesto:</label>
+                            <div class="formulario__grupo-input">
+                                <input type="text" th:field="*{Puesto}" class="formulario__input" id="Puesto"
+                                    name="Puesto" required>
+                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            </div>
+                            <p class="formulario__input-error">Por Favor digitar el puesto que realizaba en la empresa
+                            </p>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <!-- Grupo: fecha inicio -->
+                        <div class="input-box formulario__grupo" id="grupo__fecha_inicio">
+                            <label for="fecha_inicio" class="formulario__label">Fecha de inicio:</label>
+                            <div class="formulario__grupo-input">
+                                <input type="date" th:field="*{fecha_inicio}" class="formulario__input"
+                                    id="fecha_inicio" name="fecha_inicio" required>
+                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            </div>
+                            <p class="formulario__input-error">Fecha no válida. Por favor, ingrese una fecha en formato
+                                YYYY/MM/DD</p>
+                        </div>
+
+                        <!-- Grupo: fecha Fin -->
+                        <div class="input-box formulario__grupo" id="grupo__fecha_fin">
+                            <label for="fecha_fin" class="formulario__label">Fecha de fin:</label>
+                            <div class="formulario__grupo-input">
+                                <input type="date" th:field="*{fecha_fin}" class="formulario__input" id="fecha_fin"
+                                    name="fecha_fin" required>
+                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            </div>
+                            <p class="formulario__input-error">Fecha no válida. Por favor, ingrese una fecha en formato
+                                YYYY/MM/DD</p>
+                        </div>
+                    </div>
+                    <!-- Grupo: Descripción de tareas -->
+                    <div class="input-box formulario__grupo" id="grupo__DescripcionT">
+                        <label for="DescripcionT" class="formulario__label">Descripción de tareas:</label>
+                        <div class="formulario__grupo-input">
+                            <textarea class="formulario__input" th:field="*{DescripcionT}" name="DescripcionT"
+                                id="DescripcionT" rows="4"></textarea>
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="formulario__input-error">Ingresa una descripción minima de 20 caracteres.</p>
+                    </div>
+
+                    <h2>Habilidades</h2>
+                    <!-- Grupo: Lista de habilidades -->
+                    <div class="input-box formulario__grupo" id="grupo__habilidades">
+                        <label for="habilidades" class="formulario__label">Lista de habilidades:</label>
+                        <div class="formulario__grupo-input">
+                            <textarea class="formulario__input" th:field="*{habilidades}" name="habilidades"
+                                id="habilidades" rows="4"></textarea>
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="formulario__input-error">Ingresa una descripción minima de 20 caracteres.</p>
+                    </div>
+
+                    <h2>Referencias</h2>
+                    <!-- Grupo: Nombre de referencias -->
+                    <div class="input-box formulario__grupo" id="grupo__referencias">
+                        <label for="referencias" class="formulario__label">Nombre de referencias:</label>
+                        <div class="formulario__grupo-input">
+                            <textarea class="formulario__input" th:field="*{referencias}" name="referencias"
+                                id="referencias" rows="4"></textarea>
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="formulario__input-error">Ingresa una descripción minima de 20 caracteres.</p>
+                    </div>
+
+                   
+
+                    <div class="formulario__mensaje" id="formulario__mensaje">
+                        <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario
+                            correctamente. </p>
+                    </div>
+
+                    <div class="formulario__grupo formulario__grupo-btn-enviar">
+                        <button type="submit" class="formulario__btn">Enviar</button>
+                        <p class="formulario__mensaje-exito" id="formulario__mensaje-exito"><i
+                                class="fa-solid fa-circle-check"></i> Formulario enviado exitosamente!</p>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+    <!--scrip de registrate------>
+    <script src="/js/HojaDVida.js"></script>
+    <!--scrip de iconos------>
+    <script src="https://kit.fontawesome.com/f9d0333c9c.js" crossorigin="anonymous"></script>
+
+    <script>
+        let arrow = document.querySelectorAll(".arrow");
+        for (var i = 0; i < arrow.length; i++) {
+            arrow[i].addEventListener("click", (e) => {
+                let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+                arrowParent.classList.toggle("showMenu");
+            });
+        }
+        let sidebar = document.querySelector(".sidebar");
+        let sidebarBtn = document.querySelector(".bx-menu");
+        console.log(sidebarBtn);
+        sidebarBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("close");
+        });
+    </script>
+
+</body>
+
+</html>

@@ -15,33 +15,55 @@ public class HojaDeVida {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long IdHojaDeVida;
 
-	@Column(name = "ExperienciaEnmeses", nullable = false)
-	private int ExperienciaEnmeses;
+	@Column(name = "institucion", nullable = false)
+	private String institucion;
 
-	@Column(name = "DescripcionMi", nullable = false)
-	private String DescripcionMi;
+	@Column(name = "Titulo", nullable = false)
+	private String Titulo;
 
-	@Column(name = "FechaNacimiento", nullable = false)
-	private Date FechaNacimiento;
+	@Column(name = "fecha_grado", nullable = false)
+	private Date fecha_grado;
 
-	@Column(name = "EstadoCivil", nullable = false, length = 10)
-	private String EstadoCivil;
+	@Column(name = "Empresa", nullable = false)
+	private String Empresa;
+
+	@Column(name = "Puesto", nullable = false)
+	private String Puesto;
+
+	@Column(name = "fecha_inicio", nullable = false)
+	private Date fecha_inicio;
+
+	@Column(name = "fecha_fin", nullable = false)
+	private Date fecha_fin;
+
+	@Column(name = "DescripcionT", nullable = false)
+	private String DescripcionT;
+
+	@Column(name = "habilidades", nullable = false)
+	private String habilidades;
+
+	@Column(name = "referencias", nullable = false)
+	private String referencias;
 
 	@OneToOne
 	@JoinColumn(name = "Usuario")
 	private Usuario usuario;
 
-
 	public HojaDeVida() {
-		super();
 	}
 
-	public HojaDeVida(Long idHojaDeVida, int experienciaEnmeses, String descripcionMi, Date fechaNacimiento, String estadoCivil, Usuario usuario) {
+	public HojaDeVida(Long idHojaDeVida, String institucion, String titulo, Date fecha_grado, String empresa, String puesto, Date fecha_inicio, Date fecha_fin, String descripcionT, String habilidades, String referencias, Usuario usuario) {
 		IdHojaDeVida = idHojaDeVida;
-		ExperienciaEnmeses = experienciaEnmeses;
-		DescripcionMi = descripcionMi;
-		FechaNacimiento = fechaNacimiento;
-		EstadoCivil = estadoCivil;
+		this.institucion = institucion;
+		Titulo = titulo;
+		this.fecha_grado = fecha_grado;
+		Empresa = empresa;
+		Puesto = puesto;
+		this.fecha_inicio = fecha_inicio;
+		this.fecha_fin = fecha_fin;
+		DescripcionT = descripcionT;
+		this.habilidades = habilidades;
+		this.referencias = referencias;
 		this.usuario = usuario;
 	}
 
@@ -53,36 +75,84 @@ public class HojaDeVida {
 		IdHojaDeVida = idHojaDeVida;
 	}
 
-	public int getExperienciaEnmeses() {
-		return ExperienciaEnmeses;
+	public String getInstitucion() {
+		return institucion;
 	}
 
-	public void setExperienciaEnmeses(int experienciaEnmeses) {
-		ExperienciaEnmeses = experienciaEnmeses;
+	public void setInstitucion(String institucion) {
+		this.institucion = institucion;
 	}
 
-	public String getDescripcionMi() {
-		return DescripcionMi;
+	public String getTitulo() {
+		return Titulo;
 	}
 
-	public void setDescripcionMi(String descripcionMi) {
-		DescripcionMi = descripcionMi;
+	public void setTitulo(String titulo) {
+		Titulo = titulo;
 	}
 
-	public Date getFechaNacimiento() {
-		return FechaNacimiento;
+	public Date getFecha_grado() {
+		return fecha_grado;
 	}
 
-	public void setFechaNacimiento(Date fechaNacimiento) {
-		FechaNacimiento = fechaNacimiento;
+	public void setFecha_grado(Date fecha_grado) {
+		this.fecha_grado = fecha_grado;
 	}
 
-	public String getEstadoCivil() {
-		return EstadoCivil;
+	public String getEmpresa() {
+		return Empresa;
 	}
 
-	public void setEstadoCivil(String estadoCivil) {
-		EstadoCivil = estadoCivil;
+	public void setEmpresa(String empresa) {
+		Empresa = empresa;
+	}
+
+	public String getPuesto() {
+		return Puesto;
+	}
+
+	public void setPuesto(String puesto) {
+		Puesto = puesto;
+	}
+
+	public Date getFecha_inicio() {
+		return fecha_inicio;
+	}
+
+	public void setFecha_inicio(Date fecha_inicio) {
+		this.fecha_inicio = fecha_inicio;
+	}
+
+	public Date getFecha_fin() {
+		return fecha_fin;
+	}
+
+	public void setFecha_fin(Date fecha_fin) {
+		this.fecha_fin = fecha_fin;
+	}
+
+	public String getDescripcionT() {
+		return DescripcionT;
+	}
+
+	public void setDescripcionT(String descripcionT) {
+		DescripcionT = descripcionT;
+	}
+
+	public String getHabilidades() {
+		return habilidades;
+	}
+
+	public void setHabilidades(String habilidades) {
+		this.habilidades = habilidades;
+	}
+
+	public String getReferencias() {
+		return referencias;
+	}
+
+	public void setReferencias(String referencias) {
+		this.referencias = referencias;
 	}
 
 	public Usuario getUsuario() {
@@ -97,10 +167,16 @@ public class HojaDeVida {
 	public String toString() {
 		return "HojaDeVida{" +
 				"IdHojaDeVida=" + IdHojaDeVida +
-				", ExperienciaEnmeses=" + ExperienciaEnmeses +
-				", DescripcionMi='" + DescripcionMi + '\'' +
-				", FechaNacimiento=" + FechaNacimiento +
-				", EstadoCivil='" + EstadoCivil + '\'' +
+				", institucion='" + institucion + '\'' +
+				", Titulo='" + Titulo + '\'' +
+				", fecha_grado=" + fecha_grado +
+				", Empresa='" + Empresa + '\'' +
+				", Puesto='" + Puesto + '\'' +
+				", fecha_inicio=" + fecha_inicio +
+				", fecha_fin=" + fecha_fin +
+				", DescripcionT='" + DescripcionT + '\'' +
+				", habilidades='" + habilidades + '\'' +
+				", referencias='" + referencias + '\'' +
 				", usuario=" + usuario +
 				'}';
 	}
