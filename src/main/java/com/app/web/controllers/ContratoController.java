@@ -33,7 +33,7 @@ public class ContratoController {
 	public String ContratoFormulario(Model modelo) {
 		Contrato contrato = new Contrato();
 		modelo.addAttribute("Contrato", contrato);
-		return "/crearContrato";
+		return "/Generar_Contrato";
 	}
 
 	@PostMapping("/Contrato/Guardar")
@@ -56,7 +56,8 @@ public class ContratoController {
 		Contrato ContratoExistente = servicio.obtenerContratoPorId(IdContrato);
 		ContratoExistente.setIdContrato(IdContrato);
 		ContratoExistente.setNombreContrato(contrato.getNombreContrato());
-		ContratoExistente.setPeriodo(contrato.getPeriodo());
+		ContratoExistente.setFecha_inicio(contrato.getFecha_inicio());
+		ContratoExistente.setFecha_final(contrato.getFecha_final());
 		ContratoExistente.setUsuario(contrato.getUsuario());
 
 		servicio.actualizarContrato(ContratoExistente);

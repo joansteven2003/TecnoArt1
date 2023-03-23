@@ -2,11 +2,11 @@ const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 
 const expresiones = {
-    institucion: /^[a-zA-ZÀ-ÿ\s]{5,20}$/, // Letras y espacios, pueden llevar acentos.
-    Titulo:/^[a-zA-ZÀ-ÿ\s]{5,20}$/, // Letras y espacios, pueden llevar acentos.
+    institucion: /^[a-zA-ZÀ-ÿ\s]{5,55}$/, // Letras y espacios, pueden llevar acentos.
+    Titulo:/^[a-zA-ZÀ-ÿ\s]{5,55}$/, // Letras y espacios, pueden llevar acentos.
     fecha_grado: /^\d{4}-\d{2}-\d{2}$/, // Formato de fecha yyyy-mm-dd
-    Empresa: /^[a-zA-ZÀ-ÿ\s]{4,20}$/, // Letras y espacios, pueden llevar acentos.
-    Puesto: /^[a-zA-ZÀ-ÿ\s]{5,20}$/, // Letras y espacios, pueden llevar acentos.
+    Empresa: /^[a-zA-ZÀ-ÿ\s]{4,55}$/, // Letras y espacios, pueden llevar acentos.
+    Puesto: /^[a-zA-ZÀ-ÿ\s]{5,50}$/, // Letras y espacios, pueden llevar acentos.
     fecha_inicio: /^\d{4}-\d{2}-\d{2}$/, // Letras y espacios, pueden llevar acentos.
     fecha_fin: /^\d{4}-\d{2}-\d{2}$/, // Letras y espacios, pueden llevar acentos.
     DescripcionT: /^[a-zA-ZÀ-ÿ0-9.,;:_\s]{10,500}$/, // observacion dondepermite mayusculas,minusculas y espacios y ortografia.
