@@ -7,13 +7,17 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
 @SpringBootApplication
 public class TecnoArtSpringHApplication implements CommandLineRunner {
 
+
 	public static void main(String[] args) {
 		SpringApplication.run(TecnoArtSpringHApplication.class, args);
+		System.out.println("pass: " +  new BCryptPasswordEncoder().encode("1234"));
+
 	}
 
 	@Override
@@ -23,8 +27,10 @@ public class TecnoArtSpringHApplication implements CommandLineRunner {
 		 * Date(), 10010); repositorio.save(pqrs1);
 		 */
 
-		
+
 	}
+
+
 	
 	
 	

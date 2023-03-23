@@ -58,7 +58,7 @@ public class UsuarioController {
 		UsuarioExistente.setNombreCompleto(usuario.getNombreCompleto());
 		UsuarioExistente.setDocumento(usuario.getDocumento());
 		UsuarioExistente.setTelefono(usuario.getTelefono());
-		UsuarioExistente.setCorreo(usuario.getCorreo());
+		UsuarioExistente.setEmail(usuario.getEmail());
 		UsuarioExistente.setRecidencia(usuario.getRecidencia());
 		UsuarioExistente.setPassword(usuario.getPassword());
 		UsuarioExistente.setHojaDeVida(usuario.getHojaDeVida());

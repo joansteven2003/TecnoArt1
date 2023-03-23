@@ -10,30 +10,30 @@ import javax.persistence.*;
 @Entity
 @Table(name = "Usuario")
 public class Usuario {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long IdUsuario;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long IdUsuario;
 
-	@Column(name = "NombreCompleto", nullable = true)
-	private String NombreCompleto;
-	@Column(name = "Documento", nullable = true)
-	private long Documento;
-	@Column(name = "Telefono", nullable = true)
-	private long Telefono;
-	@Column(name = "Correo", nullable = true)
-	private String Correo;
-	@Column(name = "Recidencia", nullable = true)
-	private String Recidencia;
-	@Column(name = "password", nullable = true)
-	private String password;
+    @Column(name = "NombreCompleto", nullable = true)
+    private String NombreCompleto;
+    @Column(name = "Documento", nullable = true)
+    private long Documento;
+    @Column(name = "Telefono", nullable = true)
+    private long Telefono;
+    @Column(name = "email", nullable = true)
+    private String email;
+    @Column(name = "Recidencia", nullable = true)
+    private String Recidencia;
+    @Column(name = "password", nullable = true)
+    private String password;
 
 
-	@OneToMany(mappedBy = "usuario")
-	List<Venta> ListVenta;
+    @OneToMany(mappedBy = "usuario")
+    List<Venta> ListVenta;
 
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "id_usuario"), inverseJoinColumns = @JoinColumn(name = "id_rol"))
-	private Set<Rol> roles;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "id_usuario"), inverseJoinColumns = @JoinColumn(name = "id_rol"))
+    private Set<Rol> roles;
 
     @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
     private HojaDeVida hojaDeVida;
@@ -41,22 +41,23 @@ public class Usuario {
     @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
     private Cotizacion cotizacion;
 
-	@OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
-	private Contrato contrato;
+    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
+    private Contrato contrato;
 
-	@OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
-	private Postulacion postulacion;
+    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
+    private Postulacion postulacion;
 
 
     public Usuario() {
     }
 
-    public Usuario(long idUsuario, String nombreCompleto, long documento, long telefono, String correo, String recidencia, String password, List<Venta> listVenta, Set<Rol> roles, HojaDeVida hojaDeVida, Cotizacion cotizacion, Contrato contrato, Postulacion postulacion) {
+    public Usuario(long idUsuario, String nombreCompleto, long documento, long telefono, String email, String recidencia, String password, List<Venta> listVenta, Set<Rol> roles, HojaDeVida hojaDeVida, Cotizacion cotizacion, Contrato contrato, Postulacion postulacion) {
+
         IdUsuario = idUsuario;
         NombreCompleto = nombreCompleto;
         Documento = documento;
         Telefono = telefono;
-        Correo = correo;
+        this.email = email;
         Recidencia = recidencia;
         this.password = password;
         ListVenta = listVenta;
@@ -99,12 +100,12 @@ public class Usuario {
         Telefono = telefono;
     }
 
-    public String getCorreo() {
-        return Correo;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCorreo(String correo) {
-        Correo = correo;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getRecidencia() {
@@ -178,7 +179,7 @@ public class Usuario {
                 ", NombreCompleto='" + NombreCompleto + '\'' +
                 ", Documento=" + Documento +
                 ", Telefono=" + Telefono +
-                ", Correo='" + Correo + '\'' +
+                ", email='" + email + '\'' +
                 ", Recidencia='" + Recidencia + '\'' +
                 ", password='" + password + '\'' +
                 ", ListVenta=" + ListVenta +
