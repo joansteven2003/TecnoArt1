@@ -1,9 +1,6 @@
 package com.app.web.controllers;
 
-import com.app.web.modelos.Contrato;
 import com.app.web.modelos.Cotizacion;
-import com.app.web.modelos.Usuario;
-import com.app.web.servicios.ContratoServicios;
 import com.app.web.servicios.CotizacionServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,7 +23,7 @@ public class CotizacionController {
     @GetMapping("/Cliente_Cotizacion")
     public String ListarCotizacionCliente(Model modelo) {
         modelo.addAttribute("Cotizacion", servicio.ListarCotizaciones());
-        return "/Ciente_Cotizacion";
+        return "Cliente_Cotizacion";
     }
 
     @GetMapping("/Cotizacion/eliminar/{IdCotizacion}")
