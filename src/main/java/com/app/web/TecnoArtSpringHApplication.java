@@ -16,8 +16,10 @@ public class TecnoArtSpringHApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TecnoArtSpringHApplication.class, args);
-		System.out.println("pass: " +  new BCryptPasswordEncoder().encode("1234"));
-
+		String password = "@Joan2378";
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		String hashedPassword = passwordEncoder.encode(password);
+		System.out.println(hashedPassword);
 	}
 
 	@Override

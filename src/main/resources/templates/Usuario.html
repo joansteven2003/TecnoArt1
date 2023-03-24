@@ -146,7 +146,7 @@
         <td th:text="${Usuario.Telefono}">Nombres</td>
         <td th:text="${Usuario.email}">Nombres</td>
         <td th:text="${Usuario.Recidencia}">Nombres</td>
-        <td th:text="${Usuario.roles}">Nombres</td>
+        <td th:text="${Usuario.Rol.NombreRol}">Nombres</td>
         <td>
           <a style="margin-bottom: 5px;" th:href="@{/Usuario/editar/{IdUsuario}(IdUsuario=${Usuario.IdUsuario})}" class="btn btn-info"><i class="fa-solid fa-pencil"></i></a>
           <br>

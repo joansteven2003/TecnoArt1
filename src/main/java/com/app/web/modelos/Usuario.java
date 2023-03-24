@@ -20,10 +20,14 @@ public class Usuario {
     private long Documento;
     @Column(name = "Telefono", nullable = true)
     private long Telefono;
-    @Column(name = "email", nullable = true)
+    @Column(name = "email", nullable = false)
     private String email;
     @Column(name = "Recidencia", nullable = true)
     private String Recidencia;
+
+    @Column(nullable = false)
+    private Boolean enabled;
+
     @Column(name = "password", nullable = true)
     private String password;
 
@@ -31,10 +35,9 @@ public class Usuario {
     @OneToMany(mappedBy = "usuario")
     List<Venta> ListVenta;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "id_usuario"), inverseJoinColumns = @JoinColumn(name = "id_rol"))
-    private Set<Rol> roles;
-
+    @ManyToOne
+    @JoinColumn(name = "Rol")
+    private Rol rol;
     @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
     private HojaDeVida hojaDeVida;
 
@@ -51,17 +54,17 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(long idUsuario, String nombreCompleto, long documento, long telefono, String email, String recidencia, String password, List<Venta> listVenta, Set<Rol> roles, HojaDeVida hojaDeVida, Cotizacion cotizacion, Contrato contrato, Postulacion postulacion) {
-
+    public Usuario(long idUsuario, String nombreCompleto, long documento, long telefono, String email, String recidencia, Boolean enabled, String password, List<Venta> listVenta, Rol rol, HojaDeVida hojaDeVida, Cotizacion cotizacion, Contrato contrato, Postulacion postulacion) {
         IdUsuario = idUsuario;
         NombreCompleto = nombreCompleto;
         Documento = documento;
         Telefono = telefono;
         this.email = email;
         Recidencia = recidencia;
+        this.enabled = enabled;
         this.password = password;
         ListVenta = listVenta;
-        this.roles = roles;
+        this.rol = rol;
         this.hojaDeVida = hojaDeVida;
         this.cotizacion = cotizacion;
         this.contrato = contrato;
@@ -116,6 +119,14 @@ public class Usuario {
         Recidencia = recidencia;
     }
 
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -132,12 +143,12 @@ public class Usuario {
         ListVenta = listVenta;
     }
 
-    public Set<Rol> getRoles() {
-        return roles;
+    public Rol getRol() {
+        return rol;
     }
 
-    public void setRoles(Set<Rol> roles) {
-        this.roles = roles;
+    public void setRol(Rol rol) {
+        this.rol = rol;
     }
 
     public HojaDeVida getHojaDeVida() {
@@ -181,9 +192,10 @@ public class Usuario {
                 ", Telefono=" + Telefono +
                 ", email='" + email + '\'' +
                 ", Recidencia='" + Recidencia + '\'' +
+                ", enabled=" + enabled +
                 ", password='" + password + '\'' +
                 ", ListVenta=" + ListVenta +
-                ", roles=" + roles +
+                ", rol=" + rol +
                 ", hojaDeVida=" + hojaDeVida +
                 ", cotizacion=" + cotizacion +
                 ", contrato=" + contrato +

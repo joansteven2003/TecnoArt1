@@ -1,6 +1,8 @@
 package com.app.web.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,29 +10,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.app.web.servicios.PqrsServicio;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Controller
 public class IndexController {
 	@Autowired
 	private PqrsServicio servicio;
 
-	@GetMapping("/")
+	@GetMapping("/index")
 	public String index(Model modelo) {
 
 		return "/index";
 	}
 
-	@GetMapping("/index_Cliente")
-	public String indexCliente(Model modelo) {
-
-		return "/Cliente_index";
-	}
-
-	@GetMapping("/Bienvenida")
-	public String TablasBienvenida(Model modelo) {
-
-		return "/Tablas_Bienvenida";
-	}
-	
 	@GetMapping("/conocenos")
 	public String conocenos(Model modelo) {
 
@@ -46,15 +39,12 @@ public class IndexController {
 	public String NuestroTrabajo (Model modelo) {
 		return "/nuestros_trabajos";
 	}
-	@GetMapping("/login")
-	public String iniciarSesion(Model modelo) {
-
-		return "/login";
-	}
 
 	@GetMapping("/Registrarse")
 	public String Registrarse(Model modelo) {
 
 		return "/Registrarse.html";
 	}
+
+
 }

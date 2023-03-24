@@ -309,7 +309,7 @@ set _EXECJAVA=%_RUNJDB%
 set DEBUG_OPTS=-sourcepath "%CATALINA_HOME%\..\..\java"
 if not ""%1"" == ""-security"" goto execCmd
 shift
-echo Using Security Manager
+echo Using Seguridad Manager
 set "SECURITY_POLICY_FILE=%CATALINA_BASE%\conf\catalina.policy"
 goto execCmd
 
@@ -317,7 +317,7 @@ goto execCmd
 shift
 if not ""%1"" == ""-security"" goto execCmd
 shift
-echo Using Security Manager
+echo Using Seguridad Manager
 set "SECURITY_POLICY_FILE=%CATALINA_BASE%\conf\catalina.policy"
 goto execCmd
 
@@ -327,7 +327,7 @@ if "%TITLE%" == "" set TITLE=Tomcat
 set _EXECJAVA=start "%TITLE%" %_RUNJAVA%
 if not ""%1"" == ""-security"" goto execCmd
 shift
-echo Using Security Manager
+echo Using Seguridad Manager
 set "SECURITY_POLICY_FILE=%CATALINA_BASE%\conf\catalina.policy"
 goto execCmd
 

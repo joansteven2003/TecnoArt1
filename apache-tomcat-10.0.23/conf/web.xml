@@ -474,7 +474,7 @@
   <!-- This filter supports the following initialization parameters         -->
   <!-- (default values are in square brackets):                             -->
   <!--                                                                      -->
-  <!--   hstsEnabled         Should the HTTP Strict Transport Security      -->
+  <!--   hstsEnabled         Should the HTTP Strict Transport Seguridad      -->
   <!--                       (HSTS) header be added to the response? See    -->
   <!--                       RFC 6797 for more information on HSTS. [true]  -->
   <!--                                                                      -->

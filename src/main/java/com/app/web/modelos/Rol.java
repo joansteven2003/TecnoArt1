@@ -1,11 +1,9 @@
 package com.app.web.modelos;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "rol")
@@ -17,14 +15,16 @@ public class Rol {
 	@Column(name = "NombreRol", nullable = true)
 	private String NombreRol;
 
+	@OneToMany(mappedBy = "rol",cascade = CascadeType.ALL)
+	List<Usuario>listaUsuarios;
+
 	public Rol() {
-		super();
 	}
 
-	public Rol(long idRol, String nombreRol) {
-		super();
+	public Rol(long idRol, String nombreRol, List<Usuario> listaUsuarios) {
 		IdRol = idRol;
 		NombreRol = nombreRol;
+		this.listaUsuarios = listaUsuarios;
 	}
 
 	public long getIdRol() {
@@ -43,9 +43,20 @@ public class Rol {
 		NombreRol = nombreRol;
 	}
 
-	@Override
-	public String toString() {
-		return "Rol [IdRol=" + IdRol + ", NombreRol=" + NombreRol + "]";
+	public List<Usuario> getListaUsuarios() {
+		return listaUsuarios;
 	}
 
+	public void setListaUsuarios(List<Usuario> listaUsuarios) {
+		this.listaUsuarios = listaUsuarios;
+	}
+
+	@Override
+	public String toString() {
+		return "Rol{" +
+				"IdRol=" + IdRol +
+				", NombreRol='" + NombreRol + '\'' +
+				", listaUsuarios=" + listaUsuarios +
+				'}';
+	}
 }
