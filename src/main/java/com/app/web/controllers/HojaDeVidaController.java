@@ -60,7 +60,7 @@ public class HojaDeVidaController {
 	@GetMapping("/HojaDeVida/editar/{IdHojaDeVida}")
 	public String EditarHojaDeVidaFomulario(@PathVariable long IdHojaDeVida, Model modelo) {
 		modelo.addAttribute("HojaDeVida", servicio.obtenerHojadevidaPorId(IdHojaDeVida));
-		return "/editarHojaDeVida";
+		return "/Editar_HojaVida";
 	}
 
 	@PostMapping("/HojaDeVida/{IdHojaDeVida}")

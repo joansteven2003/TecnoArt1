@@ -1,50 +1,72 @@
 const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
-//traer los campor opcion
-const opcion = document.getElementById('opcion');
-const grupoOpcion = document.getElementById('grupo__opcion');
 
 const expresiones = {
-	Fecha: /^\d{4}-\d{2}-\d{2}$/, // Formato de fecha yyyy-mm-dd
-	ExperienciaEnmeses: /^\d{5,10}$/, // 5 a 20 numeros.
-    Eduacion: /^[a-zA-ZÀ-ÿ\s]{5,20}$/, // Letras y espacios, pueden llevar acentos.
-    Perfil: /^[a-zA-ZÀ-ÿ0-9.,;:_\s]{10,500}$/, // observacion dondepermite mayusculas,minusculas y espacios y ortografia.
+    institucion: /^[a-zA-ZÀ-ÿ\s]{5,55}$/, // Letras y espacios, pueden llevar acentos.
+    Titulo:/^[a-zA-ZÀ-ÿ\s]{5,55}$/, // Letras y espacios, pueden llevar acentos.
+    fecha_grado: /^\d{4}-\d{2}-\d{2}$/, // Formato de fecha yyyy-mm-dd
+    Empresa: /^[a-zA-ZÀ-ÿ\s]{4,55}$/, // Letras y espacios, pueden llevar acentos.
+    Puesto: /^[a-zA-ZÀ-ÿ\s]{5,50}$/, // Letras y espacios, pueden llevar acentos.
+    fecha_inicio: /^\d{4}-\d{2}-\d{2}$/, // Letras y espacios, pueden llevar acentos.
+    fecha_fin: /^\d{4}-\d{2}-\d{2}$/, // Letras y espacios, pueden llevar acentos.
+    DescripcionT: /^[a-zA-ZÀ-ÿ0-9.,;:_\s]{10,500}$/, // observacion dondepermite mayusculas,minusculas y espacios y ortografia.
+    habilidades: /^[a-zA-ZÀ-ÿ0-9.,;:_\s]{10,200}$/, // observacion dondepermite mayusculas,minusculas y espacios y ortografia.
+    referencias: /^[a-zA-ZÀ-ÿ0-9.,;:_\s]{10,200}$/, // observacion dondepermite mayusculas,minusculas y espacios y ortografia.
+
+
 }
 
 const campos = {
-	HoraInicio: false,
-    HoraFin: false,
-    LugarTrabajo: false,
-    ExperienciaEnmeses: false,
-    Eduacion: false,
-    Perfil: false
+	institucion: false,
+    Titulo: false,
+    fecha_grado: false,
+    Empresa: false,
+    Puesto: false,
+    fecha_inicio: false,
+    fecha_fin: false,
+    DescripcionT: false,
+    habilidades: false,
+    referencias: false
 }
 
 const validarFormulario = (e) => {
 	switch (e.target.name) {
-		case "HoraInicio":
-			validarCampo(expresiones.HoraInicio, e.target, 'HoraInicio');
+		case "institucion":
+			validarCampo(expresiones.institucion, e.target, 'institucion');
 		break;
-        case "HoraFin":
-			validarCampo(expresiones.HoraFin, e.target, 'HoraFin');
+        case "Titulo":
+			validarCampo(expresiones.Titulo, e.target, 'Titulo');
 		break;
-        case "LugarTrabajo":
-			validarCampo(expresiones.LugarTrabajo, e.target, 'LugarTrabajo');
+        case "fecha_grado":
+			validarCampo(expresiones.fecha_grado, e.target, 'fecha_grado');
 		break;
-        case "ExperienciaEnmeses":
-			validarCampo(expresiones.ExperienciaEnmeses, e.target, 'ExperienciaEnmeses');
-		break;
-
-        case "Eduacion":
-			validarCampo(expresiones.Eduacion, e.target, 'Eduacion');
-		break;
-        case "opcion":
-            validarCampo2(opcion.value !== "", grupoOpcion, 'opcion');
-            break;
-        case "Perfil":
-			validarCampo(expresiones.Perfil, e.target, 'Perfil');
+        case "Empresa":
+			validarCampo(expresiones.Empresa, e.target, 'Empresa');
 		break;
 
+        case "Puesto":
+			validarCampo(expresiones.Puesto, e.target, 'Puesto');
+		break;
+
+        case "fecha_inicio":
+            validarCampo(expresiones.fecha_inicio, e.target, 'fecha_inicio');
+        break;
+
+        case "fecha_fin":
+            validarCampo(expresiones.fecha_fin, e.target, 'fecha_fin');
+        break;
+
+        case "DescripcionT":
+			validarCampo(expresiones.DescripcionT, e.target, 'DescripcionT');
+		break;
+
+		case "habilidades":
+        validarCampo(expresiones.habilidades, e.target, 'habilidades');
+        break;
+
+        case "referencias":
+        validarCampo(expresiones.referencias, e.target, 'referencias');
+        break;
         
 		
 	}
@@ -68,40 +90,27 @@ const validarCampo = (expresion, input, campo) => {
 	}
 }
 
-// validar campo de select pero de solo 1 
-const validarCampo2 = (valor, grupo, campo) => {
-    if (valor) {
-        grupo.classList.remove('formulario__grupo-incorrecto');
-        grupo.classList.add('formulario__grupo-correcto');
-        document.querySelector(`#${campo} .formulario__validacion-estado.fa-check-circle`).classList.add('formulario__validacion-estado-activo');
-        document.querySelector(`#${campo} .formulario__validacion-estado.fa-times-circle`).classList.remove('formulario__validacion-estado-activo');
-        document.querySelector(`#${campo} .formulario__input-error`).classList.remove('formulario__input-error-activo');
-    } else {
-        grupo.classList.add('formulario__grupo-incorrecto');
-        grupo.classList.remove('formulario__grupo-correcto');
-        document.querySelector(`#${campo} .formulario__validacion-estado.fa-times-circle`).classList.add('formulario__validacion-estado-activo');
-        document.querySelector(`#${campo} .formulario__validacion-estado.fa-check-circle`).classList.remove('formulario__validacion-estado-activo');
-        document.querySelector(`#${campo} .formulario__input-error`).classList.add('formulario__input-error-activo');
-    }
-}
 
 inputs.forEach((input) => {
 	input.addEventListener('keyup', validarFormulario);
 	input.addEventListener('blur', validarFormulario);
 });
 
-//parte de opciones 
-opcion.addEventListener('change', validarFormulario);
+//parte del campo del texto mas grande
+DescripcionT.addEventListener('keyup', validarFormulario);
+DescripcionT.addEventListener('blur', validarFormulario);
+//parte del campo del texto mas grande
+habilidades.addEventListener('keyup', validarFormulario);
+habilidades.addEventListener('blur', validarFormulario);
 
 //parte del campo del texto mas grande
-Perfil.addEventListener('keyup', validarFormulario);
-Perfil.addEventListener('blur', validarFormulario);
+referencias.addEventListener('keyup', validarFormulario);
+referencias.addEventListener('blur', validarFormulario);
 
 formulario.addEventListener('submit', (e) => {
 
 
-	if(campos.HoraInicio && campos.HoraFin && campos.ExperienciaEnmeses && campos.LugarTrabajo && campos.Eduacion && opcion.value !== "" && campos.Perfil ){
-
+	if(campos.institucion && campos.Titulo && campos.fecha_grado && campos.Empresa && campos.Puesto && campos.fecha_inicio && campos.fecha_fin && campos.DescripcionT && campos.habilidades && campos.referencias){
 
 		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
 		setTimeout(() => {

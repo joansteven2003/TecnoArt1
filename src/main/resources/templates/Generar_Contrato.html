@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <link rel="icon" type="image/png" href="/img/logosolo.png">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="/css/Style_Contrato.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/w3.css">
+    <!----===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Boxiocns CDN Link -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Generar Contrato</title>
+</head>
+
+<body>
+
+<div class="sidebar close">
+    <div class="logo-details">
+        <img class="logo-details" src="/img/LogoSolo.png">
+        <span class="logo_name">Tecno&Art</span>
+    </div>
+    <ul class="nav-links">
+        <li>
+            <a href="#">
+                <i class='bx bx-grid-alt'></i>
+                <span class="link_name">Dashboard</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link_name" href="#">Category</a></li>
+            </ul>
+        </li>
+        <li>
+            <div class="iocn-link">
+                <a href="#">
+                    <i class='bx bx-collection'></i>
+                    <span class="link_name">Ventas </span>
+                </a>
+                <i class='bx bxs-chevron-down arrow'></i>
+            </div>
+            <ul class="sub-menu">
+                <li><a class="link_name" href="#">Ventas</a></li>
+                <li><a href="#">Consultar Venta</a></li>
+                <li><a href="#">Registrar Venta</a></li>
+                <li><a href="#">Consultar Servicio</a></li>
+                <li><a href="#">Registrar Servicio</a></li>
+                <li><a href="#">Consultar Cotizacion</a></li>
+                <li><a href="#">Registrar Cotizacion</a></li>
+            </ul>
+        </li>
+        <li>
+            <div class="iocn-link">
+                <a href="#">
+                    <i class='bx bx-book-alt'></i>
+                    <span class="link_name">Pqrs </span>
+                </a>
+                <i class='bx bxs-chevron-down arrow'></i>
+            </div>
+            <ul class="sub-menu">
+                <li><a class="link_name" href="#">Pqrs</a></li>
+                <li><a href="#">Requistrar Pqrs</a></li>
+                <li><a href="#">Consultar Pqrs</a></li>
+                <li><a href="#">Consultar Calificaciones</a></li>
+                <li><a href="#">Registrar Calificacion</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <div class="iocn-link">
+                <a href="#">
+                    <i class='bx bx-plug'></i>
+                    <span class="link_name">Contratación</span>
+                </a>
+                <i class='bx bxs-chevron-down arrow'></i>
+            </div>
+            <ul class="sub-menu">
+                <li><a class="link_name" href="#">Contratación</a></li>
+                <li><a href="#">Consultar Citas</a></li>
+                <li><a href="#">Consultar cargos</a></li>
+                <li><a href="#">Consultar Contratos</a></li>
+                <li><a href="#">Consultar Vacante</a></li>
+            </ul>
+        </li>
+
+        <div class="profile-details">
+            <div class="profile-content">
+                <!--<img src="image/profile.jpg" alt="profileImg">-->
+            </div>
+            <div class="name-job">
+                <div class="profile_name">Prem Shahi</div>
+                <div class="job">Web Desginer</div>
+            </div>
+            <i class='bx bx-log-out'></i>
+        </div>
+        </li>
+    </ul>
+</div>
+<section class="home-section">
+    <div class="home-content">
+        <i class='bx bx-menu'></i>
+    </div>
+
+    <div class="container-div">
+        <div class="container1">
+
+            <header>Realizar Hoja de vida</header>
+            <form th:action="@{/Contrato/Guardar}" th:object=${Contrato} class="form formulario"
+                  id="formulario">
+
+                <h2>Educación</h2>
+                <!-- Grupo: NombreContrato -->
+                <div class="input-box formulario__grupo" id="grupo__NombreContrato">
+                    <label for="NombreContrato" class="formulario__label">Nombre del contrato:</label>
+                    <div class="formulario__grupo-input">
+                        <input type="text" th:field="*{NombreContrato}" class="formulario__input" id="NombreContrato"
+                               name="NombreContrato" >
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="formulario__input-error">Por Favor digitar datos del contrato valido</p>
+                </div>
+
+                <div class="column">
+
+
+                    <!-- Grupo: Fecha Inicio -->
+                    <div class="input-box formulario__grupo" id="grupo__Fecha_inicio">
+                        <label for="Fecha_inicio" class="formulario__label">Fecha inicio del contrato:</label>
+                        <div class="formulario__grupo-input">
+                            <input type="date" th:field="*{Fecha_inicio}" class="formulario__input" id="Fecha_inicio"
+                                   name="Fecha_inicio" >
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="formulario__input-error">Fecha no válida. Por favor, ingrese una fecha en formato
+                            YYYY/MM/DD</p>
+                    </div>
+
+                    <!-- Grupo: Fecha Final -->
+                    <div class="input-box formulario__grupo" id="grupo__Fecha_final">
+                        <label for="Fecha_final" class="formulario__label">Fecha final del contrato:</label>
+                        <div class="formulario__grupo-input">
+                            <input type="date" th:field="*{Fecha_final}" class="formulario__input" id="Fecha_final"
+                                   name="Fecha_final" >
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="formulario__input-error">Fecha no válida. Por favor, ingrese una fecha en formato
+                            YYYY/MM/DD</p>
+                    </div>
+
+                </div>
+
+                <div class="formulario__mensaje" id="formulario__mensaje">
+                    <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario
+                        correctamente. </p>
+                </div>
+
+                <div class="formulario__grupo formulario__grupo-btn-enviar">
+                    <button type="submit" class="formulario__btn">Enviar</button>
+                    <p class="formulario__mensaje-exito" id="formulario__mensaje-exito"><i
+                            class="fa-solid fa-circle-check"></i> Formulario enviado exitosamente!</p>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</section>
+
+<!--scrip de registrate------>
+<script src="/js/Contrato.js"></script>
+<!--scrip de iconos------>
+<script src="https://kit.fontawesome.com/f9d0333c9c.js" crossorigin="anonymous"></script>
+
+<script>
+        let arrow = document.querySelectorAll(".arrow");
+        for (var i = 0; i < arrow.length; i++) {
+            arrow[i].addEventListener("click", (e) => {
+                let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+                arrowParent.classList.toggle("showMenu");
+            });
+        }
+        let sidebar = document.querySelector(".sidebar");
+        let sidebarBtn = document.querySelector(".bx-menu");
+        console.log(sidebarBtn);
+        sidebarBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("close");
+        });
+    </script>
+
+</body>
+
+</html>

@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HojaDeVida</title>
-  <link rel="stylesheet" href="/css/style_Calificacion.css">
+  <link rel="stylesheet" href="/css/Style_HojaVida_Tabla.css">
   <link rel="stylesheet" href="/css/w3.css">
   <!-- Boxiocns CDN Link -->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -125,27 +125,40 @@
     <a th:href="@{/HojaDeVida/Registrar}" class="btn btn-info" style="margin-left: 100px;"> Agregar</a>
   <br>  
   </div>
-  <div class="container" id="containerTabla">
+  <div>
     <table class="table table-hover" id="example" style="background-color: white;">
       <thead>
       <tr>
         <th>Id Usuario</th>
         <th>Nombre Usuario</th>
-        <th>Experiencia En Meses</th>
-        <th>Mi Descripcion</th>
-        <th>Fecha Nacimiento</th>
-        <th>Estado Civil</th>
-        <th>Acciones</th>
+        <th>Correo</th>
+        <th>Institucion</th>
+        <th>Titulo</th>
+        <th>Fecha grado</th>
+        <th>Empresa</th>
+        <th>Puesto</th>
+        <th>Fecha inicio</th>
+        <th>Fecha fin</th>
+        <th>Descripcion tareas</th>
+        <th>Habilidades</th>
+        <th>Referencias</th>
       </tr>
     </thead>
     <tbody>
       <tr th:each="HojaDeVida : ${HojaDeVida}">
-        <td th:text="${HojaDeVida.Usuario.IdUsuario}">Nombres</td>
-        <td th:text="${HojaDeVida.Usuario.NombreCompleto}">Nombres</td>
-        <td th:text="${HojaDeVida.ExperienciaEnmeses}">Nombres</td>
-        <td th:text="${HojaDeVida.DescripcionMi}">Nombres</td>
-        <td th:text="${HojaDeVida.FechaNacimiento}">Nombres</td>
-        <td th:text="${HojaDeVida.EstadoCivil}">Nombres</td>
+        <td th:text="${HojaDeVida.Usuario.IdUsuario}"></td>
+        <td th:text="${HojaDeVida.Usuario.NombreCompleto}"></td>
+        <td th:text="${HojaDeVida.Usuario.Correo}"></td>
+        <td th:text="${HojaDeVida.institucion}"></td>
+        <td th:text="${HojaDeVida.Titulo}"></td>
+        <td th:text="${HojaDeVida.fecha_grado}"></td>
+        <td th:text="${HojaDeVida.Empresa}"></td>
+        <td th:text="${HojaDeVida.Puesto}"></td>
+        <td th:text="${HojaDeVida.fecha_inicio}"></td>
+        <td th:text="${HojaDeVida.fecha_fin}"></td>
+        <td th:text="${HojaDeVida.DescripcionT}"></td>
+        <td th:text="${HojaDeVida.habilidades}"></td>
+        <td th:text="${HojaDeVida.referencias}"></td>
         <td>
 
           <a th:href="@{/HojaDeVida/editar/{IdHojaDeVida}(IdHojaDeVida=${HojaDeVida.IdHojaDeVida})}" class="btn btn-info"><i class="fa-solid fa-pencil"></i></a>

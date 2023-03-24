@@ -1,5 +1,6 @@
 package com.app.web.modelos;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -22,8 +23,13 @@ public class Contrato {
 
 	@Column(name = "NombreContrato", nullable = false, length = 20)
 	private String NombreContrato;
-	@Column(name = "Periodo", nullable = false, length = 20)
-	private String Periodo;
+
+
+	@Column(name = "Fecha_inicio", nullable = false)
+	private Date Fecha_inicio;
+
+	@Column(name = "Fecha_final", nullable = false)
+ 	private Date Fecha_final;
 
 	@OneToOne
 	@JoinColumn(name = "IdUsuario")
@@ -32,11 +38,14 @@ public class Contrato {
 	public Contrato() {
 	}
 
-	public Contrato(Long idContrato, String nombreContrato, String periodo, Usuario usuario) {
+	public Contrato(Long idContrato, String nombreContrato, Date fecha_inicio, Date fecha_final, Usuario usuario) {
 		IdContrato = idContrato;
 		NombreContrato = nombreContrato;
-		Periodo = periodo;
+		Fecha_inicio = fecha_inicio;
+		Fecha_final = fecha_final;
 		this.usuario = usuario;
+
+
 	}
 
 	public Long getIdContrato() {
@@ -55,12 +64,20 @@ public class Contrato {
 		NombreContrato = nombreContrato;
 	}
 
-	public String getPeriodo() {
-		return Periodo;
+	public Date getFecha_inicio() {
+		return Fecha_inicio;
 	}
 
-	public void setPeriodo(String periodo) {
-		Periodo = periodo;
+	public void setFecha_inicio(Date fecha_inicio) {
+		Fecha_inicio = fecha_inicio;
+	}
+
+	public Date getFecha_final() {
+		return Fecha_final;
+	}
+
+	public void setFecha_final(Date fecha_final) {
+		Fecha_final = fecha_final;
 	}
 
 	public Usuario getUsuario() {
@@ -76,8 +93,10 @@ public class Contrato {
 		return "Contrato{" +
 				"IdContrato=" + IdContrato +
 				", NombreContrato='" + NombreContrato + '\'' +
-				", Periodo='" + Periodo + '\'' +
+				", Fecha_inicio=" + Fecha_inicio +
+				", Fecha_final=" + Fecha_final +
 				", usuario=" + usuario +
 				'}';
 	}
 }
+
