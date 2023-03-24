@@ -46,7 +46,7 @@ public class ContratoController {
 	@GetMapping("/Contrato/editar/{IdContrato}")
 	public String EditarContratoFomulario(@PathVariable long IdContrato, Model modelo) {
 		modelo.addAttribute("Contrato", servicio.obtenerContratoPorId(IdContrato));
-		return "/editarContrato";
+		return "/Editar_Contrato";
 	}
 
 	@PostMapping("/Contrato/{IdContrato}")

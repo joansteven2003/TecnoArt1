@@ -14,32 +14,132 @@
 <body>
 <section class="container">
     <header>Actualizar calificación</header>
-    <form th:action="@{/Calificacion/{IdCalificacion}(IdCalificacion=${Calificacion.IdCalificacion})}" th:object=${Calificacion} class="form formulario" id="formulario">
+    <form th:action="@{/HojaDeVida/{IdHojaDeVida}(IdHojaDeVida=${HojaDeVida.IdHojaDeVida})}" th:object=${HojaDeVida} class="form formulario"
+          id="formulario">
 
-        <!-- Grupo: Estrellas -->
-        <div class="input-box formulario__grupo" id="grupo__Estrellas">
-            <label for="Estrellas" class="formulario__label">Estrellas</label>
+        <h2>Educación</h2>
+        <!-- Grupo: institucion -->
+        <div class="input-box formulario__grupo" id="grupo__institucion">
+            <label for="institucion" class="formulario__label">Institución:</label>
             <div class="formulario__grupo-input">
-                <input type="number" th:field="*{Estrellas}" class="formulario__input" name="Estrellas" id="Estrellas"
-                       placeholder="aqui aplicar lo del tutorial de las Estrellas">
+                <input type="text" th:field="*{institucion}" class="formulario__input" id="institucion"
+                       name="institucion" required>
                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
             </div>
-            <p class="formulario__input-error">La cantidad de estrellas son incorrectas solo 1 numero del al 5</p>
+            <p class="formulario__input-error">Por Favor digitar la institucion</p>
         </div>
 
-        <!-- Grupo: Venta -->
-        <div class="formulario__grupo input-box" id="grupo__opcion">
-            <label for="opcion" class="formulario__label">Venta que realizo</label>
-            <select th:field="*{Venta}" name="Venta" id="opcion" class="formulario__input select-box formulario__select">
-                <option value="">--Seleccione una opción--</option>
-                <option value="opcion1" th:each="Venta:${ventas}"
-                        th:value="${Venta.IdVenta}"
-                        th:text="${Venta.IdVenta}"
-                />
+        <div class="column">
+            <!-- Grupo: Título -->
+            <div class="input-box formulario__grupo" id="grupo__Titulo">
+                <label for="Titulo" class="formulario__label">Título:</label>
+                <div class="formulario__grupo-input">
+                    <input type="text" th:field="*{Titulo}" class="formulario__input" id="Titulo"
+                           name="Titulo" required>
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">Validar la informacion</p>
+            </div>
 
-            </select>
-            <p class="formulario__input-error"> Seleccione una opción válida.</p>
+            <!-- Grupo: Fecha de grado -->
+            <div class="input-box formulario__grupo" id="grupo__fecha_grado">
+                <label for="fecha_grado" class="formulario__label">Fecha de grado:</label>
+                <div class="formulario__grupo-input">
+                    <input type="date" th:field="*{fecha_grado}" class="formulario__input" id="fecha_grado"
+                           name="fecha_grado" required>
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">Fecha no válida. Por favor, ingrese una fecha en formato
+                    YYYY/MM/DD</p>
+            </div>
+
         </div>
+
+        <h2>Experiencia laboral</h2>
+        <div class="column">
+            <!-- Grupo: Empresa -->
+            <div class="input-box formulario__grupo" id="grupo__Empresa">
+                <label for="Empresa" class="formulario__label">Empresa:</label>
+                <div class="formulario__grupo-input">
+                    <input type="text" th:field="*{Empresa}" class="formulario__input" id="Empresa"
+                           name="Empresa" required>
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">Por Favor digitar la Empresa</p>
+            </div>
+
+            <!-- Grupo: Puesto -->
+            <div class="input-box formulario__grupo" id="grupo__Puesto">
+                <label for="Puesto" class="formulario__label">Puesto:</label>
+                <div class="formulario__grupo-input">
+                    <input type="text" th:field="*{Puesto}" class="formulario__input" id="Puesto"
+                           name="Puesto" required>
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">Por Favor digitar el puesto que realizaba en la empresa
+                </p>
+            </div>
+        </div>
+        <div class="column">
+            <!-- Grupo: fecha inicio -->
+            <div class="input-box formulario__grupo" id="grupo__fecha_inicio">
+                <label for="fecha_inicio" class="formulario__label">Fecha de inicio:</label>
+                <div class="formulario__grupo-input">
+                    <input type="date" th:field="*{fecha_inicio}" class="formulario__input"
+                           id="fecha_inicio" name="fecha_inicio" required>
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">Fecha no válida. Por favor, ingrese una fecha en formato
+                    YYYY/MM/DD</p>
+            </div>
+
+            <!-- Grupo: fecha Fin -->
+            <div class="input-box formulario__grupo" id="grupo__fecha_fin">
+                <label for="fecha_fin" class="formulario__label">Fecha de fin:</label>
+                <div class="formulario__grupo-input">
+                    <input type="date" th:field="*{fecha_fin}" class="formulario__input" id="fecha_fin"
+                           name="fecha_fin" required>
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">Fecha no válida. Por favor, ingrese una fecha en formato
+                    YYYY/MM/DD</p>
+            </div>
+        </div>
+        <!-- Grupo: Descripción de tareas -->
+        <div class="input-box formulario__grupo" id="grupo__DescripcionT">
+            <label for="DescripcionT" class="formulario__label">Descripción de tareas:</label>
+            <div class="formulario__grupo-input">
+                            <textarea class="formulario__input" th:field="*{DescripcionT}" name="DescripcionT"
+                                      id="DescripcionT" rows="4"></textarea>
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">Ingresa una descripción minima de 20 caracteres.</p>
+        </div>
+
+        <h2>Habilidades</h2>
+        <!-- Grupo: Lista de habilidades -->
+        <div class="input-box formulario__grupo" id="grupo__habilidades">
+            <label for="habilidades" class="formulario__label">Lista de habilidades:</label>
+            <div class="formulario__grupo-input">
+                            <textarea class="formulario__input" th:field="*{habilidades}" name="habilidades"
+                                      id="habilidades" rows="4"></textarea>
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">Ingresa una descripción minima de 20 caracteres.</p>
+        </div>
+
+        <h2>Referencias</h2>
+        <!-- Grupo: Nombre de referencias -->
+        <div class="input-box formulario__grupo" id="grupo__referencias">
+            <label for="referencias" class="formulario__label">Nombre de referencias:</label>
+            <div class="formulario__grupo-input">
+                            <textarea class="formulario__input" th:field="*{referencias}" name="referencias"
+                                      id="referencias" rows="4"></textarea>
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">Ingresa una descripción minima de 20 caracteres.</p>
+        </div>
+
 
 
         <div class="formulario__mensaje" id="formulario__mensaje">
@@ -56,7 +156,7 @@
 
 </section>
 <!--scrip de registrate------>
-<script src="/js/Calificacion.js"></script>
+<script src="/js/HojaDvida.js"></script>
 <!--scrip de iconos------>
 <script src="https://kit.fontawesome.com/f9d0333c9c.js" crossorigin="anonymous"></script>
 

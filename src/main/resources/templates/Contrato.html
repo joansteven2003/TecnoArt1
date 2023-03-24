@@ -140,7 +140,8 @@
         <tbody>
             <tr th:each="Contrato : ${Contrato}">
                 <td th:text="${Contrato.NombreContrato}">Nombres</td>
-                <td th:text="${Contrato.Periodo}">Nombres</td>
+                <td th:text="${Contrato.Fecha_inicio}">Nombres</td>
+              <td th:text="${Contrato.Fecha_final}">Nombres</td>
                 <td th:text="${Contrato.Usuario.IdUsuario}">Nombres</td>
                 <td th:text="${Contrato.Usuario.NombreCompleto}">Nombres</td>
                 <td>
