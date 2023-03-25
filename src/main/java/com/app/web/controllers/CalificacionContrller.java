@@ -45,8 +45,7 @@ public class CalificacionContrller {
 	public String CalificacionFormulario(Model modelo) {
 		Calificacion calificacion = new Calificacion();
 		List<Venta> listaVenta = ServicioVenta.listarVentas();
-
-		modelo.addAttribute("Calificacion", calificacion);
+		modelo.addAttribute("Calificacion",  calificacion);
 		modelo.addAttribute("ventas", listaVenta);
 		return "/Generar_Calificacion";
 	}

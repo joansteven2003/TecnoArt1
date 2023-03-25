@@ -37,6 +37,10 @@ public class ClienteController {
 	public String ClienteVenta (Model modelo) {
 		return "/Cliente_Venta";
 	}
+	@GetMapping("/cliente/Vacante")
+	public String ClienteVacante (Model modelo) {
+		return "/Cliente_Vacante";
+	}
 
 	@GetMapping("/cliente/GenerarCalificacion")
 	public String ClienteGenerarCalificacion (Model modelo) {
