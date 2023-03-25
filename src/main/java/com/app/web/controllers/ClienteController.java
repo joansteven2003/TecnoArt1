@@ -42,27 +42,6 @@ public class ClienteController {
 		return "/Cliente_Vacante";
 	}
 
-	@GetMapping("/cliente/GenerarCalificacion")
-	public String ClienteGenerarCalificacion (Model modelo) {
-		return "/Generar_Calificacion";
-	}
-
-	@GetMapping("/cliente/GenerarCotizacion")
-	public String ClienteGenerarCotizaciion (Model modelo) {
-		return "/Generar_Cotizacion";
-	}
-
-	@GetMapping("/cliente/GenerarHojaDeVida")
-	public String ClienteGenerarHojaDeVida(Model modelo) {
-		return "/Generar_HojaDeVida";
-	}
-
-	@GetMapping("/cliente/GenerarPQRS")
-	public String ClienteGenerarPQRS(Model modelo) {
-		return "/Generar_PQRS";
-	}
-
-
 
 
 }
