@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" dir="ltr" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <link rel="icon" type="image/png" href="/img/logosolo.png">
@@ -109,7 +109,7 @@
             <div class="container1">
 
                 <header>Realizar Vacante</header>
-                <form th:action="@{/Vacante/Guardar}" th:object=${Vacante} class="form formulario"  id="formulario">
+                <form th:action="@{/Vacante/Guardar}" th:object="${Vacante}" method="post" class="form formulario"  id="formulario">
                     <div class="column">
 
                         <!-- Grupo: hora inicial -->

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" dir="ltr" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <link rel="icon" type="image/png" href="/img/logosolo.png">
@@ -109,7 +109,7 @@
         <div class="container1">
 
             <header>Realizar Hoja de vida</header>
-            <form th:action="@{/Contrato/Guardar}" th:object=${Contrato} class="form formulario"
+            <form th:action="@{/Contrato/Guardar}" th:object="${Contrato}" method="post" class="form formulario"
                   id="formulario">
 
                 <h2>Educación</h2>

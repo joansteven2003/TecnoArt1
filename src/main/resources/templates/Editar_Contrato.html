@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <link rel="icon" type="image/png" href="/img/logosolo.png">
@@ -15,7 +15,7 @@
 <section class="container">
 
     <header>Actualizar cotización</header>
-    <form th:action="@{/Contrato/{IdContrato}(IdContrato=${Contrato.IdContrato})}" th:object="${Contrato}" class="form formulario"
+    <form th:action="@{/Contrato/{IdContrato}(IdContrato=${Contrato.IdContrato})}" th:object="${Contrato}" method="post" class="form formulario"
           id="formulario">
 
         <h2>Educación</h2>
