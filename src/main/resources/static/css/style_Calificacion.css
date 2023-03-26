@@ -278,3 +278,31 @@
   #boton{
     margin-left: 100px;
   }
+
+  .btnPop{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgb(11, 2, 51);
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    padding: 10px 30px;
+    cursor: pointer;
+  }
+  
+  #popUpBox{
+    width: 500px;
+    overflow: hidden;
+    background: #E4E9F7;
+    box-shadow: 0 0 10px rgb(192, 0, 0);
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    padding: 10px;
+    text-align: center;
+    display: none;
+  }

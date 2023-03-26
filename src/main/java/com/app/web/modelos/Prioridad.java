@@ -60,10 +60,8 @@ public class Prioridad {
 		ListPqrs = listPqrs;
 	}
 
-	@Override
-	public String toString() {
-		return "Prioridad [IdPrioridad=" + IdPrioridad + ", NombrePrioridad=" + NombrePrioridad + ", ListPqrs="
-				+ ListPqrs + "]";
-	}
+	
+
+	
 
 }

@@ -14,7 +14,7 @@
 <body>
     <section class="container">
         <header>Editar PQRS</header>
-        <form th:action="@{/Pqrs/{IdPqrs}(IdPqrs=${Pqrs.IdPqrs})}" th:object="${Pqrs}" method="post" class="form formulario" id="formulario">
+        <form th:action="@{/Pqrs/editar/{IdPqrs}(IdPqrs=${Pqrs.IdPqrs})}" th:object="${Pqrs}" method="post" class="form formulario" id="formulario">
 
             <div class="column">
 

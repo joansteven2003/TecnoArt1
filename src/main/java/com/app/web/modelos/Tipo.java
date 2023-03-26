@@ -22,7 +22,6 @@ public class Tipo {
 	}
 
 	public Tipo(long idTipo, String nombreTipo, List<Pqrs> listPqrs) {
-		super();
 		IdTipo = idTipo;
 		NombreTipo = nombreTipo;
 		ListPqrs = listPqrs;
@@ -52,9 +51,9 @@ public class Tipo {
 		ListPqrs = listPqrs;
 	}
 
-	@Override
-	public String toString() {
-		return "Tipo [IdTipo=" + IdTipo + ", NombreTipo=" + NombreTipo + ", ListPqrs=" + ListPqrs + "]";
-	}
+	
+	
 
+	
+	
 }

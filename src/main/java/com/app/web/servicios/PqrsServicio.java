@@ -16,4 +16,6 @@ public interface PqrsServicio {
 
 	public void eliminarPqrs(long IdPqrs);
 
+
+
 }

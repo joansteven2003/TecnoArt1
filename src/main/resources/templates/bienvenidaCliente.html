@@ -5,7 +5,7 @@
   <link rel="icon" type="image/png" href="/img/logosolo.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calificacion </title>
+  <title>Bienvenida </title>
   <link rel="stylesheet" href="/css/style_Calificacion.css">
   <link rel="stylesheet" href="/css/w3.css">
   <!-- Boxiocns CDN Link -->
@@ -78,7 +78,7 @@
       </div>
       <ul class="sub-menu">
         <li><a class="link_name" href="#">Pqrs</a></li>
-        <li><a th:href="@{/cliente/GenerarPQRS}">Requistrar Pqrs</a></li>
+        <li><a th:href="@{/Pqrs/Registrar}">Requistrar Pqrs</a></li>
         <li><a th:href="@{/cliente/Pqrs}">Consultar Pqrs</a></li>
         <li><a th:href="@{/Calificacion/Registrar}">Registrar Calificacion</a></li>
       </ul>
@@ -115,6 +115,27 @@
   <div class="home-content">
     <i class='bx bx-menu' ></i>
   </div>
+
+  <div style="width: 500px;" class="container-fluid">
+<h1 style="text-shadow: red; transform: translate(8%, -50%);">Bienvendos a TecnoArt</h1>
+
+  </div>
+
+
+<div class="container-fluid">
+  <div id="popUpOverlay"></div>
+  <div id="popUpBox">
+      <div id="box">
+        <i class="fas fa-check-circle fa-5x"></i>        
+        <h1>Para Usar Nuestro Sistema Puedes Navegar Con La Barra Lateral</h1>
+        <div id="closeModal"></div>
+      </div>
+  </div>
+  <button  onclick="Alert.render('You look very pretty today.')" class="btnPop">Presioname si quieres descubrir algo maravilloso</button>
+  <script src="/js/app.js"></script>
+</body>
+</div>
+
   
  
 </section>>

@@ -37,66 +37,66 @@
   />
 
  </head>
-<body style="background: #E4E9F7;">
-<div class="sidebar close">
-  <div class="logo-details">
-    <img class="logo-details" src="/img/Logo.png">
-    <span class="logo_name">Tecno&Art</span>
-  </div>
-  <ul class="nav-links">
-    <li>
-      <a href="#">
-        <i class='bx bx-grid-alt' ></i>
-        <span class="link_name">Dashboard</span>
-      </a>
-      <ul class="sub-menu blank">
-        <li><a class="link_name" href="#">Category</a></li>
-      </ul>
-    </li>
-    <li>
-      <div class="iocn-link">
+ <body style="background: #E4E9F7;">
+  <div class="sidebar close">
+    <div class="logo-details">
+      <img class="logo-details" src="/img/Logo.png">
+      <span class="logo_name">Tecno&Art</span>
+    </div>
+    <ul class="nav-links">
+      <li>
         <a href="#">
-          <i class='bx bx-collection' ></i>
-          <span class="link_name">Ventas    </span>
+          <i class='bx bx-grid-alt' ></i>
+          <span class="link_name">Dashboard</span>
         </a>
-        <i class='bx bxs-chevron-down arrow' ></i>
-      </div>
-      <ul class="sub-menu">
-        <li><a class="link_name" href="#">Ventas</a></li>
-        <li><a th:href="@{/cliente/Venta}">Consultar Venta</a></li>
-        <li><a th:href="@{/cliente/Cotizacion}">Consultar Cotizacion</a></li>
-        <li><a th:href="@{/cliente/GenerarCotizacion}">Registrar Cotizacion</a></li>
-      </ul>
-    </li>
-    <li>
-      <div class="iocn-link">
-        <a href="#">
-          <i class='bx bx-book-alt' ></i>
-          <span class="link_name">Pqrs    </span>
-        </a>
-        <i class='bx bxs-chevron-down arrow' ></i>
-      </div>
-      <ul class="sub-menu">
-        <li><a class="link_name" href="#">Pqrs</a></li>
-        <li><a th:href="@{/cliente/GenerarPQRS}">Requistrar Pqrs</a></li>
-        <li><a th:href="@{/cliente/Pqrs}">Consultar Pqrs</a></li>
-        <li><a th:href="@{/cliente/GenerarCalificacion}">Registrar Calificacion</a></li>
-      </ul>
-    </li>
-
-    <li>
-      <div class="iocn-link">
-        <a href="#">
-          <i class='bx bx-plug' ></i>
-          <span class="link_name">Contratación</span>
-        </a>
-        <i class='bx bxs-chevron-down arrow' ></i>
-      </div>
-      <ul class="sub-menu">
-        <li><a class="link_name" href="#">Contratación</a></li>
-        <li><a th:href="@{/}">Consultar Vacante</a></li>
-      </ul>
-    </li>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Category</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-collection' ></i>
+            <span class="link_name">Ventas    </span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Ventas</a></li>
+          <li><a th:href="@{/cliente/Venta}">Consultar Venta</a></li>
+          <li><a th:href="@{/cliente/Cotizacion}">Consultar Cotizacion</a></li>
+          <li><a th:href="@{/Cotizacion/Registrar}">Registrar Cotizacion</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-book-alt' ></i>
+            <span class="link_name">Pqrs    </span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Pqrs</a></li>
+          <li><a th:href="@{/Pqrs/Registrar}">Requistrar Pqrs</a></li>
+          <li><a th:href="@{/cliente/Pqrs}">Consultar Pqrs</a></li>
+          <li><a th:href="@{/Calificacion/Registrar}">Registrar Calificacion</a></li>
+        </ul>
+      </li>
+  
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-plug' ></i>
+            <span class="link_name">Contratación</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Contratación</a></li>
+          <li><a th:href="@{/Vacante}">Consultar Vacante</a></li>
+        </ul>
+      </li>
 
     <div class="profile-details">
       <div class="profile-content">

@@ -60,9 +60,8 @@ public class Estado {
 		ListPqrs = listPqrs;
 	}
 
-	@Override
-	public String toString() {
-		return "Estado [IdEstado=" + IdEstado + ", nombre=" + nombre + ", ListPqrs=" + ListPqrs + "]";
-	}
+
+
+	
 
 }
