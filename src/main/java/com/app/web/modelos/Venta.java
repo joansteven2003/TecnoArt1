@@ -125,18 +125,7 @@ public class Venta {
 		this.usuario = usuario;
 	}
 
-	@Override
-	public String toString() {
-		return "Venta{" +
-				"IdVenta=" + IdVenta +
-				", Fecha_venta='" + Fecha_venta + '\'' +
-				", Fecha_entrega='" + Fecha_entrega + '\'' +
-				", Monto=" + Monto +
-				", Estado='" + Estado + '\'' +
-				", Observacion='" + Observacion + '\'' +
-				", ListPqrs=" + ListPqrs +
-				", servicio=" + servicio +
-				", usuario=" + usuario +
-				'}';
-	}
+	
+
+	
 }

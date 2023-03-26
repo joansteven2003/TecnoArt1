@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <link rel="icon" type="image/png" href="/img/logosolo.png">
@@ -14,7 +14,7 @@
 <body>
     <section class="container">
         <header>Actualizar venta</header>
-        <form th:action="@{/Venta/{IdVenta}(IdVenta=${Venta.IdVenta})}" th:object=${Venta} class="form formulario" id="formulario">
+        <form th:action="@{/Venta/{IdVenta}(IdVenta=${Venta.IdVenta})}" th:object="${Venta}" method="post" class="form formulario" id="formulario">
 
             <!-- Fecha de venta y entrega -->
             <div class="column">

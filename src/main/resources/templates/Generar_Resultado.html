@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" dir="ltr" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
 <head>
     <link rel="icon" type="image/png" href="/img/logosolo.png">
     <meta charset="UTF-8">
@@ -101,7 +101,7 @@
         <div class="container-div">
             <div class="container1">
                 <header>Generar Resultado</header>
-                <form th:action="@{/Resultado/Guardar}" th:object=${Resultado} class="form formulario" id="formulario">
+                <form th:action="@{/Resultado/Guardar}" th:object="${Resultado}" method="post" class="form formulario" id="formulario">
 
                     <div class="input-box address">
                         <div class="column">

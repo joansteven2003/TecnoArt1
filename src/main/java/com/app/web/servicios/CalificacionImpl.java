@@ -20,8 +20,8 @@ public class CalificacionImpl implements CalificacionServicio {
 	}
 
 	@Override
-	public Calificacion guardarCalificacion(Calificacion calificacio) {
-		return repositorio.save(calificacio);
+	public Calificacion guardarCalificacion(Calificacion calificacion) {
+		return repositorio.save(calificacion);
 	}
 
 	@Override
@@ -30,8 +30,8 @@ public class CalificacionImpl implements CalificacionServicio {
 	}
 
 	@Override
-	public Calificacion actualizarCalificacion(Calificacion calificacio) {
-		return repositorio.save(calificacio);
+	public Calificacion actualizarCalificacion(Calificacion calificacion) {
+		return repositorio.save(calificacion);
 	}
 
 	@Override

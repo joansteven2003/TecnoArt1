@@ -24,7 +24,7 @@ public class Pqrs {
 	private Prioridad prioridad;
 
 	@ManyToOne(cascade = { CascadeType.MERGE })
-	@JoinColumn(name = "Estado")
+	@JoinColumn(name = "Estado", columnDefinition = "BIGINT(20) DEFAULT 1")
 	private Estado estado;
 
 	@ManyToOne(cascade = { CascadeType.MERGE })
@@ -40,7 +40,6 @@ public class Pqrs {
 
 	public Pqrs(long idPqrs, String descripcion, String fecha, Tipo tipo, Prioridad prioridad, Estado estado,
 			Venta venta, String respuestaPqrs) {
-		super();
 		IdPqrs = idPqrs;
 		Descripcion = descripcion;
 		Fecha = fecha;
@@ -121,5 +120,8 @@ public class Pqrs {
 				+ ", prioridad=" + prioridad + ", estado=" + estado + ", venta=" + venta + ", RespuestaPqrs="
 				+ RespuestaPqrs + "]";
 	}
+
+	
+	
 
 }

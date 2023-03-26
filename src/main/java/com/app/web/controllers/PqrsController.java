@@ -1,8 +1,10 @@
 package com.app.web.controllers;
 
 import com.app.web.modelos.*;
+import com.app.web.repositorio.Pqrs_Repositorio;
 import com.app.web.servicios.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class PqrsController {
@@ -25,6 +28,9 @@ public class PqrsController {
 
 	@Autowired
 	private VentaServicio ServicioVenta;
+
+	@Autowired
+	private Pqrs_Repositorio pqrsRepository;
 
 
 	@GetMapping("/Pqrs")
@@ -46,20 +52,19 @@ public class PqrsController {
 		List<Prioridad> ListaPrio = prioridadServicio.listarPrioridad();
 		List<Estado> ListaEstado = estadoServicio.listarEstado();
 		List<Venta> listaVenta = ServicioVenta.listarVentas();
-
 		modelo.addAttribute("Pqrs", pqrs);
 		modelo.addAttribute("Tipos", ListaTipo);
 		modelo.addAttribute("Prioridades", ListaPrio);
-		modelo.addAttribute("Estados", ListaEstado);
+		modelo.addAttribute("Estado", ListaEstado);
 		modelo.addAttribute("ventas", listaVenta);
 
-		return "Generar_PQRS";
+		return "/Generar_PQRS";
 	}
 
 	@PostMapping("/Pqrs/Guardar")
 	public String guardarPqrs(@ModelAttribute("Pqrs") Pqrs pqrs) {
 		servicio.guardarPqrs(pqrs);
-		return "redirect:/Pqrs";
+		return "redirect:/Cliente_Pqrs";
 	}
 
 	@GetMapping("/Pqrs/editar/{IdPqrs}")
@@ -80,7 +85,6 @@ public class PqrsController {
 		pqrsExistente.setEstado(pqrs.getEstado());
 		pqrsExistente.setVenta(pqrs.getVenta());
 		pqrsExistente.setRespuestaPqrs(pqrs.getRespuestaPqrs());
-
 		servicio.actualizarPqrs(pqrsExistente);
 		return "redirect:/Pqrs";
 	}
@@ -90,5 +94,6 @@ public class PqrsController {
 		servicio.eliminarPqrs(IdPqrs);
 		return "redirect:/Pqrs";
 	}
+
 
 }
