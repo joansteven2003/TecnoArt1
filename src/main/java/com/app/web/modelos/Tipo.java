@@ -1,6 +1,7 @@
 package com.app.web.modelos;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -14,17 +15,18 @@ public class Tipo {
 	@Column(name = "NombreTipo", nullable = true)
 	private String NombreTipo;
 
-	@OneToMany(mappedBy = "tipo", cascade = { CascadeType.MERGE })
-	List<Pqrs> ListPqrs;
+	@OneToMany(mappedBy = "tipo")
+	private Set<Pqrs> pqrs;
+
 
 	public Tipo() {
 		super();
 	}
 
-	public Tipo(long idTipo, String nombreTipo, List<Pqrs> listPqrs) {
+	public Tipo(long idTipo, String nombreTipo, Set<Pqrs> pqrs) {
 		IdTipo = idTipo;
 		NombreTipo = nombreTipo;
-		ListPqrs = listPqrs;
+		this.pqrs = pqrs;
 	}
 
 	public long getIdTipo() {
@@ -43,17 +45,20 @@ public class Tipo {
 		NombreTipo = nombreTipo;
 	}
 
-	public List<Pqrs> getListPqrs() {
-		return ListPqrs;
+	public Set<Pqrs> getPqrs() {
+		return pqrs;
 	}
 
-	public void setListPqrs(List<Pqrs> listPqrs) {
-		ListPqrs = listPqrs;
+	public void setPqrs(Set<Pqrs> pqrs) {
+		this.pqrs = pqrs;
 	}
 
-	
-	
-
-	
-	
+	@Override
+	public String toString() {
+		return "Tipo{" +
+				"IdTipo=" + IdTipo +
+				", NombreTipo='" + NombreTipo + '\'' +
+				", pqrs=" + pqrs +
+				'}';
+	}
 }
