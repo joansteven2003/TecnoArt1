@@ -32,17 +32,14 @@ public class Usuario {
     private String password;
 
 
-    @OneToMany(mappedBy = "usuario")
-    List<Venta> ListVenta;
+    @OneToMany(mappedBy = "Usuario", cascade = CascadeType.ALL)
+    private List<Cotizacion> Cotizacion = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "Rol")
     private Rol rol;
     @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
     private HojaDeVida hojaDeVida;
-
-    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
-    private Cotizacion cotizacion;
 
     @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
     private Contrato contrato;
@@ -54,7 +51,7 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(long idUsuario, String nombreCompleto, long documento, long telefono, String email, String recidencia, Boolean enabled, String password, List<Venta> listVenta, Rol rol, HojaDeVida hojaDeVida, Cotizacion cotizacion, Contrato contrato, Postulacion postulacion) {
+    public Usuario(long idUsuario, String nombreCompleto, long documento, long telefono, String email, String recidencia, Boolean enabled, String password, List<com.app.web.modelos.Cotizacion> cotizacion, Rol rol, HojaDeVida hojaDeVida, Contrato contrato, Postulacion postulacion) {
         IdUsuario = idUsuario;
         NombreCompleto = nombreCompleto;
         Documento = documento;
@@ -63,10 +60,9 @@ public class Usuario {
         Recidencia = recidencia;
         this.enabled = enabled;
         this.password = password;
-        ListVenta = listVenta;
+        Cotizacion = cotizacion;
         this.rol = rol;
         this.hojaDeVida = hojaDeVida;
-        this.cotizacion = cotizacion;
         this.contrato = contrato;
         this.postulacion = postulacion;
     }
@@ -135,12 +131,12 @@ public class Usuario {
         this.password = password;
     }
 
-    public List<Venta> getListVenta() {
-        return ListVenta;
+    public List<com.app.web.modelos.Cotizacion> getCotizacion() {
+        return Cotizacion;
     }
 
-    public void setListVenta(List<Venta> listVenta) {
-        ListVenta = listVenta;
+    public void setCotizacion(List<com.app.web.modelos.Cotizacion> cotizacion) {
+        Cotizacion = cotizacion;
     }
 
     public Rol getRol() {
@@ -157,14 +153,6 @@ public class Usuario {
 
     public void setHojaDeVida(HojaDeVida hojaDeVida) {
         this.hojaDeVida = hojaDeVida;
-    }
-
-    public Cotizacion getCotizacion() {
-        return cotizacion;
-    }
-
-    public void setCotizacion(Cotizacion cotizacion) {
-        this.cotizacion = cotizacion;
     }
 
     public Contrato getContrato() {
@@ -194,10 +182,9 @@ public class Usuario {
                 ", Recidencia='" + Recidencia + '\'' +
                 ", enabled=" + enabled +
                 ", password='" + password + '\'' +
-                ", ListVenta=" + ListVenta +
+                ", Cotizacion=" + Cotizacion +
                 ", rol=" + rol +
                 ", hojaDeVida=" + hojaDeVida +
-                ", cotizacion=" + cotizacion +
                 ", contrato=" + contrato +
                 ", postulacion=" + postulacion +
                 '}';

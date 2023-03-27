@@ -1,15 +1,10 @@
 package com.app.web.modelos;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Estado")
@@ -22,18 +17,17 @@ public class Estado {
 	@Column(name = "nombre", nullable = true)
 	private String nombre;
 
-	@OneToMany(mappedBy = "estado", cascade = { CascadeType.MERGE })
-	List<Pqrs> ListPqrs;
+	@OneToMany(mappedBy = "estado", cascade = CascadeType.ALL, orphanRemoval = true)
+	private Set<Pqrs> pqrs = new HashSet<>();
 
 	public Estado() {
 		super();
 	}
 
-	public Estado(long idEstado, String nombre, List<Pqrs> listPqrs) {
-		super();
+	public Estado(long idEstado, String nombre, Set<Pqrs> pqrs) {
 		IdEstado = idEstado;
 		this.nombre = nombre;
-		ListPqrs = listPqrs;
+		this.pqrs = pqrs;
 	}
 
 	public long getIdEstado() {
@@ -52,16 +46,20 @@ public class Estado {
 		this.nombre = nombre;
 	}
 
-	public List<Pqrs> getListPqrs() {
-		return ListPqrs;
+	public Set<Pqrs> getPqrs() {
+		return pqrs;
 	}
 
-	public void setListPqrs(List<Pqrs> listPqrs) {
-		ListPqrs = listPqrs;
+	public void setPqrs(Set<Pqrs> pqrs) {
+		this.pqrs = pqrs;
 	}
 
-
-
-	
-
+	@Override
+	public String toString() {
+		return "Estado{" +
+				"IdEstado=" + IdEstado +
+				", nombre='" + nombre + '\'' +
+				", pqrs=" + pqrs +
+				'}';
+	}
 }

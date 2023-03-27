@@ -20,19 +20,18 @@ public class Calificacion {
 	@Column(name = "Estrellas", nullable = true)
 	private int Estrellas;
 
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "IdVenta", referencedColumnName = "IdVenta")
-	private Venta Venta;
+	@OneToOne
+	@JoinColumn(name = "venta_id")
+	private Venta venta;
 
 	public Calificacion() {
 		super();
 	}
 
-	public Calificacion(long idCalificacion, int estrellas, com.app.web.modelos.Venta venta) {
-		super();
+	public Calificacion(long idCalificacion, int estrellas, Venta venta) {
 		IdCalificacion = idCalificacion;
 		Estrellas = estrellas;
-		Venta = venta;
+		this.venta = venta;
 	}
 
 	public long getIdCalificacion() {
@@ -52,16 +51,19 @@ public class Calificacion {
 	}
 
 	public Venta getVenta() {
-		return Venta;
+		return venta;
 	}
 
 	public void setVenta(Venta venta) {
-		Venta = venta;
+		this.venta = venta;
 	}
 
 	@Override
 	public String toString() {
-		return "Calificacion [IdCalificacion=" + IdCalificacion + ", Estrellas=" + Estrellas + ", Venta=" + Venta + "]";
+		return "Calificacion{" +
+				"IdCalificacion=" + IdCalificacion +
+				", Estrellas=" + Estrellas +
+				", venta=" + venta +
+				'}';
 	}
-
 }

@@ -62,7 +62,7 @@ public class UsuarioController {
 		UsuarioExistente.setRecidencia(usuario.getRecidencia());
 		UsuarioExistente.setPassword(usuario.getPassword());
 		UsuarioExistente.setHojaDeVida(usuario.getHojaDeVida());
-		UsuarioExistente.setListVenta(usuario.getListVenta());
+		UsuarioExistente.setCotizacion(usuario.getCotizacion());
 		UsuarioExistente.setRol(usuario.getRol());
 		UsuarioExistente.setPostulacion(usuario.getPostulacion());
 		UsuarioExistente.setContrato(usuario.getContrato());

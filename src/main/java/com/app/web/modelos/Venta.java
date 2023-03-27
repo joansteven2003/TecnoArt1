@@ -3,6 +3,7 @@ package com.app.web.modelos;
 import java.util.List;
 
 import javax.persistence.*;
+import com.app.web.modelos.Pqrs;
 
 @Entity
 @Table(name = "venta")
@@ -27,30 +28,31 @@ public class Venta {
 	@Column(name = "Observacion", nullable = false, length = 50)
 	private String Observacion;
 
-	@OneToMany(mappedBy = "venta", cascade = { CascadeType.MERGE })
-	List<Pqrs> ListPqrs;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "pqrs_id")
+	private Pqrs pqrs;
 
-	@OneToOne
-	@JoinColumn(name = "Servicio")
-	private Servicio servicio;
-	@ManyToOne(cascade = { CascadeType.MERGE })
-	@JoinColumn(name = "usuario")
-	private Usuario usuario;
+	@OneToOne(mappedBy = "venta")
+	private Calificacion calificacion;
+
+	@OneToMany(mappedBy = "venta")
+	private List<Cotizacion> cotizaciones;
+
 
 	public Venta() {
 		super();
 	}
 
-	public Venta(Long idVenta, String fecha_venta, String fecha_entrega, double monto, String estado, String observacion, List<Pqrs> listPqrs, Servicio servicio, Usuario usuario) {
+	public Venta(Long idVenta, String fecha_venta, String fecha_entrega, double monto, String estado, String observacion, Pqrs pqrs, Calificacion calificacion, List<Cotizacion> cotizaciones) {
 		IdVenta = idVenta;
 		Fecha_venta = fecha_venta;
 		Fecha_entrega = fecha_entrega;
 		Monto = monto;
 		Estado = estado;
 		Observacion = observacion;
-		ListPqrs = listPqrs;
-		this.servicio = servicio;
-		this.usuario = usuario;
+		this.pqrs = pqrs;
+		this.calificacion = calificacion;
+		this.cotizaciones = cotizaciones;
 	}
 
 	public Long getIdVenta() {
@@ -101,31 +103,42 @@ public class Venta {
 		Observacion = observacion;
 	}
 
-	public List<Pqrs> getListPqrs() {
-		return ListPqrs;
+	public Pqrs getPqrs() {
+		return pqrs;
 	}
 
-	public void setListPqrs(List<Pqrs> listPqrs) {
-		ListPqrs = listPqrs;
+	public void setPqrs(Pqrs pqrs) {
+		this.pqrs = pqrs;
 	}
 
-	public Servicio getServicio() {
-		return servicio;
+	public Calificacion getCalificacion() {
+		return calificacion;
 	}
 
-	public void setServicio(Servicio servicio) {
-		this.servicio = servicio;
+	public void setCalificacion(Calificacion calificacion) {
+		this.calificacion = calificacion;
 	}
 
-	public Usuario getUsuario() {
-		return usuario;
+	public List<Cotizacion> getCotizaciones() {
+		return cotizaciones;
 	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public void setCotizaciones(List<Cotizacion> cotizaciones) {
+		this.cotizaciones = cotizaciones;
 	}
 
-	
-
-	
+	@Override
+	public String toString() {
+		return "Venta{" +
+				"IdVenta=" + IdVenta +
+				", Fecha_venta='" + Fecha_venta + '\'' +
+				", Fecha_entrega='" + Fecha_entrega + '\'' +
+				", Monto=" + Monto +
+				", Estado='" + Estado + '\'' +
+				", Observacion='" + Observacion + '\'' +
+				", pqrs=" + pqrs +
+				", calificacion=" + calificacion +
+				", cotizaciones=" + cotizaciones +
+				'}';
+	}
 }

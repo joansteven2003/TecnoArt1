@@ -1,6 +1,8 @@
 package com.app.web.modelos;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -22,18 +24,17 @@ public class Prioridad {
 	@Column(name = "NombrePrioridad", nullable = true)
 	private String NombrePrioridad;
 
-	@OneToMany(mappedBy = "prioridad", cascade = { CascadeType.MERGE })
-	List<Pqrs> ListPqrs;
+	@OneToMany(mappedBy = "prioridad", cascade = CascadeType.ALL, orphanRemoval = true)
+	private Set<Pqrs> pqrs = new HashSet<>();
 
 	public Prioridad() {
 		super();
 	}
 
-	public Prioridad(long idPrioridad, String nombrePrioridad, List<Pqrs> listPqrs) {
-		super();
+	public Prioridad(long idPrioridad, String nombrePrioridad, Set<Pqrs> pqrs) {
 		IdPrioridad = idPrioridad;
 		NombrePrioridad = nombrePrioridad;
-		ListPqrs = listPqrs;
+		this.pqrs = pqrs;
 	}
 
 	public long getIdPrioridad() {
@@ -52,16 +53,20 @@ public class Prioridad {
 		NombrePrioridad = nombrePrioridad;
 	}
 
-	public List<Pqrs> getListPqrs() {
-		return ListPqrs;
+	public Set<Pqrs> getPqrs() {
+		return pqrs;
 	}
 
-	public void setListPqrs(List<Pqrs> listPqrs) {
-		ListPqrs = listPqrs;
+	public void setPqrs(Set<Pqrs> pqrs) {
+		this.pqrs = pqrs;
 	}
 
-	
-
-	
-
+	@Override
+	public String toString() {
+		return "Prioridad{" +
+				"IdPrioridad=" + IdPrioridad +
+				", NombrePrioridad='" + NombrePrioridad + '\'' +
+				", pqrs=" + pqrs +
+				'}';
+	}
 }

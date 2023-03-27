@@ -64,7 +64,7 @@ public class CotizacionController {
         CotizacionExistente.setFecha(cotizacion.getFecha());
         CotizacionExistente.setRespuesta(cotizacion.getRespuesta());
         CotizacionExistente.setFechaRespuesta(cotizacion.getFechaRespuesta());
-
+        CotizacionExistente.setVenta(cotizacion.getVenta());
         servicio.actualizarCotizacion(CotizacionExistente);
         return "redirect:/Cotizacion";
     }
