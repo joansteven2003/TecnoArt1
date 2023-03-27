@@ -63,7 +63,7 @@
       <ul class="sub-menu">
         <li><a class="link_name" href="#">Ventas</a></li>
         <li><a th:href="@{/Cotizacion}">Cotización</a></li>
-        <li><a th:href="@{/Venta}">Cotización</a></li>
+        <li><a th:href="@{/Venta}">Ventas</a></li>
       </ul>
     </li>
     <li>
@@ -131,21 +131,21 @@
         <th>Valor De la Venta</th>
         <th>Estado</th>
         <th>Observacion</th>
-        <th>Servicio</th>
+        <th>Cotizacion</th>
         <th>Acciones</th>
 
       </tr>
     </thead>
     <tbody>
       <tr th:each="Venta : ${Venta}">
-        <td th:text="${Venta.usuario.NombreCompleto}">Nombres</td>
+        <td th:text="${Venta.Cotizacion.Usuario.NombreCompleto}">Nombres</td>
         <td th:text="${Venta.IdVenta}">Nombres</td>
         <td th:text="${Venta.Fecha_venta}">Nombres</td>
         <td th:text="${Venta.Fecha_entrega}">Nombres</td>
         <td th:text="${Venta.Monto}">Nombres</td>
         <td th:text="${Venta.Estado}">Nombres</td>
         <td th:text="${Venta.Observacion}">Nombres</td>
-        <td th:text="${Venta.servicio.IdServicio}">Nombres</td>
+        <td th:text="${Venta.Cotizacion.IdCotizacion}">Nombres</td>
         <td>
 
           <a th:href="@{/Venta/editar/{IdVenta}(IdVenta=${Venta.IdVenta})}" class="btn btn-info"><i class="fa-solid fa-pencil"></i></a>

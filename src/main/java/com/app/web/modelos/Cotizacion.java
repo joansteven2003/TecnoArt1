@@ -2,6 +2,7 @@ package com.app.web.modelos;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "Cotizacion")
@@ -26,14 +27,13 @@ public class Cotizacion {
     @JoinColumn(name = "Usuario")
     private Usuario Usuario;
 
-    @ManyToOne
-    @JoinColumn(name = "venta_id")
-    private Venta venta;
+    @OneToMany(mappedBy = "Cotizacion")
+    private List<Venta> venta;
 
     public Cotizacion() {
     }
 
-    public Cotizacion(Long idCotizacion, Date fecha, String descriocion, String respuesta, Date fechaRespuesta, com.app.web.modelos.Usuario usuario, Venta venta) {
+    public Cotizacion(Long idCotizacion, Date fecha, String descriocion, String respuesta, Date fechaRespuesta, com.app.web.modelos.Usuario usuario, List<Venta> venta) {
         IdCotizacion = idCotizacion;
         Fecha = fecha;
         Descriocion = descriocion;
@@ -91,11 +91,11 @@ public class Cotizacion {
         Usuario = usuario;
     }
 
-    public Venta getVenta() {
+    public List<Venta> getVenta() {
         return venta;
     }
 
-    public void setVenta(Venta venta) {
+    public void setVenta(List<Venta> venta) {
         this.venta = venta;
     }
 

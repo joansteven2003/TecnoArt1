@@ -28,22 +28,20 @@ public class Venta {
 	@Column(name = "Observacion", nullable = false, length = 50)
 	private String Observacion;
 
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "pqrs_id")
+	@OneToOne(mappedBy = "venta")
 	private Pqrs pqrs;
-
 	@OneToOne(mappedBy = "venta")
 	private Calificacion calificacion;
 
-	@OneToMany(mappedBy = "venta")
-	private List<Cotizacion> cotizaciones;
-
+	@ManyToOne
+	@JoinColumn(name = "cotizacion_id")
+	private Cotizacion Cotizacion;
 
 	public Venta() {
 		super();
 	}
 
-	public Venta(Long idVenta, String fecha_venta, String fecha_entrega, double monto, String estado, String observacion, Pqrs pqrs, Calificacion calificacion, List<Cotizacion> cotizaciones) {
+	public Venta(Long idVenta, String fecha_venta, String fecha_entrega, double monto, String estado, String observacion, Pqrs pqrs, Calificacion calificacion, com.app.web.modelos.Cotizacion cotizacion) {
 		IdVenta = idVenta;
 		Fecha_venta = fecha_venta;
 		Fecha_entrega = fecha_entrega;
@@ -52,7 +50,7 @@ public class Venta {
 		Observacion = observacion;
 		this.pqrs = pqrs;
 		this.calificacion = calificacion;
-		this.cotizaciones = cotizaciones;
+		Cotizacion = cotizacion;
 	}
 
 	public Long getIdVenta() {
@@ -119,12 +117,12 @@ public class Venta {
 		this.calificacion = calificacion;
 	}
 
-	public List<Cotizacion> getCotizaciones() {
-		return cotizaciones;
+	public com.app.web.modelos.Cotizacion getCotizacion() {
+		return Cotizacion;
 	}
 
-	public void setCotizaciones(List<Cotizacion> cotizaciones) {
-		this.cotizaciones = cotizaciones;
+	public void setCotizacion(com.app.web.modelos.Cotizacion cotizacion) {
+		Cotizacion = cotizacion;
 	}
 
 	@Override
@@ -138,7 +136,7 @@ public class Venta {
 				", Observacion='" + Observacion + '\'' +
 				", pqrs=" + pqrs +
 				", calificacion=" + calificacion +
-				", cotizaciones=" + cotizaciones +
+				", Cotizacion=" + Cotizacion +
 				'}';
 	}
 }

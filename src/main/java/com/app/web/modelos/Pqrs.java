@@ -27,7 +27,10 @@ public class Pqrs {
 	@JoinColumn(name = "estado_id", nullable = false)
 	private Estado estado;
 
-	@OneToOne(mappedBy = "pqrs")
+
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "venta_id")
 	private Venta venta;
 
 	@Column(name = "RespuestaPqrs", nullable = true)

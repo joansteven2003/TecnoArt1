@@ -66,7 +66,7 @@ public class VentaController {
 		ventaExistente.setObservacion(venta.getObservacion());
 		ventaExistente.setCalificacion(venta.getCalificacion());
 		ventaExistente.setPqrs(venta.getPqrs());
-		ventaExistente.setCotizaciones(venta.getCotizaciones());
+		ventaExistente.setCotizacion(venta.getCotizacion());
 
 		
 		servicio.actualizarVenta(ventaExistente);

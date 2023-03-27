@@ -37,6 +37,7 @@
   />
 
 </head>
+
 <body style="background: #E4E9F7;">
 <div class="sidebar close">
   <div class="logo-details">
@@ -63,12 +64,8 @@
       </div>
       <ul class="sub-menu">
         <li><a class="link_name" href="#">Ventas</a></li>
-        <li><a href="#">Consultar Venta</a></li>
-        <li><a href="#">Registrar Venta</a></li>
-        <li><a href="#">Consultar Servicio</a></li>
-        <li><a href="#">Registrar Servicio</a></li>
-        <li><a href="#">Consultar Cotizacion</a></li>
-        <li><a href="#">Registrar Cotizacion</a></li>
+        <li><a th:href="@{/Cotizacion}">Cotización</a></li>
+        <li><a th:href="@{/Venta}">Ventas</a></li>
       </ul>
     </li>
     <li>
@@ -80,11 +77,9 @@
         <i class='bx bxs-chevron-down arrow' ></i>
       </div>
       <ul class="sub-menu">
-        <li><a class="link_name" href="#">Pqrs</a></li>
-        <li><a href="#">Requistrar Pqrs</a></li>
-        <li><a href="#">Consultar Pqrs</a></li>
-        <li><a href="#">Consultar Calificaciones</a></li>
-        <li><a href="#">Registrar Calificacion</a></li>
+        <li><a class="link_name">Servicio al cliente</a></li>
+        <li><a th:href="@{/Pqrs}">Requistrar una PQRS</a></li>
+        <li><a th:href="@{/calificacion}">Calificiación</a></li>
       </ul>
     </li>
 
@@ -97,11 +92,12 @@
         <i class='bx bxs-chevron-down arrow' ></i>
       </div>
       <ul class="sub-menu">
-        <li><a class="link_name" href="#">Contratación</a></li>
-        <li><a href="#">Consultar Citas</a></li>
-        <li><a href="#">Consultar cargos</a></li>
-        <li><a href="#">Consultar Contratos</a></li>
-        <li><a href="#">Consultar Vacante</a></li>
+        <li><a class="link_name">Contratación</a></li>
+        <li><a th:href="@{/HojaDeVida}">Hojas de Vida</a></li>
+        <li><a th:href="@{/Cita}">Citas </a></li>
+        <li><a th:href="@{/Cargo}">Cargo</a></li>
+        <li><a th:href="@{/Resultado}">Resultado</a></li>
+        <li><a th:href="@{/Vacante}">Vacante</a></li>
       </ul>
     </li>
 
