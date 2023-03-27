@@ -25,9 +25,6 @@ public class Usuario {
     @Column(name = "Recidencia", nullable = true)
     private String Recidencia;
 
-    @Column(nullable = false)
-    private Boolean enabled;
-
     @Column(name = "password", nullable = true)
     private String password;
 
@@ -51,14 +48,13 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(long idUsuario, String nombreCompleto, long documento, long telefono, String email, String recidencia, Boolean enabled, String password, List<com.app.web.modelos.Cotizacion> cotizacion, Rol rol, HojaDeVida hojaDeVida, Contrato contrato, Postulacion postulacion) {
+    public Usuario(long idUsuario, String nombreCompleto, long documento, long telefono, String email, String recidencia, String password, List<com.app.web.modelos.Cotizacion> cotizacion, Rol rol, HojaDeVida hojaDeVida, Contrato contrato, Postulacion postulacion) {
         IdUsuario = idUsuario;
         NombreCompleto = nombreCompleto;
         Documento = documento;
         Telefono = telefono;
         this.email = email;
         Recidencia = recidencia;
-        this.enabled = enabled;
         this.password = password;
         Cotizacion = cotizacion;
         this.rol = rol;
@@ -113,14 +109,6 @@ public class Usuario {
 
     public void setRecidencia(String recidencia) {
         Recidencia = recidencia;
-    }
-
-    public Boolean getEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
     }
 
     public String getPassword() {
@@ -180,7 +168,6 @@ public class Usuario {
                 ", Telefono=" + Telefono +
                 ", email='" + email + '\'' +
                 ", Recidencia='" + Recidencia + '\'' +
-                ", enabled=" + enabled +
                 ", password='" + password + '\'' +
                 ", Cotizacion=" + Cotizacion +
                 ", rol=" + rol +

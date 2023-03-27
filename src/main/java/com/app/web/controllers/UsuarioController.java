@@ -1,5 +1,7 @@
 package com.app.web.controllers;
 
+import com.app.web.modelos.Venta;
+import com.app.web.servicios.VentaServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,12 +12,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.app.web.modelos.Usuario;
 import com.app.web.servicios.UsuarioServicio;
+
+import java.util.List;
+
 @Controller
 public class UsuarioController {
 
 	@Autowired
 	private UsuarioServicio servicio;
-	
+
 	@GetMapping("/Usuario")
 	public String ListaUsuario(Model modelo) {
 		modelo.addAttribute("Usuario", servicio.listarUsuarios());
@@ -66,7 +71,6 @@ public class UsuarioController {
 		UsuarioExistente.setRol(usuario.getRol());
 		UsuarioExistente.setPostulacion(usuario.getPostulacion());
 		UsuarioExistente.setContrato(usuario.getContrato());
-		UsuarioExistente.setEnabled(usuario.getEnabled());
 		UsuarioExistente.setCotizacion(usuario.getCotizacion());
 		servicio.actualizarUsuarios(UsuarioExistente);
 		return "redirect:/Usuario";

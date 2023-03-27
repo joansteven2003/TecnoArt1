@@ -11,7 +11,7 @@ const expresiones = {
 	asegura que la cadena contiene al menos una letra.
 	asegura que la cadena tiene una longitud mínima de 8 caracteres.
 	*/
-	Correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+	email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
 	Documento: /^\d{8,14}$/, // 7 a 14 numeros.
     Telefono: /^\d{10,14}$/ // 7 a 14 numeros.
 }
@@ -20,7 +20,7 @@ const campos = {
 	Recidencia: false,
 	NombreCompleto: false,
 	password: false,
-	Correo: false,
+	email: false,
     Documento: false,
 	Telefono: false
 }
@@ -40,8 +40,8 @@ const validarFormulario = (e) => {
 		case "password2":
 			validarPassword2();
 		break;
-		case "Correo":
-			validarCampo(expresiones.Correo, e.target, 'Correo');
+		case "email":
+			validarCampo(expresiones.email, e.target, 'email');
 		break;
         case "Documento":
 			validarCampo(expresiones.Documento, e.target, 'Documento');
@@ -103,7 +103,7 @@ inputs.forEach((input) => {
 formulario.addEventListener('submit', (e) => {
 
 	const terminos = document.getElementById('terminos');
-	if(campos.Recidencia && campos.NombreCompleto && campos.password && campos.Correo && campos.Telefono && campos.Documento && terminos.checked ){
+	if(campos.Recidencia && campos.NombreCompleto && campos.password && campos.email && campos.Telefono && campos.Documento && terminos.checked ){
 
 		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
 		setTimeout(() => {
