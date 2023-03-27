@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'TecnoArt'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_963A59B1B74848C99EF198832B2D426B }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D5DDC75F4B974DB28E066A0BC6CF525F }}
           package: '*.jar'
